@@ -1,5 +1,70 @@
 [
   {
+    "title": "Objekte & Methoden",
+    "sections": [
+      {
+        "title": "Objekt",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Einheit aus Daten & Funktionalität",
+        "type": "list",
+        "content": "in hypothetischen OOPL kann int i, falls int ein einfacher Typ ist, durch ein Objekt aus Werten und Zugriffsmethoden dargestellt werden\ndann Operationen auf int Objekt wie gehabt",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - hypothetische OOPL",
+        "type": "java",
+        "content": "object i {\n   void int value;\n   operator '()' {return i;}\n   operator '=' {self.i = i;}\n}\n//Zugriff\nobject i;\ni = 7;\ni = i + 1; //...",
+        "picture": ""
+      },
+      {
+        "title": "int i - Java",
+        "type": "java",
+        "content": "class IntObject {\n   int i;\n   int getValue() { return i; }\n   void setValue(int i) { this.i = i; }\n}\n//Zugriff\nIntObject i = new IntObject();\ni.setValue(7);\ni.setValue(i.getValue()+1); //...",
+        "picture": ""
+      },
+      {
+        "title": "Gekapselter Wert",
+        "type": "list",
+        "content": "Objekt hat ein Zustand, dazu gekapselte Variablen\nMethoden ändern Zustand\nNicht immer 1:1 Manipulation der Werte \\l",
+        "picture": ""
+      },
+      {
+        "title": "Motivation Objektorientierung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Objekt als Abbildung einer Entität der realen Welt",
+        "type": "list",
+        "content": "Hintergrund der Simulation\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Objekt als Kapselung eines Wertes",
+        "type": "list",
+        "content": "Geheimnisprinzip nach Parnas\nZugriff auf Variablen (im Gegesatz zu z.B. prozeduralen Programmierung) geregelt\nVermeiden von Seiteneffekten, Aliasing von Variablen, undurchsichtiges Sharing von Parameterwerten \\l",
+        "picture": ""
+      },
+      {
+        "title": "Interaktion mit/zwischen Objekten",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Methoden sind keine Funktionen oder Prozeduren, die aufgerufen werden\nMethoden können Parameter & Rückgabewerte haben\nObjekte senden sich Nachrichten\nje Nachricht wird passende Methode gefunden & ausgeführt (aktiviert)\nPrinzip: (dynamic) Dispatch #(dynamische Bindung)#\nim imperativen Kontext: späte Bindung (prozedural: frühe Bindung)\nspäte Bindung = erst zu Laufzeit entschieden welche Methode ausgeführt wird (abhängig von Objekt, dass die Nachricht empfängt)\nfrühe Bindung: bereits zur Compile-Zeit steht fest welche Funktion ausgeführt wird",
+        "picture": ""
+      }
+    ]
+  },
+  {
     "title": "Klassen",
     "sections": [
       {
@@ -245,71 +310,6 @@
         "title": "Negativbeispiel Array - Java",
         "type": "java",
         "content": "class A extends B { ... }\nB[] array = new A [17]; // A wird auf B zugewiesen da Subtyp ist\n// array in Laufzeit Typ A, in Compilezeit Typ B\narray [4] = new B(); // ArrayStoreExeption in Laufzeit\n// in A[] dürfen nur Objekte von Typ A und Untertypen gespeichert sein",
-        "picture": ""
-      }
-    ]
-  },
-  {
-    "title": "Objekte & Methoden",
-    "sections": [
-      {
-        "title": "Objekt",
-        "type": "text",
-        "content": "",
-        "picture": ""
-      },
-      {
-        "title": "Einheit aus Daten & Funktionalität",
-        "type": "list",
-        "content": "in hypothetischen OOPL kann int i, falls int ein einfacher Typ ist, durch ein Objekt aus Werten und Zugriffsmethoden dargestellt werden\ndann Operationen auf int Objekt wie gehabt",
-        "picture": ""
-      },
-      {
-        "title": "Beispiel - hypothetische OOPL",
-        "type": "java",
-        "content": "object i {\n   void int value;\n   operator '()' {return i;}\n   operator '=' {self.i = i;}\n}\n//Zugriff\nobject i;\ni = 7;\ni = i + 1; //...",
-        "picture": ""
-      },
-      {
-        "title": "int i - Java",
-        "type": "java",
-        "content": "class IntObject {\n   int i;\n   int getValue() { return i; }\n   void setValue(int i) { this.i = i; }\n}\n//Zugriff\nIntObject i = new IntObject();\ni.setValue(7);\ni.setValue(i.getValue()+1); //...",
-        "picture": ""
-      },
-      {
-        "title": "Gekapselter Wert",
-        "type": "list",
-        "content": "Objekt hat ein Zustand, dazu gekapselte Variablen\nMethoden ändern Zustand\nNicht immer 1:1 Manipulation der Werte \\l",
-        "picture": ""
-      },
-      {
-        "title": "Motivation Objektorientierung",
-        "type": "text",
-        "content": "",
-        "picture": ""
-      },
-      {
-        "title": "Objekt als Abbildung einer Entität der realen Welt",
-        "type": "list",
-        "content": "Hintergrund der Simulation\\\\l",
-        "picture": ""
-      },
-      {
-        "title": "Objekt als Kapselung eines Wertes",
-        "type": "list",
-        "content": "Geheimnisprinzip nach Parnas\nZugriff auf Variablen (im Gegesatz zu z.B. prozeduralen Programmierung) geregelt\nVermeiden von Seiteneffekten, Aliasing von Variablen, undurchsichtiges Sharing von Parameterwerten \\l",
-        "picture": ""
-      },
-      {
-        "title": "Interaktion mit/zwischen Objekten",
-        "type": "text",
-        "content": "",
-        "picture": ""
-      },
-      {
-        "title": "",
-        "type": "list",
-        "content": "Methoden sind keine Funktionen oder Prozeduren, die aufgerufen werden\nMethoden können Parameter & Rückgabewerte haben\nObjekte senden sich Nachrichten\nje Nachricht wird passende Methode gefunden & ausgeführt (aktiviert)\nPrinzip: (dynamic) Dispatch #(dynamische Bindung)#\nim imperativen Kontext: späte Bindung (prozedural: frühe Bindung)\nspäte Bindung = erst zu Laufzeit entschieden welche Methode ausgeführt wird (abhängig von Objekt, dass die Nachricht empfängt)\nfrühe Bindung: bereits zur Compile-Zeit steht fest welche Funktion ausgeführt wird",
         "picture": ""
       }
     ]

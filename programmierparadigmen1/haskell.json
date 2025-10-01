@@ -75,12 +75,71 @@
     ]
   },
   {
+    "title": "Funktionsaufrufe",
+    "sections": [
+      {
+        "title": "Syntax",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Runde Klammern bei n = 1 i.d.R. weggelassen",
+        "picture": ""
+      },
+      {
+        "title": "Typregeln - Funktionsaufrufe",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "e0 muss einen Typ (t1, ... , tn) -> u haben\nfür alle i habe ei den jeweiligen Typ ti,\ndann hat der Aufruf den Typ u",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Funktionsaufrufe",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      }
+    ]
+  },
+  {
     "title": "Funktionen",
     "sections": [
       {
         "title": "",
         "type": "list",
         "content": "Haskell Funktionen haben nur ein Parameter",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Funktionsnotation",
+        "type": "code",
+        "content": "x0 (x1 :: t1, ... xn :: tn) = e",
+        "picture": ""
+      },
+      {
+        "title": "Bindung Funktion mit",
+        "type": "list",
+        "content": "Namen x0\nParametern x1, ... , xn\nderen Typen t1, ... , tn (i.d.R. weggelassen)\nbei n = 1 -> Regeln weggelassen\nBerechnungsvorschrift e",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Funktionsaufrufe",
+        "type": "code",
+        "content": "e0 (e1, ... , en)",
+        "picture": ""
+      },
+      {
+        "title": "Funktionstyp",
+        "type": "code",
+        "content": "e :: u => x0 :: (t1, ... , tn) -> u",
         "picture": ""
       },
       {
@@ -140,6 +199,17 @@
         "title": "Rekursive Deklaration",
         "type": "code",
         "content": "fac :: Int -> Int \n\n-- mit Lambda Ausdruck\nfac = \\n -> if n == 0 then 1\n            else n * fac (n - 1)\n\n-- Gebräuchlicher - Ohne Lambda\nfac n = if n == 0 then 1\n        else n * fac(n - 1)\n\n-- auch erlaubt: anscheinende unsinnige Rekursionen\nw = w + 1",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Beispiele",
+    "sections": [
+      {
+        "title": "x^y - nicht gecurryt",
+        "type": "code",
+        "content": "-- takes two params from type Int, returns Int\npow :: (Int, Int) -> Int\npow (x,y) = --assumes y >= 0\n    if y == 0 then 1\n    else x * pow (x, y - 1)\n",
         "picture": ""
       }
     ]
