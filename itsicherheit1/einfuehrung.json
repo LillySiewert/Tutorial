@@ -1,0 +1,31 @@
+[
+    {
+        "title": "Begriffe",
+        "sections": [
+            {
+                "title": "Begriffe Übersicht",
+                "type": "pictureSmall",
+                "content": "begriffe.jpeg",
+                "picture": "../images/begriffe.jpeg"
+            },
+            {
+                "title": "Informationssicherheit",
+                "type": "text",
+                "content": "= Schutz von Informationen sowohl in +technischen+, als auch in +nicht-technischen+ **Systemen**\n#Information Security#\\\\l",
+                "picture": ""
+            },
+            {
+                "title": "IT-Sicherheit",
+                "type": "text",
+                "content": "= Schutz von +IT-Systemen+ (inkl. der durch diese +verarbeiteten+ und +gespeicherten+ **Informationen**)\n#IT Security#\\\\l",
+                "picture": ""
+            },
+            {
+                "title": "Cybersicherheit",
+                "type": "text",
+                "content": "= Schutz des +Cyberraums+/Cyberspace (Gesamtheit vernetzter +Geräte+ und ihrer +Benutzer+)\n#Cyber Security#",
+                "picture": ""
+            }
+        ]
+    }
+]

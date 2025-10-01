@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Programmierparadigmen Foliensatz 1.5 Funktionale Programmierung</title>
+  <link rel="stylesheet" href="../style.css">
+  <link rel="stylesheet" href="../mobile.css">
+</head>
+
+<body>
+
+  <button id="toggle-btn"></button>
+
+  <div id="sidebar">
+    <h2>Chapters</h2>
+    <div id="chapter-left"></div>
+  </div>
+  <button id="back-btn" class="macos-button" onclick="location.href='../programmierparadigmen.html'">
+  </button>
+
+  <div id="main">
+    <div id="content"></div>
+  </div>
+  <script type="module" src="../editor.js"></script>
+  <script type="module" src="../script.js"></script>
+  <script type="module">
+    import { loadTutorial } from '../script.js';
+    loadTutorial('funktionaleProgrammierung.json');
+  </script>
+  <script type="module" src="../theme.js"></script>
+</body>
+
+</html>

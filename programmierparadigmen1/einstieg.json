@@ -1,0 +1,373 @@
+[
+  {
+    "title": "Paradigma",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "= **altgriechisch** \\n Beispiel, Vorbild, Denkmuster, Prototyp \\l",
+        "picture": ""
+      },
+      {
+        "title": "Programmierparadigma",
+        "type": "text",
+        "content": "= fundamentaler Programmierstil"
+      },
+      {
+        "title": "Programmierstil",
+        "type": "text",
+        "content": "= ist in der Programmierung das Erstellen von +Quellcode+ nach bestimmten vorgegebenen +Regeln+"
+      },
+      {
+        "title": "Beispiel - Backrezept",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Imperativ",
+        "type": "list",
+        "content": "Schritte zum Ergebnis \\n Subroutine \\n angeben wie man was macht"
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "einzelne Berechnungsschritte \\n Funktionen \\n Konstanten"
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "kapseln Zustand & Verhalten \\n Klassen \\n Klassen-/Fabrikmethoden"
+      }
+    ]
+  },
+  {
+    "title": "Vergleich Paradigmen",
+    "sections": [
+      {
+        "title": "Kapselung",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Prozedural",
+        "type": "list",
+        "content": "+Reihenfolge+ Schritte zentral, ggb. durch Kontrollkonstrukte -> Kontrollfluss \\n Verkettung Schritte durch +Variablen+ -> Zustand & Datenfluss \\n Hier auch für **Subroutinen** \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "**Dekomposition** Teilfunktionalitäten durch (wiederverwendbare) +Funktionen+ \\n Verkettung Funktionen durch +Komposition+ -> Datenfluss entlang Schachtlung \\n +keine Reihenfolgevorschrift+ für Ausführung Funktionen auf #Zutaten# -> **Parallelität** möglich \\n +keine+ explizite +Werteweitergabe+ \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "Zuständigkeiten & Funktionalität +gekapselt+ #z.B. Zwischenergebnis Teig (schüssel.inhalt)# \\n Methoden haben **gleichen Namen** -> +Überladung/Überschreiben+ & +Polymorphie+ \\n Methodenkörper +imperativ+ aber auch **funktionale Aspekte** -> +Hybrider+ Ansatz \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Bedingung",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Imperativ",
+        "type": "list",
+        "content": "bedingte +Anweisung+ \\n\nImplementierung built-in, eigenes Sprachkonstrukt"
+      },
+      {
+        "title": "Imperative Bedingung",
+        "type": "code",
+        "content": "if (cond) then f1; else f2;"
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "bedingte +Auswertung+ \\n Implementierung built-in, als übliche +Funktion+ darstellbar",
+        "picture": ""
+      },
+      {
+        "title": "Funktionale Bedingung",
+        "type": "code",
+        "content": "ifthenelse(cond, f1, f2)"
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "bedingte +Auswertung+\nImplementierung durch +double dispatch+\nfunktioniert **auch für andere** Klassen als Boolean #z.B. exam.onPass(cheer(), learnHarder())#"
+      },
+      {
+        "title": "Objektorientierte Bedingung - Pseudo Java",
+        "type": "java",
+        "content": "cond.ifthenelse(f1, f2)\n\n// Implementierung\ninterface Boolean{\n <T> T ifthenelse(f1,f2);\n}\n\nclass True implements Boolean {\n <T> T ifthenelse(f1,f2) {\n   return f1();\n }\n}\n\nclass False implements Boolean {\n <T> T ifthenelse(f1,f2) {\n   return f2();\n }\n}"
+      }
+    ]
+  },
+  {
+    "title": "Klassifikation",
+    "sections": [
+      {
+        "title": "Imperativ",
+        "type": "text",
+        "content": "= beschreiben +wie+ die Lösung eines Problems zu erzielen ist."
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "prozedural \\n objektorientiert"
+      },
+      {
+        "title": "Deklarativ",
+        "type": "text",
+        "content": "= beschrieben +was+ das zu lösende Problem ist"
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "funktional \\n logisch"
+      }
+    ]
+  },
+  {
+    "title": "Klassische Programmierparadigmen",
+    "sections": [
+      {
+        "title": "Imperativ",
+        "type": "list",
+        "content": "Grundkonzepte: **Variablen**, **Wertezuweisungen**\nProgramm = **Folge Anweisungen**, die eine +Zustandsänderung+ bewirken\nstrukturierte / modulare / objektorientierte / hypride Sprachen \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "Grundkonzept: **Objekte**, **Nachrichten**\nProgramm = **Menge** von Objektdeklerationen & Nachrichtenformaten \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Funktional (applikativ)",
+        "type": "list",
+        "content": "Grundkonzept: **Funktionen** i.S.d Mathematik\nProgramm = **Ausdruck**, der einen +Wert+ als **Ergebnis** liefert \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Logisch (prädikativ)",
+        "type": "list",
+        "content": "Grundkonzept: Formale, mathematische **Logik**\nProgramm = **Ausdruck**, für den **Lösungen** +gesucht+ werden",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Paradigmen & Sprachen",
+    "sections": [
+      {
+        "title": "Eine Sprache kann...",
+        "type": "list",
+        "content": "+ein+ Paradigma folgen\n+mehrere+ Paradigmen vereinen\n+ohne+ (erkennbares) Paradigma auskommen"
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "Sprachen sind +schnelllebiger+ als Paradigmen \\l",
+        "picture": ""
+      },
+      {
+        "title": "Ein Paradigma regelt...",
+        "type": "list",
+        "content": "+was+ in einer Sprache ausgedrückt werden sollte -> Anforderung an **Syntax**\n+welche+ Ausführungstechniken in Frage kommen -> Anforderung an **Implementierung**"
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "Paradigmen **helfen**, Sprachen zu **erlernen** \\l",
+        "picture": ""
+      },
+      {
+        "title": "Hypride Sprachen",
+        "type": "text",
+        "content": "= weisen **Eigenschaften** +mehrerer+ Paradigmen auf \\\\l\n_Beispiele:_",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Java: objektorientiert, stark imperativ & zunehmend funktional\nPerl: objektorientiert, prozedural, funktional\nPython: objektorientiert, aspektorientiert, funktional"
+      },
+      {
+        "title": "Erweiterungen existierender Programmiersprachen",
+        "type": "text",
+        "content": "um Features eines +neuen+ Paradigmas\n-> Insbesondere **objektorientierte** Features (z.B. Kapselung, dynamic dispatch) \\\\l\n-> +abgeleitete+ Sprachen, Sprach+erweiterungen+ \\l\n_Beispiele:_",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "C$+$+ basiert auf C\nCommon Lisp Object System (CLOS) ist objektorientierte Erweiterung von LISP"
+      }
+    ]
+  },
+  {
+    "title": "Software-Technik - Problem?",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "Warum ist kein Softwareprojekt +rechtzeitig+ und unter +Einhaltung+ des + Budget fertig?\nWarum ist kein Softwareprojekt so +einfach+ wie es aussieht?\nWarum hat jede **nicht-triviale** Software +Fehler+?\nWarum **tut** die Software oft **nicht** das, **was** sie **tun soll**?\nWarum ist es so +schwierig+, +Änderungen+ an Software vorzunehmen?"
+      },
+      {
+        "title": "Falsche Annahmen",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Es ist meistens falsch, anzunehmen, das...",
+        "type": "list",
+        "content": "der Anwender bei +Projektbeginn+ genau weiß was er will\nder Anwender das, wovon er weiß dass er es will, +vollständig mitteilen+ kann\nder Entwickler, das ihm mitgeteiltevom Anwender, +ausreichend verstanden+ hat\ndas +kommunizierte Wissen+ ausreicht, um die vom Anwender gewollten Funktionen zu produzieren\nder Entwickler eine +rational begründete Methode+ weiß, um das Verstandene in Software zu übertragen\nder Abwebder +versteht+, was der Entwickler außer den vorgelegten Beispielen +noch leisten+ kann\nder Anwender also wüsste, +welche Software möglich wäre+, wenn der Entwickler **besser** über die Bedürfnisse der Anwender **unterrichtet** wäre"
+      },
+      {
+        "title": "Fehlerkorrektur",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "+1,5+ Fehler pro Zeile (meist **Tippfehler** & sofort erkannt)\n+1+ Fehler pro +100+ Zeilen, der unerkannt in **Prod**\nFehler in Programmierkultur +akzeptiert+\n**Fix** +Minor+ Fehler -> **Erstellung** +Major+ Fehler\n+Tools+ zur Fehlererkennung selbst voller Fehler"
+      },
+      {
+        "title": "Software ist unsichtbar",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "+Millionen+ Codezeilen\nsehen nur +Programmtext+\nBaumstrukur zeigt **Gliederung**, **nicht** +Abhängigkeiten+ der Komponenten"
+      },
+      {
+        "title": "Beispiel - Parkraum-Management",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Programmspezifikation +unvollständig+\nfehlerhafte +Abstraktion+ #(z.B. Halbe Autos / Motorräder durch mathematische Formel nur irgendwelche rationalen Zahlen in Formel)#"
+      }
+    ]
+  },
+  {
+    "title": "Ordnung von Paradigmen",
+    "sections": [
+      {
+        "title": "Achsen",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "**Zustands**-orientiert (+Weg+ ist Ziel)\n**Ergebnis**-orientiert (+Ziel+ ist Ziel)\n**vollständig** (+berechnend+)\n**unvollständig** (+beschreibend+)\n**abstrakt** (+weniger+ ist mehr)\n**konkret** (+mehr+ ist mehr)"
+      },
+      {
+        "title": "Magisches Dreieck",
+        "type": "text",
+        "content": "nach T. Widemann\n"
+      },
+      {
+        "title": "3 Dimensionen",
+        "type": "list",
+        "content": "Theorie = +Wie+ ist das Rechnen denkbar?\nAnwendung = +Was+ gilt es zu rechnen?\nTechnologie = +Womit+ können wir rechnen?"
+      },
+      {
+        "title": "Magisches Dreieck Allgemein",
+        "type": "picture",
+        "content": "",
+        "picture": "../images/dreieck1.jpeg"
+      },
+      {
+        "title": "Bürgerschaft",
+        "type": "text",
+        "content": "+Anforderung+ an **Sprachen** verrät +Kern+ **Paradigmas** \\\\l\nEin **Konzept** heißt +first-class citizen+ (**Bürger 1. Klasse**) wenn seine Instanzen:",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "orderedList",
+        "content": "+benannt+ werden können\nals +Werte+ von Variablen zugelassen sind\nals +Ein-/Ausgabe+ übergebenen werden können\nbei Bedarf +dynamisch+ in Erscheinung treten können",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "+X-orientierte+ Paradigmen machen +X+ zu (einer) **1.Klasse** \\l\n_Beispiel - Konzepte in Java (8+)_",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "picture",
+        "content": "../images/burgerschaft.jpeg",
+        "picture": "../images/burgerschaft.jpeg"
+      }
+    ]
+  },
+  {
+    "title": "Abstraktion & Software-Technik",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "+Komplexität+ von Softwaresystemen überfordert...",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "orderedList",
+        "content": "Fähigkeit von Menschen, sie in +Ganze+ zu **erfassen**\nFähigkeit von Entwicklern, sie so zu +bauen+, dass sie den +Anforderungen+ in **korrekter Weise** entsprechen",
+        "picture": ""
+      },
+      {
+        "title": "Produktivität",
+        "type": "text",
+        "content": "1 Entwickler 6 Monate für 1 Aufgabe -> \n+Wie lange+ benötigen 6 Entwickler für Aufgabe, wenn sie die Aufgabe gemeinsam erledigen sollen? \\\\l\n+Zeit+, die ein Programmierer für **1 Zeile** Code benötigt, ist eine +Konstante+ \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Beherrschung Komplexität",
+        "type": "text",
+        "content": "ohne **leistungsstarke** +Abstraktionskonzepte+ unmöglich",
+        "picture": ""
+      },
+      {
+        "title": "=>",
+        "type": "text",
+        "content": "+Abstraktionsniveau+ der Ausdrucksmittel, die eine Programmiersprache bereitstellt, **entscheidend** für...",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "für die +Beherrschung+ der Komplexität\nfür die +Produktivität+ der Entwickler",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Theoretische Kritik & Philosophisches",
+    "sections": [
+      {
+        "title": "Theoretische Kritik",
+        "type": "list",
+        "content": "konventionelle Programmiersprachen werden immer +umfangreicher+, aber +nicht stärker+\n_Beispiel:_ Reimplementierung Bezahl-App, Java - 755 LoC, Clojure - 57 LoC",
+        "picture": ""
+      },
+      {
+        "title": "Philosophisches",
+        "type": "list",
+        "content": "Zivilisation **schreitet voran**, indem sie die **Anzahl** wichtiger Operationen erweitert, die wir ausführen können, **ohne** darüber **nachzudenken** \\\\l\n**Paradigmen** sind +Regelsysteme+ der **Einteilung** in +bedenkliche+ und +unbedenkliche+ mentale Operationen",
+        "picture": ""
+      }
+    ]
+  }
+]

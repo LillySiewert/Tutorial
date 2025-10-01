@@ -1,0 +1,77 @@
+[
+  {
+    "title": "Überladen",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "= bedeutet in der Softwareentwicklung das **bewusste Etablieren** von +Polymorphien+, sodass +dieselben+ Sprachelement #(Operatoren, Konstruktoren, Literale etc.)# +unterschiedliche+, aus dem **Kontext** hervorgehende +Bedeutungen+ annehmen können \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "java",
+        "content": "1 + 2 // returns 3\n'abc' + 'def' // concat abcdef",
+        "picture": ""
+      },
+      {
+        "title": "Methodenüberladung",
+        "type": "text",
+        "content": "= liegt vor, wenn **mehrere Methoden denselben** +Namen+ haben, sie aber **verschiedene** +Parameter+ erwarten",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "java",
+        "content": "public class GibAusDemo {\n\n    // Overloaded method: String\n    public static void gibAus(String text) {\n        System.out.println(text); // output transferred parameter\n    }\n\n    // Overloaded method: Int\n    public static void gibAus(int zahl) {\n        String zahlAlsText = Integer.toString(zahl); // convert number to string\n        System.out.println(zahlAlsText); // print\n    }\n\n    public static void main(String[] args) {\n        gibAus('Hallo Welt!'); // print 'Hallo Welt!'\n        gibAus(4711);          // print number 4711\n    }\n}",
+        "picture": ""
+      },
+      {
+        "title": "Überladen - Wikipedia",
+        "type": "link",
+        "content": "https://de.wikipedia.org/wiki/%C3%9Cberladen",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Polymorphie",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "= ist ein Konzept in der **objektorientierten** Programmierung, das ermöglicht, dass ein Bezeichner abhängig von seiner Verwendung Objekte +unterschiedlichen+ Datentyps +annimmt+.",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "java",
+        "content": "class Animal {\n    void makeSound() { System.out.println('Some sound'); }\n}\n\nclass Dog extends Animal {\n    void makeSound() { System.out.println('Woof!'); }\n}\n\npublic class Demo {\n    public static void main(String[] args) {\n        Animal a = new Dog(); // Animal reference, Dog object\n        a.makeSound();        // prints 'Woof!'\n    }\n}\n",
+        "picture": ""
+      },
+      {
+        "title": "Polymorphie - Wikipedia",
+        "type": "link",
+        "content": "https://de.wikipedia.org/wiki/Polymorphie_(Programmierung)",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Syntax & Semantik",
+    "sections": [
+      {
+        "title": "Syntax",
+        "type": "text",
+        "content": "= einer Sprache #(eines Zeichensystems)# beschreibt die +Regeln+, nach denen die **Sprachkonstrukte** #(Zeichen des Zeichensystems)# **gebildet** werden. ",
+        "picture": ""
+      },
+      {
+        "title": "Semantik",
+        "type": "text",
+        "content": "= einer Sprache #(eines Zeichensystems)# beschreibt die +Bedeutung+ der **Sprachkonstrukte** #(Zeichen des Zeichensystems)#. ",
+        "picture": ""
+      }
+    ]
+  }
+]

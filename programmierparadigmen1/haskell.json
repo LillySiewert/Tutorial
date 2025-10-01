@@ -1,0 +1,147 @@
+[
+  {
+    "title": "Definitionen",
+    "sections": [
+      {
+        "title": "Einfache Definitionen",
+        "type": "code",
+        "content": "x :: Int --Typdekleration/-annotation\nx = 2 * 3 + 4\ny = 2 * x",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Reihenfolge Deklarationen nicht relevant\nTypdeklarationen/-annotationen optional (Hilfreich für Dokumentation, Konkrete Fehlermeldungen, Grenzfälle Typinferenz)",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Einfache Typen",
+    "sections": [
+      {
+        "title": "Einfache Typen",
+        "type": "code",
+        "content": "i = 42              :: Int\nd1 = 1.0            :: Double\nd2 = -3.32e-7       :: Double\ns = \"abc\"           :: String\nc = 'x'             :: Char\nb1 = 2 == 2         :: Bool\nb2 = True || False  :: Bool",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "groß = Typen & Aufzählungskonstanten\nklein = Variablen (Konstanten, Funktionen)",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Opertoren",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "Operatorsymbole als Funktionsnamen (& umgekehrt) nutzbar",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "code",
+        "content": "add = (+) --Operatorsymbole als Funktionsnamen\nr = (17 `div`3) `mod`4 --Funktionsname als Operatorsymbol",
+        "picture": ""
+      },
+      {
+        "title": "Typ - Int",
+        "type": "text",
+        "content": "+ - * < > <= >= == /=",
+        "picture": ""
+      },
+      {
+        "title": "Typ Double",
+        "type": "text",
+        "content": "+ - * < > <= >= == /=",
+        "picture": ""
+      },
+      {
+        "title": "Typ - String",
+        "type": "text",
+        "content": "++ < > <= >= == /=",
+        "picture": ""
+      },
+      {
+        "title": "Typ - Bool",
+        "type": "text",
+        "content": "&& || == /=",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Funktionen",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "Haskell Funktionen haben nur ein Parameter",
+        "picture": ""
+      },
+      {
+        "title": "Lambda Ausdrücke",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Start Ausdruck mit \\",
+        "picture": ""
+      },
+      {
+        "title": "Lambda-Ausdrücke",
+        "type": "code",
+        "content": "f = \\ x -> x + 1 :: Int -> Int\n-- Beginn Ausdruck mit \\\n-- Argument x geht über -> \n-- Typdeklaration: :: Int -> Int\n-- genau das gleiche wie:\nf x = x + 1\n\n-- x + 1 (Lambda Ausdruck) wird direkt auf x = 5 angewendet\nj = (\\ x -> x + 1) 5\n",
+        "picture": ""
+      },
+      {
+        "title": "Benennung von Funktionen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "code",
+        "content": "twice :: Int -> Int -- Typdeklaration von twice\ntwice = \\ x -> 2 * x -- Definition von twice\nz = twice y -- Definition von z, twice auf das Argument y angewendet",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "terminalMacOS",
+        "content": "ghci tutorial.hs -- laden von file\ntwice 7\n14\ntwice 10\n20",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Rekursive Deklaration",
+    "sections": [
+      {
+        "title": "Rekursive Deklaration",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "If - Else",
+        "type": "code",
+        "content": "if cond then statement1\nelse statement2",
+        "picture": ""
+      },
+      {
+        "title": "Rekursive Deklaration",
+        "type": "code",
+        "content": "fac :: Int -> Int \n\n-- mit Lambda Ausdruck\nfac = \\n -> if n == 0 then 1\n            else n * fac (n - 1)\n\n-- Gebräuchlicher - Ohne Lambda\nfac n = if n == 0 then 1\n        else n * fac(n - 1)\n\n-- auch erlaubt: anscheinende unsinnige Rekursionen\nw = w + 1",
+        "picture": ""
+      }
+    ]
+  }
+]

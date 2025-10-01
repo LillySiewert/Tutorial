@@ -1,0 +1,81 @@
+[
+  {
+    "title": "How to run Haskell",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Use GHCi, the interactive environment for Haskell"
+      },
+      {
+        "type": "terminalMacOS",
+        "content": "ghci\n:l file.hs --load file\nghci file.hs"
+      },
+      {
+        "type": "terminal",
+        "title": "Exit GHCi",
+        "content": ":q\nctrl + D"
+      }
+    ]
+  },
+  {
+    "title": "Simple Arithmetic",
+    "sections": [
+      {
+        "type": "terminal",
+        "title": "Addition",
+        "content": "2+15\n#17\n1.1+2.3\n#3.4"
+      },
+      {
+        "type": "terminal",
+        "title": "Subtraction",
+        "content": "49-13\n#36"
+      },
+      {
+        "type": "terminal",
+        "title": "Multiplication",
+        "content": "3*5 \n#15"
+      },
+      {
+        "type": "terminal",
+        "title": "Division",
+        "content": "92/10\n#9.2\n92`div`10 --integer devision\n#9\ndiv 92 10\n#9"
+      },
+      {
+        "type": "terminal",
+        "title": "Modulus",
+        "content": "20`mod`3\n#2\nmod 20 3\n#2"
+      },
+      {
+        "type": "terminalMacOS",
+        "content": "(50 * 100) - 4999\n#1\n50 * 100 - 4999\n#1\n50 * (100 - 4999)\n#-244950"
+      }
+    ]
+  },
+  {
+    "title": "Boolean Logic",
+    "sections": [
+      {
+        "type": "terminal",
+        "content": "-- True && False -> False\n-- not (True && True) -> False"
+      }
+    ]
+  },
+  {
+    "title": "Simple Functions",
+    "sections": [
+      {
+        "type": "text",
+        "content": "Functions are reusable blocks of code that take inputs and return outputs. In Haskell, functions are defined using the syntax: `functionName arguments = expression`."
+      },
+      {
+        "type": "code",
+        "title": "doubleMe.hs",
+        "content": "doubleMe x = x + x"
+      },
+      {
+        "type": "terminal",
+        "content": "doubleMe 9\n#18"
+      }
+    ]
+  }
+]

@@ -1,0 +1,592 @@
+[
+  {
+    "title": "Einordnung",
+    "sections": [
+      {
+        "title": "von Neumann Architektur",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "**Linearer** Speicher enthält Daten und Code\n+Befehlszähler+ der auf die **Speicherzelle** des nächsten auszuführenden Befehls verweist\nAlternative: **Harvard-Architektur** (Trennung Daten- & Codespeicher)",
+        "picture": ""
+      },
+      {
+        "title": "Programmiersprachengeneration",
+        "type": "text",
+        "content": "(veraltete Darstellung)",
+        "picture": ""
+      },
+      {
+        "title": "1st Generation Languages (1GL)",
+        "type": "list",
+        "content": "+Maschinensprache+\nvon Neumann, fester Befehlssatz, Programmzähler, Sprünge",
+        "picture": ""
+      },
+      {
+        "title": "2GL",
+        "type": "list",
+        "content": "+Assembler+\n**Abstraktion** von (Byte) Codes",
+        "picture": ""
+      },
+      {
+        "title": "3GL",
+        "type": "list",
+        "content": "+Hochsprachen+ unterschiedlicher **Abstraktionsgrades**\n**Imperative** Programmiersprachen grundsätzlich u.a. von **Assembler beeinflusst**, Werteweitergabe über Variablen #(Speicherzellen)# & Kontrollfluss über Sprünge mit goto #(später auch gosub)#",
+        "picture": ""
+      },
+      {
+        "title": "4GL & folgende",
+        "type": "list",
+        "content": "+\"neue Mode\"+\nz.B. visuelles Programmieren, Low Code Development",
+        "picture": ""
+      },
+      {
+        "title": "Spaghetti-Code",
+        "type": "text",
+        "content": "Programme können **\"in den Wald laufen\"**",
+        "picture": ""
+      },
+      {
+        "title": "Bei niedere Sprachen:",
+        "type": "list",
+        "content": "Befehlszähler **navigiert** zu Speicheradresse an der +kein+ (gewollten) +Befehl+ steht\n**Interpretation** aktueller Bitmuster **als** ein **Befehl** -> allen möglichen Folgen",
+        "picture": ""
+      },
+      {
+        "title": "Entsprechend für (frühere) Hochsprachen:",
+        "type": "list",
+        "content": "+Nicht-Terminierung+ durch **undurchsichtigen** Kontrollfluss #(Sprünge)#\n+Memory Leaks+ durch **unklare Wege**, den Scope zu verlassen",
+        "picture": ""
+      },
+      {
+        "title": "Strukturierte Programmierung",
+        "type": "text",
+        "content": "_Früher:_ imperative Programmierung mit Kontrollfluss durch Sprünge",
+        "picture": ""
+      },
+      {
+        "title": "Einführung von Konstrukten, die...",
+        "type": "list",
+        "content": "+Lesbarkeit+ erhöhen, kein \"Spaghetti-Code\"\nKlare +Terminierungsregeln+ haben (pro Konstrukt)\nEin +Lokalitätsprinzip+ unterstützen, bei dem **Seiteneffekte vermieden** werden",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Kontrollfluss-Konstrukte",
+    "sections": [
+      {
+        "title": "Sprachkonstrukte",
+        "type": "text",
+        "content": "Konstrukte +imperativer+ Programmierung sind **Anweisungen**",
+        "picture": ""
+      },
+      {
+        "title": "Kontrollflusskonstrukte",
+        "type": "list",
+        "content": "Anweisungen\nSequenzen\nBei Sprachen für Parallelprogrammierung: Parallelausführung\nBedingte Ausführung\nZählende Schleife\nBedingte Schleife (kopf- & fußgesteuert)\nProzeduraufruf\nBlöcke\nSprung (goto, gosub, continue, break)",
+        "picture": ""
+      },
+      {
+        "title": "Anweisungen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "auf +unterste+ Ebene **besteht** ein imperatives Programm aus Anweisungen\nhier finden sich in der Sprache enthalten \"Built-Ins\", gegebene Anweisungen\nWichtig: Variablenzuweisung, damit Weitergabe Daten über Variable",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "a = b;",
+        "picture": ""
+      },
+      {
+        "title": "Sequenz",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Anweisungen werden nach notierter Reihenfolge ausgeführt\nnotiert mit Sequenzoperatoren",
+        "picture": ""
+      },
+      {
+        "title": "Sequenzoperator",
+        "type": "list",
+        "content": "leicht übersehen\nteilweise synatktisch weggelassen\nhaben Semantik\n_Beispiele:_ Semikolon, Schlüsselwort, #(veraltet)# Zeilennummern",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - C-Familie & Java & Unix Shell",
+        "type": "java",
+        "content": "f(); g();",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Occam",
+        "type": "code",
+        "content": "SEQ\n  In1 ? a\n  In2 ? b\n  c := a * b\n",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - BASIC",
+        "type": "prolog",
+        "content": "10 PRINT \"HELLO WORLD!\"\n20 END",
+        "picture": ""
+      },
+      {
+        "title": "Parallelausführung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "in Sprachen die Parallelprogrammierung machen\nParallelausführungsoperator",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Occam",
+        "type": "code",
+        "content": "PAR \n   a := b * c\n   d := b * e",
+        "picture": ""
+      },
+      {
+        "title": "Allzweckssprachen",
+        "type": "list",
+        "content": "oft als \"Sprachaufsatz\" oder Bibliotheksfunktion etc.\n_Beispiel:_ Java Threads\nNebenläufige Prozesse & Threads besonders zu betrachten",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Unix Shell",
+        "type": "terminalMacOS",
+        "content": "ls dir_a & ls dir_b -- & für gleichzeitige Ausführung\ncat text.txt | grep Otto -- | für überlappende Ausfürhung Produzent & Konsument",
+        "picture": ""
+      },
+      {
+        "title": "Bedingte Ausführungen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "auf Basis des Boole'schen Wertes einer logischen Aussage wird der Kontrollfluss verzweigt\noft else-Zweig für nicht erfüllte Bedingung angegeben\nin manchen Sprachen zusätzlich elsif",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "if (cond) \n   statement 1;\n\n\nif (cond)\n   statement 1;\nelse\n   statement 2;",
+        "picture": ""
+      },
+      {
+        "title": "Verallgemeinerung",
+        "type": "list",
+        "content": "(value) switch\nvermeiden von if-Grab",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "switch(greeting) {\n  case 'Hello': System.out.println('Moin'); break;\n  case 'Goodbye': System.out.println('Tschau'); break;\n  default: System.out.println('Ciao');\n}\n\n//If-Grab\nif ('Hello'.equals(greeting))\n  System.out.println('Moin');\nelse if ('Goodbye'.equals(greeting))\n  System.out.println('Tschau');\nelse\n  System.out.println('Ciao');",
+        "picture": ""
+      },
+      {
+        "title": "dangling else Problem",
+        "type": "list",
+        "content": "scheinbare Mehrdeutlichkeit\n2 If's aber nur 1 Else-Zweig\nAbhilfe: Blockstrukturen\nelse in Java: immer dem nächstgelegenen forherigen if, der kein else bereits zugeordnet ist, zugeordnet",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "if (cond1)\n  statement1;\nif (cond2)\n  statement2;\nelse\n  statement3;\n\n// mit Blockstrukturen:\nif (cond1) {  \n  statement1;\n  if (cond2) {\n    statement2;\n  } else {\n    statement3\n  }\n}",
+        "picture": ""
+      },
+      {
+        "title": "Zählende Schleife",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "for (int i = 0; i <= 15; i += 5)\n   Sytem.out.println(i);",
+        "picture": ""
+      },
+      {
+        "title": "Kontrollfluss",
+        "type": "orderedList",
+        "content": "einmalig vorab: Deklaration\nBedingung überprüft (false: Terminierung, true: Schleifenrumpf ausgeführt -> Schritt 3)\nSchleifenrumpf ausführen\nIteration: Iterator hier um 5 inkrementieren\nWeiter mit Schritt 2",
+        "picture": ""
+      },
+      {
+        "title": "Bedingte Schleife",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java - kopfgesteuert",
+        "type": "java",
+        "content": "while (! happy(friend))\n   padShoulder(friend);",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java - fußgesteuert",
+        "type": "java",
+        "content": "do {\n   padShoulder(friend);\n} while (! happy(friend));",
+        "picture": ""
+      },
+      {
+        "title": "Unterschiede & Gemeinsamkeiten",
+        "type": "list",
+        "content": "kopfgesteuert: 0 bis n Schleifenrumpf Aufrufe\nfußgesteuert: 1 bis n Schleifenrumpf Aufrufe\nbeide Terminieren wenn Bedingung false ist",
+        "picture": ""
+      },
+      {
+        "title": "Enumeration / foreach",
+        "type": "text",
+        "content": "= schon fast funktional",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "for (Friend f = getFriends())\n   greet(f);\n",
+        "picture": ""
+      },
+      {
+        "title": "Kontrollfluss",
+        "type": "orderedList",
+        "content": "Sammlung geholt / erzeugt -> Iterator läuft über alle Elemente der Kollektion\nfür jedes Element: Variable f auf Element gesetzt, Schleifenrumpf ausgeführt\nTerminierung/Ende nachdem alle Elemente abgearbeitet",
+        "picture": ""
+      },
+      {
+        "title": "Warum weniger imperativ?",
+        "type": "list",
+        "content": "kein explizites Zählen\nkeine explizit Abbruchbedingung\ndeklarativer geschrieben: Nimm jedes Element und mache etwas damit -> Aber nicht: Wie komme ich zu den nächsten Element\nFokus mehr Richtung Datenstruktur nicht Steuerung",
+        "picture": ""
+      },
+      {
+        "title": "Block",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "fasst mehrere Befehle zu einem Konstrukt zusammen\nübliche Syntax: Klammern, Einrückungen, Schlüsselwörter\nöffnen üblicherweise ein Geltungs- & Sichtbarkeitsbereich",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "for (Friend f : friends())\n   // ein Befehl\n   greet(f);\n\nfor (Friend f : friends()){\n   // mehrere Befehle\n   greet(f);\n   padShoulder(f);\n}",
+        "picture": ""
+      },
+      {
+        "title": "Prozeduraufruf",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Defintion einer Prozedur, die Code auffaktorisiert, für bessere Lesbarkeit & Wiederverwendung\nProzedur durch Durchmischung Paradigmen oft als Methode oder Funktion formulierbar",
+        "picture": ""
+      },
+      {
+        "title": "Parameter",
+        "type": "list",
+        "content": "über reinen Kontrollfluss hinaus, meist parametrierte Prozeduren\nFür Paramter u.a. wird ein Aufruf-Stack geführt",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele - Java",
+        "type": "java",
+        "content": "static int a = 0;\n\nstatic void proc() {\n  a++;\n}\n\nstatic public void main(String args[]) {\n  proc();\n  if (a < 10)\n    proc();\n}",
+        "picture": ""
+      },
+      {
+        "title": "Sprung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "\"wilde\" Sprünge in Hochsprachen abgeschafft\nSprünge über Kontrollflusskonstrukte kontrollierbar\nSprung entweder am Anfang oder am Ende eines Konstrukts\nBeispiel - Java: continue & break für Schleifen & Switches\nreturn für Methoden",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Konstrukte",
+        "type": "java",
+        "content": "class Main {\n  public static void main(String[] args) {\n    int[] numbers = { 1, 2, 17, 28, 5 };\n    for (int number : numbers)\n      if (number % 2 == 0) {\n        System.out.println(number);\n        break;\n      }\n    for (int number : numbers) {\n      if (number % 2 != 0)\n        continue; // gehe wieder zum Start der Schleife, terminiere sie nicht\n      System.out.println(number);\n    }\n    loophead: for (int i = 0; i < 3; i++)\n      for (int number : numbers) {\n        if (number % 2 == 0)\n          continue loophead; // gehe zu loophead deklaration\n        System.out.println(number);\n      }\n    for (int number : numbers)\n      if (number % 2 == 0) {\n        System.out.println(number);\n        return;\n      }\n    // nur mal so als Anekdote, siehe\n    // https://www.youtube.com/watch?v=9ei-rbULWoA&t=17m25s\n    // int i = 0, number;\n    // loopstart: number = numbers[i++];\n    // if (number % 2 == 0)\n    // goto loopend;\n    // goto loopstart;\n    // loopend: System.out.println(number);\n  }\n}",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Typen, Variablen, Parameter",
+    "sections": [
+      {
+        "title": "Wert",
+        "type": "text",
+        "content": "= Literal oder berechnet",
+        "picture": ""
+      },
+      {
+        "title": "Literal",
+        "type": "text",
+        "content": "= im Code fest hinterlegte Werte",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Programmiersprachen haben Notationen für unterschiedliche Typen, Basistypen meist Literale\nTeilweise auch für zusammengesetzte Daten (z.B. Racket - Listen, Java - Arrays)",
+        "picture": ""
+      },
+      {
+        "title": "Strukturierte Daten",
+        "type": "list",
+        "content": "Meist in Programmen zusammengebaut\nInstanzausdrücke, die über die definierten Literale hinausgehen, fehlen oft in imperativen Sprachen\n_Beispiele_\nJava: keine -> nachgeliefert durch z.B. Spring Framework\nJS: JSON",
+        "picture": ""
+      },
+      {
+        "title": "Variable",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Namen, an die Werte gebunden werden können\nÜber bekannte Namen werden Werte weitergeben\nWenn Typinformationen an Variablen gebunden => prüfbare Redundanz für Typprüfung hinzufügen \\l",
+        "picture": ""
+      },
+      {
+        "title": "Bindung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "L- & R-Werte",
+        "type": "list",
+        "content": "u.a. im Compilerbau gebräuchliche Bezeichnung für Namen/Speicher und Inhalt einer Variablen\nRäumlich aus Zuweisung\nL-Wert = R=Wert;",
+        "picture": ""
+      },
+      {
+        "title": "Werte können auf verschiedene Arten an Variablen gebunden werden",
+        "type": "list",
+        "content": "Wertevariable = enthält den tatsächlichen Wert\nReferenzvariable = Variable enthält Referenz auf Wert, ein Wert kann von mehreren Variablen referenziert werden",
+        "picture": ""
+      },
+      {
+        "title": "Referenzen",
+        "type": "list",
+        "content": "in techniknahen Sprachen: Zeiger/Pointer -> Unterschied zwischen Wert & Verweis\nin \"modernen\" Sprachen: Handless -> kein merkbarer Unterschied zwischen Adresse & Wert, oft mit Freispeichersammler (Garbage Collector): Entpflichtung von Speicher-Management",
+        "picture": ""
+      },
+      {
+        "title": "Weitergehende Referenzkonzepte",
+        "type": "list",
+        "content": "Hard (Harte) Reference = normale Referenzen (Pointer, Handles)\nWeak (Schwache) Reference = Objekte werden nicht vor Garbage Collection geschützt; in Java erweitert:",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "orderedList",
+        "content": "Soft References: Objekte, die nur über weiche Referenzen erreichbar sind, werden bei Speicherknappheit deallokiert\nPhantom Reference: referenzierte Objekte, die vom Freispeichersammler erkannt werden, werden als zu löschen makiert -> Freigabe Löschvorgang muss explizit geschehen \\l",
+        "picture": ""
+      },
+      {
+        "title": "Zugriff auf Mengendatenstrukturen",
+        "type": "text",
+        "content": "= für übliche Mengendatenstrukturen gibt es die Projektion als  Zugriffsoperationen auf  Bestandteile",
+        "picture": ""
+      },
+      {
+        "title": "Paar, n-Tuple (meist Arrays)",
+        "type": "list",
+        "content": "Projektion über Position\nOperation z.B. [] -> #array[1];#",
+        "picture": ""
+      },
+      {
+        "title": "Produkttypen",
+        "type": "list",
+        "content": "Projektion über Namen\nOperation z.B. . -> #objekt.name;#",
+        "picture": ""
+      },
+      {
+        "title": "Summentypen",
+        "type": "list",
+        "content": "Projektion über Namen\nOperation z.B. .",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - C",
+        "type": "java",
+        "content": "union intOrFloat {int integer; float floating; } iof;\niof.integer = 7;",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Gültigkeits- & Sichtbarkeitsbereiche",
+        "type": "text",
+        "content": "in vielen Sprachen möglich: globale & lokale Variablen zu definieren",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "global: gelten im ganzen Programm\nlokal: gelten in einem Scope",
+        "picture": ""
+      },
+      {
+        "title": "Scope definiert",
+        "type": "list",
+        "content": "Gültigkeit\nLesbarkeit",
+        "picture": ""
+      },
+      {
+        "title": "Seiteneffekt",
+        "type": "list",
+        "content": "ändern von einer Variablen in einem anderen Scope\nmeist unerwünscht",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "System.out.println('ready');\n        {\n            int i = 1;\n            System.out.println('i=' + i);\n            {\n                //i in scope\n                int i_new = 2;\n                System.out.println('i=' + i + i_new);\n            }\n            //i_new out of scope\n            System.out.println('i=' + i);\n        }\n        System.out.println('done');",
+        "picture": ""
+      },
+      {
+        "title": "Output",
+        "type": "terminalMacOS",
+        "content": "ready\ni=1\ni=12\ni=1\ndone",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Parameter",
+        "type": "text",
+        "content": "= in gewissermaßen globale Variablen, die für die Dauer einer Prozeduraktivierung existierten",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "globale Variablen: existieren ein Mal auf Heap\nParameter: Je eine Instanz eines Parameters pro Prozeduraufrufs auf Stack",
+        "picture": ""
+      },
+      {
+        "title": "Unterscheidung",
+        "type": "list",
+        "content": "Formalparameter = von einer Prozedur erwartete Parameter (vgl. zu Variablendeklaration)\nAktualparamter = Parameterbelegung bei Prozeduraufruf (vgl. zu Wert & Bindung)",
+        "picture": ""
+      },
+      {
+        "title": "Parameterweitergabe",
+        "type": "text",
+        "content": "= Setzen von Aktualparameter (ähnlich zu Wertebindung an Variablen)",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Closures (alle Paradigmen) = Variable bleibt an Scope ihrer Definion gebunden\neinige Sprachen: Unterscheidung zwischen Ein- & Ausgabeparameter (z.B. C#)",
+        "picture": ""
+      },
+      {
+        "title": "Parameterweitergabe durch",
+        "type": "list",
+        "content": "call by value = Der (kopierte) Wert wird auf aufgerufenen Prozedur übergeben\ncall by reference = Ein Verweis auf den Wert wird übergeben\ncall by name = Parameter enthält einen Namen zur Auswertung im Kontext der aufgerufenen Prozedur",
+        "picture": ""
+      },
+      {
+        "title": "In Java",
+        "type": "list",
+        "content": "Unterschied zwischen primitiven Typen/Werten und Interfaces/Objekten (& Arrays) mit Parameterweitergabe eng verbunden\ncall by sharing\nBei primitiven Datentypen: Kopie Wertes übergeben\nBei Objekten/Arrays: Kopie Verweis auf Wert übergeben -> Referenzen zeigen auf gleiche Objekt -> Prozedur kann Objekt ändern aber nicht Referenz des Aufrufers \"umleiten\"",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java - Parameterweitergabe",
+        "type": "java",
+        "content": "static int n = 5;\nstatic int[] a = new int[] { n };\n\nstatic void vInc(int a) {\n    a++;\n    System.out.println(a + '?=' + Main.n);\n}\n\nstatic void aInc(int[] a) {\n    a[0]++;\n    System.out.println(a[0] + '?=' + Main.a[0]);\n}\n\nstatic void main(String[] args) {\n    System.out.println(a[0]); // Kopie Wert 5 übergeben\n    vInc(a[0]); // Kopie Wert 5 übergeben\n    System.out.println(a[0]); // Kopie Wert 5 übergeben\n    System.out.println(a[0]); // Kopie Wert 5 übergeben\n    aInc(a); // Verweis auf a übergeben\n    System.out.println(a[0]); // Kopie Wert a[0] übergeben\n}",
+        "picture": ""
+      },
+      {
+        "title": "Ausgabe",
+        "type": "terminalMacOS",
+        "content": "5\n6?=5\n5\n5\n6?=6\n6",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Kontrollfluss - CPS",
+    "sections": [
+      {
+        "title": "CPS",
+        "type": "text",
+        "content": "= Continuation Passing Style",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "bricht Funktionsverkettung\nmacht funktionales Programmieren \"imperativer\"\nexplizite Werteweitergabe\nexpliziter Kontrollfluss\nnormalerweise: Funktionen geben Rückgabewerte; hier: Funktionen geben Werte direkt an weitere Funktionen weiter\nin Java mit BiFunction",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel (+ (* 2 3) 1) CPS - Racket",
+        "type": "racket",
+        "content": "#lang racket/base\n\n(define (+c x y c) (c (+ x y))) ; Addition in CPS\n(define (*c x y c) (c (* x y))) ; Multiplikation in CPS\n\n; Terminierung:\n(define result 0)\n(define done (lambda [x] (set! result x)))\n\n; Programm mit CPS:\n(define result2 (lambda [x] (+c x 1 done)))\n(define result1 (*c 2 3 result2))\n(displayln result) ; Ausgabe\n\n; Vergleichbar in z.B. Java\n;   result1 = 2 * 3;\n;   result2 = result1 + 1;\n;   result = result2;",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Fakultät CPS - Racket",
+        "type": "racket",
+        "content": "#lang racket/base\n\n; n!\n; rekursiv:\n(define recursiveFacu (lambda [number] (\n    cond ; Bedingte Anweisung\n    [(= number 1) 1] ; caseIf\n    [else (* number (recursiveFacu (- number 1)))] ; else\n)))\n\n; cps:\n(define mathWithC1Arg (lambda [function x continuation] (continuation (function x))))\n(define mathWithC2Args (lambda [function x y continuation] (continuation (function x y))))\n(define ifWithC (lambda [boolean function1 function2] (if boolean (function1 boolean) (function2 boolean))))\n(define id (lambda [number] number)) ; for start of cps - continuation needs to be a function\n\n(define facuCPSWithC (lambda [number continuation] (\n    letrec (\n        (baseCondition (lambda [counter] (mathWithC2Args = counter 1 jumpBasedOnBoolean))) ; [(= number 1) ...]\n        (jumpBasedOnBoolean (lambda [boolean] (ifWithC boolean baseTrue baseFalse))) ; caseIf baseTrue, else baseFalse\n        (baseTrue (lambda [notUsedBoolean] (continuation number))) ; use given function with number = 1\n        (baseFalse (lambda [notUsedBoolean] (mathWithC2Args - number 1 recursion))) ; (- number 1) -> value given to next function\n        (recursion (lambda [numberMinus1] (mathWithC1Arg facuCPS numberMinus1 multiplication))) ; (recursiveFacu numberMinus1)\n        (multiplication (lambda [alreadyMultiplied] (mathWithC2Args * number alreadyMultiplied continuation))) ; (* number alreadyMultipliedRemain)\n    ) (baseCondition number) ; first call\n)))\n\n(define facuCPS (lambda [number] (facuCPSWithC number id))) ; so that facuCPSWithC has a continuation function to start with\n\n(displayln (facuCPS 1)) ; 1\n(displayln (facuCPS 2)) ; 2\n(displayln (facuCPS 3)) ; 6\n(displayln (facuCPS 4)) ; 24\n(displayln (facuCPS 5)) ; 120",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel f(x)=(((5*x)+7)*2) CPS - Java",
+        "type": "java",
+        "content": "import java.util.function.BiFunction;\n\n/**\n * function: f(x) = ((5 * x) + 7) * 2\n */\nclass Cps {\n\n    static BiFunction<Integer, BiFunction, Integer> end = (x, f) -> x, done;\n    static { done = (x, f) -> (Integer) f.apply(x, done); }\n\n    static BiFunction<Integer, BiFunction<Integer, BiFunction, Integer>, Integer> \n        step3 = (x, f) -> f.apply(x * 2, end),\n        step2 = (x, f) -> f.apply(x + 7, step3),\n        step1 = (x, f) -> f.apply(5 * x, step2);\n\n    public static void main(String[] args) {\n        System.out.println(step1.apply(5, done)); // prints 64\n    }\n}\n",
+        "picture": ""
+      }
+    ]
+  }
+]

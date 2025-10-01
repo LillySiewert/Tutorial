@@ -1,0 +1,92 @@
+/* ============================
+   Mobile Styles (mobile.css)
+   ============================ */
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  /* Sidebar */
+  #sidebar {
+    position: fixed;
+    top: 0;
+    width: 80%;
+    height: 100%;
+    max-width: 320px;
+    transition: left 0.3s ease;
+    z-index: 2000;
+  }
+
+  #sidebar.open {
+    left: 0;
+  }
+
+  #chapter-left {
+    padding-bottom: 2rem; /* space for bottom buttons */
+  }
+
+  /* Sidebar toggle button */
+  #toggle-btn {
+    top: 12px;
+    left: 12px;
+    z-index: 2100;
+  }
+
+  /* Main content */
+  #main,
+  #editor-main {
+    padding: 1rem;
+    margin: 0;
+    width: 100%;
+  }
+
+  #content {
+    width: 100%;
+    margin: 0;
+  }
+
+  #editor-main #content {
+    max-width: 100%;
+  }
+
+  /* Editor panel */
+  #editor {
+    position: fixed;
+    right: -100%;
+    top: 0;
+    width: 90%;
+    max-width: 340px;
+    height: 100%;
+    transition: right 0.3s ease;
+    z-index: 2000;
+  }
+
+  #editor.open {
+    right: 0;
+  }
+
+  /* Buttons inside editor */
+  #editor input,
+  #editor select,
+  #editor textarea {
+    width: 100%;
+  }
+
+  #editor select {
+    width: 100%;
+  }
+
+  /* Images */
+  .tutorial-image,
+  #editor-main #content .tutorial-image {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Code & terminal blocks */
+  pre,
+  .terminal {
+    max-width: 100%;
+    font-size: 0.85rem;
+  }
+}

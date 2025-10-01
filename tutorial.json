@@ -1,0 +1,102 @@
+[
+  {
+    "title": "Paradigma",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "= **altgriechisch** \\n Beispiel, Vorbild, Denkmuster, Prototyp"
+      },
+      {
+        "title": "Programmierparadigma",
+        "type": "text",
+        "content": "= fundamentaler Programmierstil"
+      },
+      {
+        "title": "Programmierstil",
+        "type": "text",
+        "content": "= ist in der Programmierung das Erstellen von +Quellcode+ nach bestimmten vorgegebenen +Regeln+"
+      },
+      {
+        "title": "Beispiel - Backrezept",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Imperativ",
+        "type": "list",
+        "content": "Schritte zum Ergebnis \\n Subroutine \\n angeben wie man was macht"
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "einzelne Berechnungsschritte \\n Funktionen \\n Konstanten"
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "kapseln Zustand & Verhalten \\n Klassen \\n Klassen-/Fabrikmethoden"
+      }
+    ]
+  },
+  {
+    "title": "Vergleich Paradigmen",
+    "sections": [
+      {
+        "title": "Kapselung",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Prozedural",
+        "type": "list",
+        "content": "+Reihenfolge+ Schritte zentral, ggb. durch Kontrollkonstrukte -> Kontrollfluss \\n Verkettung Schritte durch +Variablen+ -> Zustand & Datenfluss \\n Hier auch für **Subroutinen**"
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "**Dekomposition** Teilfunktionalitäten durch (wiederverwendbare) +Funktionen+ \\n Verkettung Funktionen durch +Komposition+ -> Datenfluss entlang Schachtlung \\n +keine Reihenfolgevorschrift+ für Ausführung Funktionen auf #Zutaten# -> **Parallelität** möglich \\n +keine+ explizite +Werteweitergabe+"
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "Zuständigkeiten & Funktionalität +gekapselt+ #z.B. Zwischenergebnis Teig (schüssel.inhalt)# \\n Methoden haben **gleichen Namen** -> +Überladung/Überschreiben+ & +Polymorphie+ \\n Methodenkörper +imperativ+ aber auch **funktionale Aspekte** -> +Hybrider+ Ansatz"
+      },
+      {
+        "title": "Bedingung",
+        "type": "text",
+        "content": ""
+      },
+      {
+        "title": "Imperativ",
+        "type": "list",
+        "content": "bedingte +Anweisung+ \\n\nImplementierung built-in, eigenes Sprachkonstrukt"
+      },
+      {
+        "title": "Imperative Bedingung",
+        "type": "code",
+        "content": "if (cond) then f1; else f2;"
+      },
+      {
+        "title": "Funktional",
+        "type": "list",
+        "content": "bedingte +Auswertung+ \\n Implementierung built-in, als übliche +Funktion+ darstellbar"
+      },
+      {
+        "title": "Funktionale Bedingung",
+        "type": "code",
+        "content": "ifthenelse(cond, f1, f2)"
+      },
+      {
+        "title": "Objektorientiert",
+        "type": "list",
+        "content": "bedingte +Auswertung+ \\n\nImplementierung durch +double dispatch+\nfunktioniert *auch für andere * Klassen als Boolean #z.B. exam.onPass(cheer(), learnHarder())#"
+      },
+      {
+        "title": "Objektorientierte Bedingung",
+        "type": "code",
+        "content": "cond.ifthenelse(f1, f2)\n//Implementierung\ninterface Boolean{\n<T> T ifthenelse(f1,f2);\n}\nclass True implements Boolean {\n<T> T ifthenelse(f1,f2) {\nreturn f1();\n}\n}\nclass False implements Boolean {\n<T> T ifthenelse(f1,f2) {\nreturn f2();\n}\n}"
+      }
+    ]
+  }
+]

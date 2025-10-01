@@ -1,0 +1,607 @@
+[
+  {
+    "title": "Was ist ein Datentyp?",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "+Woher+ \"weiß\" die Maschine, +was+ gemeint ist?\n#z.B. bei Interpretation von Bitmustern# \\l",
+        "picture": ""
+      },
+      {
+        "title": "Rechner arbeiten typenlos",
+        "type": "text",
+        "content": "= für Ausführung Programme sind **Typinformationen** +nicht+ erforderlich \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Maschinensprach",
+        "type": "list",
+        "content": "verschiedene +Befehlssätze+ für verschiedene Datentypen\n**Interpretation** bei jedem Maschinenbefehl +einzeln+ gewählt\nFür +Konsistenz+: muss Programmierer **selbst** sorgen \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Hochsprache",
+        "type": "list",
+        "content": "einheitliche +typenunabhängige+ Notation von Operationen\n**Interpretation** ergibt sich aus dem +Kontext+",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "=> **Konsequenz**: unsinnige Ausdrücke",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Ziel +Typdisziplin+: Vermeidung von **typfremden** Operationen\nFür +Konsistenz+: können **Regeln** der Sprache sorgen \\l",
+        "picture": ""
+      },
+      {
+        "title": "Begriffsklärung",
+        "type": "text",
+        "content": "= +Arten+ von **Daten** \\\\l\n**Konzept** geht in Programmiersprachen +weiter+:",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "+Dinge+, die gar **keine Daten** sind, können einen Datentyp besitzen #z.B. Variablen in Java#\n+Funkionen+ besitzen **Typ** #(Datentyp eher ungebräuchlich)#",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "**=> wichtiger: Wozu dienen Datentypen?**",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Ungetypte Universum",
+    "sections": [
+      {
+        "title": "Ungetypte Universum - Binärdaten",
+        "type": "text",
+        "content": "= +einheitliche+ Interpretation von möglichen **Bitmustern** in einem **Arbeitsspeicher** wird \"ungetyptes Universum\" genannt",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "es gibt nur +einen+ einzigen +Typ+\nTyp durch +Rechner-Architektur+ festgelegt #z.B. 32bit#",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "**=> Hardware** kann +inkonsistente+ Operationen +nicht+ **verhindern**\\l\nEinige Inkonsistenzen führen hochwahrscheinlich zu **massiven** +Fehlfunktionen+ #(z.B. Multiplikation von Speicheradressen)#",
+        "picture": ""
+      },
+      {
+        "title": "Gegenbeispiel",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Schnelle inverse Quadratwurzel",
+        "type": "java",
+        "content": "float Q_rsqrt(float number)\n{\n  long i;\n  float x2, y;\n  const float threehalfs = 1.5F;\n\n  x2 = number * 0.5F;\n  y = number;\n  i = * (long * ) &y; // evil floating point bit level hacking\n  i = 0x5f3759df - (i >> 1); // what the fuck?\n  y = * (float * ) &i;\n  y = y * (threehalfs - (x2 * y * y));  // 1st iteration\n  /* y = y * ( threehalfs - ( x2 * y * y ) ); 2nd iteration, can be removed */\n\n  return y;\n}",
+        "picture": ""
+      },
+      {
+        "title": "Datenstrukturen",
+        "type": "text",
+        "content": "Ein **strukturiertes ungetyptes Universum** aus Bereich Programmiersprachen ist die **Menge** der +symbolischen Ausdrücke+\n\\\\l\nEine Form von S-Ausdrücken sind +Listen+",
+        "picture": ""
+      },
+      {
+        "title": "Liste (f 4 5)",
+        "type": "list",
+        "content": "einfache +Daten+ #d.h. 1 Symbol & 2 Zahlen#\n+Anwendung+ Funktion f auf Argumente 4 & 5\nLISP-Sprachfamilie Operator ' zur Auszeichnung Daten, Funktionen unmarkiert",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Typisierung",
+    "sections": [
+      {
+        "title": "Zweck der Typisierung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "+Ordnung+ ins **\"Chaos\"** der **ungetypten** Universen bringen\n+vermeiden+ Anwendung unsinniger, fehlerhafte **Operationen**\nNachweis +Korrektheit+ von Software ermöglichen",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l**=> Qualität Software verbessern**\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Typkompatibilität",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Operator auf seine Operanden nur dann **fehlerfrei** anwendbar, wenn diese den +erwarteten Typ+ haben\nAnwendung Funktion nur dann sinnvoll möglich, wenn ihre **Argumente** +typkompatible+ zu den in der **Funktionsdefinition** spezifizierten **Parameter** sind\n+Resultat+ einer Operator-/Funktionsanwendung muss wiederum +Typkompatibiliät+ im **Kontext** der **weiteren Verwendung** gelten",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l **=> Typkompatibilität ist notwendig für verlässliche Funktionen, garantiert diese aber nicht**\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Problem Typreinheit",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Typisierung zuweilen undeutlich durch...",
+        "type": "list",
+        "content": "**Überladen** von Operatoren\n**Typinterferenzen** & **Typkonversionen**",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "java",
+        "content": "double x = 3.7 * 4;",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "=> Wie deuten? **Keine** Multiplikation von **double** mit **int**-Werten, nur:",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "* : int x int -> int\n* : double x double -> double",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "=> nutzen **Fließkommaaddition** & Wert 4 in Fließkommazahl **konvertiert**",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel auf höherer Ebene",
+        "type": "java",
+        "content": "int id;\nString sqlStmt = 'SELECT * FROM Students WHERE stud_id=' + id;",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "=> **Zahl** id in String **verwandelt** -> am Ende meint SQL NUMBER\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Typkompatibilität - syntaktisch vs. semantisch",
+        "type": "text",
+        "content": "Verwendbarkeit größerer +Software-Bausteinen+ #(z.B. Objekte, Komponenten, Web-Services)# kann **auf** +Typkompatibilität+ (Schnittstellen, Dienste) **zurückgeführt** werden",
+        "picture": ""
+      },
+      {
+        "title": "Nutzer (Klient) muss wissen",
+        "type": "list",
+        "content": "+wie+ die Dienste **in Anspruch** genommen werden können #(syntaktisch)#\n+welches+ Ergebnis ein Dienst **liefert** #(semantisch)#",
+        "picture": ""
+      },
+      {
+        "title": "Synatktische Kompatibilität",
+        "type": "list",
+        "content": "Welche +Typbezeichner+ & +Funktionssignaturen+ stehen zur Verfügung?\n#Beispiel Inkompatibilität Raumfahrt#: Nutzung veraltete Komponente welches eine syntaktisch inkombatibles Verhalten aufwies",
+        "picture": ""
+      },
+      {
+        "title": "Semantische Kompatibilität",
+        "type": "list",
+        "content": "+Liefert+ Dienst die **erwarteten Resultate**? +Verhalten+ sich Funktionen gemäß ihrer **Spezifikationen**?\n#Beispiel Inkompatibilität Raumfahrt:# Komponenten, die metrische & englische Maße verwendeten, kombiniert ohne Konversion\nFür +Gewährleistung Korrektheit+ Software = Herstellung semantischer Kompatibilität unerlässlich",
+        "picture": ""
+      },
+      {
+        "title": "Syntaktische Typen - Vor- & Nachteile",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Worin unterscheiden sich die zwei Schnittstellen?",
+        "type": "java",
+        "content": "    interface Queue {\n        public void put(Object element);\n        public Object get();\n        public void init();\n    }\n\n    interface Stack {\n        public void push(Object element);\n        public Object pop();\n        public void init();\n    }",
+        "picture": ""
+      },
+      {
+        "title": "Vorteile",
+        "type": "list",
+        "content": "Unterstützung +modulare+ Programmentwicklung durch **Trennung** von **Schnittstelle** & **Implementierung**\nDefinitionen +eigener+ **Datentypen** können (beinahe) wie **vordefinierte** Typen verwendet werden, so +Erweiterung Sprache+ \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Nachteile",
+        "type": "list",
+        "content": "**Definition** eines Datentyps ausschließlich über seine **syntaktische Schnittstelle** erlaubt Programmierern:",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "orderedList",
+        "content": "zu **verschiedenen** Schnittstellenspezifikationen, die eine **unterschiedliche** Semantik intendieren, +identische+ Implementierungen anzugeben\nzu **einer** Schnittstellenspezifikation **verschiedene**, möglicherweise +semantisch inkompatible+, Implementierungen anzugeben",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "**Syntaktische Schnittstelle**\n= d.h. durch seinen Namen & Signaturen der Operationen, ohne Spezifikation ihrer Semantik",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Interface - Pair",
+        "type": "java",
+        "content": "interface Pair<T> {\n        public T first();\n        public T second();\n        public Pair<T> add(Pair<T> p);\n    }",
+        "picture": ""
+      },
+      {
+        "title": "Implementierung - Point",
+        "type": "java",
+        "content": "class Point implements Pair<Integer> {\n        private int x, y;\n\n        public Point(int x, int y) {\n            this.x = x;\n            this.y = y;\n        }\n\n        public Integer first() {\n            return x;\n        }\n\n        public Integer second() {\n            return y;\n        }\n\n        public Pair<Integer> add(Pair<Integer> p) {\n            return new Point(this.first() + p.first(),\n                    this.second() + p.second());\n        }\n\n        public String toString() {\n            return '(' + x + '|' + y + ')';\n        }\n    }",
+        "picture": ""
+      },
+      {
+        "title": "Implementierung - Fraction",
+        "type": "java",
+        "content": "class Fraction implements Pair<Integer> {\n        private int numerator, denominator;\n\n        public Fraction(int numerator, int denominator) {\n            this.numerator = numerator;\n            this.denominator = denominator;\n        }\n\n        public Integer first() {\n            return numerator;\n        }\n\n        public Integer second() {\n            return denominator;\n        }\n\n        public Pair<Integer> add(Pair<Integer> p) {\n            return new Fraction(this.first() * p.second() +\n                    this.second() * p.first(),\n                    this.second() * p.second());\n        }\n\n        public String toString() {\n            return numerator + '/' + denominator;\n        }\n    }",
+        "picture": ""
+      },
+      {
+        "title": "Bewertung",
+        "type": "list",
+        "content": "**gemeinsame** Implementierung Interface #Point# entspricht +syntaktischen+ Idee **gleichartiger** Operationen\n**unterschiedliche** Implementierung der Methode #add# entspricht +semantischen+ Erwartungen",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "**=> Konsequenz:** **\"gemischte\"** Anweisungssequenzen nur +scheinbar+ konsistent",
+        "picture": ""
+      },
+      {
+        "title": "Bewertung",
+        "type": "java",
+        "content": "Pair<Integer> p = new Point(2, 3), // -> (2/3)\n            f = new Fraction(3, 6), // -> 3/6\n            s1 = f.add(p), // -> 21/18\n            s2 = p.add(f); // -> (5/9)",
+        "picture": ""
+      },
+      {
+        "title": "Schlussfolgerung",
+        "type": "text",
+        "content": "Semantische Typinformationen in Java",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Interfaces in Java sind **Sprachmittel** für Mehrfachvererbung/+Polymorphie+\n+Abweichende+ Verhaltensweisen sind +erwünscht+\nZur **Verwaltung** symantischer Typinformationen nur +eingeschränkt+ brauchbar ",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Prüfbare Redundanz",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "**\"Bewohner\"** eines ungetypten Universum können/sollen, die für die **Prüfung** der **Typkompatibilität** nötigten Informationen +nicht bereitstellen+\nProgramm, dessen Bestandteile auf **typgemäße** Verwendung hin +überprüft+ werden sollen, muss +prüfbare+ **Redundanz** hinzugefügt werden\n**Informationen** über die, nicht in Bits eines Werte -> +seperat+ \\l",
+        "picture": ""
+      },
+      {
+        "title": "Varianten",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Typdeklaration",
+        "type": "list",
+        "content": "Bei der **Deklaration** einer +Variablen+ ist eine Typdeklaration **erforderlich**",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Typdeklaration",
+        "type": "java",
+        "content": "int x, y;",
+        "picture": ""
+      },
+      {
+        "title": "Typinferenz",
+        "type": "list",
+        "content": "Der Typ von +Programmobjekten+ kann aus ihrer **Notation** oder ihrer **Verwendung** abgeleitet werden",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Typinferenz",
+        "type": "racket",
+        "content": "(define pi 3.14)",
+        "picture": ""
+      },
+      {
+        "title": "Metadaten",
+        "type": "list",
+        "content": "Der Typ von +strukturierten Daten+ ist durch Metadaten definiert",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Metadaten",
+        "type": "java",
+        "content": "Class t = o.getClass();",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Typsysteme",
+    "sections": [
+      {
+        "title": "Statisch vs. Dynamisch",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Statisch",
+        "type": "list",
+        "content": "Typprüfung erfolgt +einmalig+ **vorab**\ndurch **statische Analysen** am Programm (ohne vorherige Programmausführung)\n+weißt+ Programme +zurück+, die Satz von **Typregeln** nicht genügen\nin **Software-Industrie** häufiger vertreten\n_**Vorteil**_ bestimmte Fehler bereits +vor+ Programmausführung findbar\n_**Nachteil**_ +zurückweisen+ von **eigentlich korrekten** Programmen #(Halteproblem)#\nstatische Typisierung verlangt für jede Referenz passende Typdekleration #(explizit)# oder Typdefinition #(implizit)# -> +Erschwert+ Vorgehensweisen \"**top down**\" & \"**test first**\" ",
+        "picture": ""
+      },
+      {
+        "title": "Dynamisch",
+        "type": "list",
+        "content": "Typprüfung erfolgt +laufend+ **während** der Programm**ausfühung**\nprüft während der **Laufzeit** +unmittelbar+ vor Ausführung die Zulässigkeit der Operation\nbei **Fachanwendungen** #(z.B. Datenauswertung)# häufiger vertreten",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l**=> Allgemein**",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "statische Sprachen mit dynamischen Konzepten **erweiterbar** und umgekehrt\\l",
+        "picture": ""
+      },
+      {
+        "title": "Streng vs. Schwach",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Streng",
+        "type": "list",
+        "content": "Typsystem stellt **jederzeit** sicher, dass auf eine Variable bzw. Objekt +nur+ der +typgemäßen+ Satz von Operationen **angewendet** werden kann\ni.d.R. bei gewöhnlicher **Anwendungsentwicklung** überwiegen Vorteile **streng(er)en** Typsystems",
+        "picture": ""
+      },
+      {
+        "title": "Schwach",
+        "type": "list",
+        "content": "Typsystem lässt auch +typfremde+ Operationen auf Verlangen +zu+",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l**=>Allgemein**",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "+kein+ **Qualitätsmerkmal**\nEinsatz abhängig **Verwendungszweck** #(z.B. Systemprogrammierung mit schwachen Sprache wie C)#\nkonkrete Programmiersprachen besitzen +Grauzonen+, besonders bei **implizite Typumwandlungen** \\l",
+        "picture": ""
+      },
+      {
+        "title": "Explizit vs. Implizit",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Explizit",
+        "type": "list",
+        "content": "+verlangt+ für jede Variable die **Angabe** eines +Typs+\n+dokumentieren+ **Programmtext** durch Typangaben -> Abwägen Nutzen & Aufwand",
+        "picture": ""
+      },
+      {
+        "title": "Implizit",
+        "type": "list",
+        "content": "Typsystem **verlangt** nur die  Deklaration des +Namens+ einer Variablen\n**Typ** wird, soweit möglich und erforderlich, aus der  Verwendung +abgeleitet+\n_**Vorteil**_ **befreit** Programmieren von der **redundanten** Angabe von Typinformationen\n_**Nachteil**_ schlechtere Lokalisierung von +Typfehlern+\nmeist dynamisch -> wenn statisch dann mit Anspruchsvoller Theorie verbunden \\l",
+        "picture": ""
+      },
+      {
+        "title": "Zusammenfassung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "streng dynamisch != schwach dynamisch",
+        "type": "list",
+        "content": "streng: Ausnahmen bei typfremden Operationen\nschwach: typfremde Operationen zugelassen -> überraschende Folgewirkungen",
+        "picture": ""
+      },
+      {
+        "title": "Statisch != zur Übersetzungszeit",
+        "type": "list",
+        "content": "Gegenbeispiel: Java Virtual Machine führt statische Prüfung an Byte-Code während des Laden von Klassen durch",
+        "picture": ""
+      },
+      {
+        "title": "dreidimensionales Koordinatensystem",
+        "type": "list",
+        "content": "schwach/statisch/explizit = C\nschwach/dynamisch/implizit = JavaScript\nstreng/statisch/explizit = Java\nstreng/statisch/implizit = Haskell\nstreng/dynamisch/implizit = Python, Racket",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Typvorrat in Typsysteme",
+    "sections": [
+      {
+        "title": "Typen in Programmiersprachen umfassen üblicherweise:",
+        "type": "list",
+        "content": "**gegebene** (built-in) +Basistypen+\nüber diesen Basistypen mit **Typkonstruktoren** +selbst definierte+ **Typen**\naus selbst definierten Typen können üblicherweise  (wie aus Basistypen) +weitere+ Typen **konstruiert** werden",
+        "picture": ""
+      },
+      {
+        "title": "Algebraische Datentypen",
+        "type": "text",
+        "content": "= **Produkttypen** und **Summentypen** und **Rekursion**\n\n=> Summentyp in Racket: als \"gemischter\" Datentyp bezeichnet\\l",
+        "picture": ""
+      },
+      {
+        "title": "Typkonstruktoren",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Basistypen",
+        "type": "list",
+        "content": "+eingebaute+ Typen mit **festen** Werte**vorrat**",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Basistypen - Java",
+        "type": "java",
+        "content": "float, int, char",
+        "picture": ""
+      },
+      {
+        "title": "Aufzähltypen",
+        "type": "list",
+        "content": "**selbst benannte** Typen +über+ einen **explizit** festgelegten Wertevorrat",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Aufzähltypen - Java",
+        "type": "java",
+        "content": "enum Level {LOW, MEDIUM, HIGH}",
+        "picture": ""
+      },
+      {
+        "title": "Mengendatentypen",
+        "type": "list",
+        "content": "je nach Sprachen und v.a. Paradigma: Mengendatentypen = meist +Listen+",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Mengendatentyp - Racket",
+        "type": "racket",
+        "content": "(define myList '(1 2 3))",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Mengendatentyp - Java",
+        "type": "java",
+        "content": "int[] myList = new int[] {1, 2, 3};",
+        "picture": ""
+      },
+      {
+        "title": "Produkttypen",
+        "type": "list",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Produkttypen - Racket",
+        "type": "racket",
+        "content": "(define-struct point [x y])",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Produkttypen - C",
+        "type": "java",
+        "content": "struct Point {\n   int x;\n   int y;\n}",
+        "picture": ""
+      },
+      {
+        "title": "Summentypen",
+        "type": "list",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Summentypen - C",
+        "type": "java",
+        "content": "union Number {\n   int intNum;\n   float floatNum;\n}",
+        "picture": ""
+      },
+      {
+        "title": "Typklassen",
+        "type": "text",
+        "content": "= für hohe **Wiederverwendbarkeit** von Typen, können diese mit +Typparametern+ parametisiert sein",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Typklassen - Java",
+        "type": "java",
+        "content": "List<Students> stud = new ArrayList<>();",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Typklassen - Haskell",
+        "type": "code",
+        "content": "add :: (Num t) => t -> t -> t -- Typ\nadd a b = a + b -- Definition",
+        "picture": ""
+      },
+      {
+        "title": "Erklärung Haskell Beispiel:",
+        "type": "list",
+        "content": "**add** #Funktionsname#\n**::** #leitet Typdeklaration ein#\n**(Num t) =>** #Funktion funktioniert nur für Typen t, die zur Typklasse Num gehören (z.B. Int, Float)#\n**t -> t -> t** #nimmt zwei Werte vom Typ t, gibt einen Wert von Typ t zurück#\n**Typ** #add nimmt zwei Zahlen gleichen Typs und liefert ihre Summe#\n**a b** #Parameter#\n**a + b** #Rumpf Funktion#\n**+** #Operator#",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Zusammenfassung",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "Interpretation von Daten benötigt +Typinformation+\nTypinformationen durch +Deklaration+, +Inferenz+ & +Metadaten+ gegeben\nTypinformationen können syntaktische und/oder semantische Inhalte haben\nProgrammiersprachen haben ein +Typsystem+, dass den Gebrauch von Typinformationen regelt\nTypsystemen gliedern entlang Achsen dynamisch/statisch, explizit/implizit, schwach/streng",
+        "picture": ""
+      },
+      {
+        "title": "Magisches Dreieck",
+        "type": "picture",
+        "content": "",
+        "picture": "../images/dreieck2.jpeg"
+      }
+    ]
+  }
+]

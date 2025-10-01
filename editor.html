@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Tutorial Editor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="mobile.css">
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+        <h2>Tutorial Chapters</h2>
+        <div id="chapter-left"></div>
+        <button id="new-chapter-btn" class="macos-button">+ New Chapter</button>
+    </div>
+
+    <!-- Main Editor -->
+    <div id="editor-container">
+        <div id="editor">
+            <div id="chapter-editor"></div>
+
+            <div id="section-form">
+                <h3>Section</h3>
+                <label for="section-title">Title</label>
+                <input type="text" id="section-title">
+                <label for="section-type">Type</label><br>
+                <select id="section-type">
+                    <option value="text">Text</option>
+                    <option value="code">Haskell</option>
+                    <option value="java">Java</option>
+                    <option value="racket">Racket</option>
+                    <option value="prolog">Prolog</option>
+                    <option value="terminal">Terminal</option>
+                    <option value="terminalMacOS">Terminal MacOS</option>
+                    <option value="link">Link</option>
+                    <option value="list">Unordered List</option>
+                    <option value="orderedList">Ordered List</option>
+                    <option value="picture">Photo</option>
+                    <option value="pictureSmall">Photo Small</option>
+                </select>
+                <label for="section-content">Content</label>
+                <textarea id="section-content"></textarea>
+                <label for="section-picture">Image src</label>
+                <input type="text" id="section-picture" placeholder="Enter image src here">
+                <div class="form-buttons">
+                    <button id="save-section">Save Section</button>
+                    <button id="delete-section">Delete Section</button>
+                </div>
+            </div>
+            <button class="macos-button"><label for="load-json">Upload JSON</label></button>
+            <input id="load-json" type="file" accept=".json" />
+            <button id="save-json-btn" class="macos-button">Save as JSON</button>
+            <button id="clear-tutorial-btn" class="macos-button">Clear</button>
+        </div>
+
+        <div id="editor-main">
+            <div id="content"></div>
+        </div>
+    </div>
+
+    <script type="module" src="editor.js"></script>
+    <script type="module" src="script.js"></script>
+    <script type="module" src="theme.js"></script>
+</body>
+
+</html>

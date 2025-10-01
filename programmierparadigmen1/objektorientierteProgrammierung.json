@@ -1,0 +1,740 @@
+[
+  {
+    "title": "Klassen",
+    "sections": [
+      {
+        "title": "Objektkonstruktion",
+        "type": "text",
+        "content": "= damit Objekte nicht immer wieder gebaut werden müssen, gibt es Konstruktionsvorschriften der Objektarten",
+        "picture": ""
+      },
+      {
+        "title": "Prototypen",
+        "type": "list",
+        "content": "Ein typischer Vertreter der Objektart wird gebaut\nBei Bedarf wird dieser kopiert & bearbeitet",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Prototyp - hypothetische OOPL",
+        "type": "java",
+        "content": "object studProto { var Integer id; }\nobject student1 = studProto.clone();\nstudent1.id = 4711;",
+        "picture": ""
+      },
+      {
+        "title": "Klassen",
+        "type": "list",
+        "content": "Eine Klasse als Defintion einer bestimmten Objektart definiert - Namen, Zustände, Methoden...",
+        "picture": ""
+      },
+      {
+        "title": "Lebenszyklus Objekte",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Objekterzeugung & -initalisierung",
+        "type": "list",
+        "content": "Erzeugung meist durch vordefinierte Operatoren\nInitalisierung meist über Konstruktor(en)\nIn Java: Initalisierung auch über Setter-/Fabrikmethoden, in der Deklaration selbst",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "// Direkte Initalisierung bei Deklaration\nclass Person {\n    String name = 'Default';\n    int age = 18;\n}\n\n// Setter- oder Fabrikmethoden\nclass PersonFactory {\n    static Person createWithName(String name) {\n        Person p = new Person();\n        p.name = name;\n        return p;\n    }\n}\n\n// Weitere Konstruktoren\npublic static void main (String args[]){\n    // DO SOMETHING\n}",
+        "picture": ""
+      },
+      {
+        "title": "Ende Lebensdauer - Dekonstruktur",
+        "type": "list",
+        "content": "Früher in Java: finalize() von Object was überschrieben werden konnte\nwurde nachdem Objekt nicht mehr erreichbar war & bevor Freispeichersammler dieses entfernt hat, auf Objekt aufgerufen\nHeute: PhantomReference oder AutoClosable\\l",
+        "picture": ""
+      },
+      {
+        "title": "Subklassenbildung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Klassen können als Subklasse / Spezialisierung von bereits existierenden Klassen definiert werden\nAus Spezialisierungsbeziehungen = Klassenhierarchie",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Subklassenbildung - Java",
+        "type": "java",
+        "content": "class Person {...}\nclass Student extends Person {...}",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Vererbung, Überladen, Überschreiben",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Subklassen erben Methoden und Zustand von Superklasse (Basisklasse)\nJede Nachrichten, die die Basisklasse versteht, verstehen auch ihre Subklassen (Sichtbarkeit)\n-> Methoden Signaturen sind gleich (Parameter)\nAttribute vererbt: in Superklasse sichtbar, Variable gibt es nur ein Mal\nIn Java: static Methoden & Attribute werden nicht vererbt\nSubklassen können neue Methoden definieren\nÜberladen = gleiche Methodennamen, neue Signatur\nÜberschreiben = gleiche Methodennamen, gleiche Signatur",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Subklassen - Java",
+        "type": "java",
+        "content": "// Add new methods\nclass A { int doSome(int i){...}}\nclass B extends A {void doSomeElse(){...}} //new method\n\n// overload (überladen)\nclass C extends A {int doSome(float x){...}} //doSome uses float instead of int\n\n// overridden (überschreiben)\nclass D extends A {int doSome(int i){...}}",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Objektorientierte Typisierung",
+    "sections": [
+      {
+        "title": "Objektorientierte Typsysteme",
+        "type": "text",
+        "content": "Typen & Klassen eigentlich zu unterscheiden",
+        "picture": ""
+      },
+      {
+        "title": "Klasse als Konstruktionsvorschrift",
+        "type": "java",
+        "content": "new PersonImpl();",
+        "picture": ""
+      },
+      {
+        "title": "Klasse als Typ",
+        "type": "java",
+        "content": "Person p;",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "explizite oder implizite Typisierung\nimplizit: Klasse induziert Typ, daher oft 1:1 verwendet",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Java",
+        "type": "java",
+        "content": "// Java Interface enthält Typ\npublic interface Person { ... }\n\n// Klasse hat oder induziert Typ;\n// hier: Klasse hat Typ\nclass PersonImpl implements Person { ... }\n\n// Subklasse hat oder induziert Typ\nclass Student extends Person { ... }",
+        "picture": ""
+      },
+      {
+        "title": "Typen, Mengen & Eigenschaften",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Charakterische Eigenschaften eines Typs A ist die Menge seiner Instanzen\n[A]\nInstanzen? abhängig von Sichtweise: semantisch - Konzept, syntaktisch - Bits codiert\nA ist Subtyp von B, wenn alle Instanzen von A auch Instanzen von B sind\neinfacher Ansatz, nur für \"überschaubare\" Typen geeignet",
+        "picture": ""
+      },
+      {
+        "title": "Spätestens bei offener Klassenhierachie - Menge Instanzen nicht definierbar",
+        "type": "list",
+        "content": "Subtypbeziehungen über Zuweisungskompatibilität weiterhin gegeben\nEine Variable erlaubt Typ A, wenn sie mit jeder Instanz von Typ A belegt werden kann\nEine Variable hat Typ A, wenn jeder Wert, mit dem sie belegt werden kann, eine Instanz von Typ A ist\nA ist Subtyp von B, wenn jede Variable, die den Typ B erlaubt, auch den Typ A erlaubt\nA ist Subtyp von B, wenn jede Variable, die den Typ A hat, auch den Typ B hat \\l",
+        "picture": ""
+      },
+      {
+        "title": "Was bedeutet ein Typ?",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Aspekte Semantik",
+        "type": "list",
+        "content": "denotational = Welche Dinge repräsentieren die Instanzen? (Struktur des Systems)\noperational = Welche Operationen sind auf den Instanzen definiert? (Verhalten des Systems) \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Subtypen gewährleisten Verträglichkeit in beiderlei Hinsicht\nPraxi - oft Fallstricke, insbesonder Konzept \"Subtypen\" x Konzepte \"Vererbung\" & \"Parametrisierung\"",
+        "picture": ""
+      },
+      {
+        "title": "Substitutionsprinzip",
+        "type": "text",
+        "content": "= Typ A kann als Subtyp von Typ B angesehen werden, wenn alle in einem gegebenen formalen System S (Typsystem) beweisbaren Eigenschaft q, die auf alle Instanzen von B zutreffen, auch auf alle Instanzen von A zutreffen\n=> Auch anwendbar, wenn Menge Instanzen nicht direkt greifbar",
+        "picture": ""
+      },
+      {
+        "title": "Strukturell vs. nominelles Typsystem",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "strukturell",
+        "type": "list",
+        "content": "Typsystem, welches anhand Substitutionsprinzip prüft, ob Typ ein Subtyp von einem anderen sein kann\nz.B. TypeScript",
+        "picture": ""
+      },
+      {
+        "title": "nominell",
+        "type": "list",
+        "content": "sind die meisten Typsysteme\nProgrammierer deklariert, was Subtyp sein soll\nSprache sorgt für Einhaltung Substitutionsprinzips -> Falls nicht möglich: Compiler-Fehler",
+        "picture": ""
+      },
+      {
+        "title": "Vererbung als Subtypbeziehung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Regeln",
+        "type": "list",
+        "content": "beim Ableiten von Subklassen wird in Java Subtyp gebildet\nObjekte der Subklassen können jederzeit referenziert werden, wenn Objekte der Superklasse erwartet werden",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Regeln - Java",
+        "type": "java",
+        "content": "class B { ... }\nclass A extends B { ... } // creates subtyp A\n\n// reference objects of subclass instead of superclass\nB someB = new A();\n// void doSomethingWith(B b){...}\ndoSomethingWith(new A());\nB getSomeB() { return new A(); }\n",
+        "picture": ""
+      },
+      {
+        "title": "Eigenschaften Java-Typsystem",
+        "type": "list",
+        "content": "x hat Attribut a mit Typ T & Sichtbarkeit >= s\nx hat Methode m mit Attributtypen T1 - Tn, Rückgabetyp U, Exceptions E1 - Ek & Sichtbarkeit >= s\nx erscheint als Instanz von Klasse C unter Cast (C(x)) & Test (x instanceOf C)",
+        "picture": ""
+      },
+      {
+        "title": "Eigenschaften Java-Typsystem enhält nicht...",
+        "type": "list",
+        "content": "Aussagen über vorhandende Konstruktoren\nAussagen über Parameternamen\nAussagen über Implementierungen von Methoden\nAussagen über Wert von x.getClass() \\l",
+        "picture": ""
+      },
+      {
+        "title": "Interfaces",
+        "type": "list",
+        "content": "Bei Implementierung von Interfaces wird Subtyp gebildet (in Java)\nBei Implementierung mehrerer Interfaces = Schnittmenge Instanzen gebildet\nSchnittmenge kann bei inkompatiblen Signaturen leer sein -> Vererbung ungültig\nInstanzen von Interface-Typen existieren nur über Subtypen (genauso bei abstrakten Klassen)",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel ungültige Vererbung - Java",
+        "type": "java",
+        "content": "interface A { void foo(); }\ninterface B { int foo(); }\nclass C implements A, B { ... } // Compilerfehler \n// (da void vs. int für gleiche Methodensignatur \n// als Rückgabewert angegeben)",
+        "picture": ""
+      },
+      {
+        "title": "Statische Typen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "strenge statische Typsysteme sollen Einhaltung Subtitutionsprinzips garantieren\nDaraus folgende Eigenschaften müssen nicht dynamisch geprüft werden\nDamit Operationen oft recht effizient implementiert werden\nTypregeln, die nicht kompatible mit Substitutionsprinzips sind, erfordern (zusätzliche) dynamische Fehlerprüfung",
+        "picture": ""
+      },
+      {
+        "title": "Negativbeispiel Array - Java",
+        "type": "java",
+        "content": "class A extends B { ... }\nB[] array = new A [17]; // A wird auf B zugewiesen da Subtyp ist\n// array in Laufzeit Typ A, in Compilezeit Typ B\narray [4] = new B(); // ArrayStoreExeption in Laufzeit\n// in A[] dürfen nur Objekte von Typ A und Untertypen gespeichert sein",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Objekte & Methoden",
+    "sections": [
+      {
+        "title": "Objekt",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Einheit aus Daten & Funktionalität",
+        "type": "list",
+        "content": "in hypothetischen OOPL kann int i, falls int ein einfacher Typ ist, durch ein Objekt aus Werten und Zugriffsmethoden dargestellt werden\ndann Operationen auf int Objekt wie gehabt",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - hypothetische OOPL",
+        "type": "java",
+        "content": "object i {\n   void int value;\n   operator '()' {return i;}\n   operator '=' {self.i = i;}\n}\n//Zugriff\nobject i;\ni = 7;\ni = i + 1; //...",
+        "picture": ""
+      },
+      {
+        "title": "int i - Java",
+        "type": "java",
+        "content": "class IntObject {\n   int i;\n   int getValue() { return i; }\n   void setValue(int i) { this.i = i; }\n}\n//Zugriff\nIntObject i = new IntObject();\ni.setValue(7);\ni.setValue(i.getValue()+1); //...",
+        "picture": ""
+      },
+      {
+        "title": "Gekapselter Wert",
+        "type": "list",
+        "content": "Objekt hat ein Zustand, dazu gekapselte Variablen\nMethoden ändern Zustand\nNicht immer 1:1 Manipulation der Werte \\l",
+        "picture": ""
+      },
+      {
+        "title": "Motivation Objektorientierung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Objekt als Abbildung einer Entität der realen Welt",
+        "type": "list",
+        "content": "Hintergrund der Simulation\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Objekt als Kapselung eines Wertes",
+        "type": "list",
+        "content": "Geheimnisprinzip nach Parnas\nZugriff auf Variablen (im Gegesatz zu z.B. prozeduralen Programmierung) geregelt\nVermeiden von Seiteneffekten, Aliasing von Variablen, undurchsichtiges Sharing von Parameterwerten \\l",
+        "picture": ""
+      },
+      {
+        "title": "Interaktion mit/zwischen Objekten",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Methoden sind keine Funktionen oder Prozeduren, die aufgerufen werden\nMethoden können Parameter & Rückgabewerte haben\nObjekte senden sich Nachrichten\nje Nachricht wird passende Methode gefunden & ausgeführt (aktiviert)\nPrinzip: (dynamic) Dispatch #(dynamische Bindung)#\nim imperativen Kontext: späte Bindung (prozedural: frühe Bindung)\nspäte Bindung = erst zu Laufzeit entschieden welche Methode ausgeführt wird (abhängig von Objekt, dass die Nachricht empfängt)\nfrühe Bindung: bereits zur Compile-Zeit steht fest welche Funktion ausgeführt wird",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Klassen & Typen",
+    "sections": [
+      {
+        "title": "Subtypisierung vs. Subklassenbildung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "wenn Klasse Methoden vererbt, enthalten Subtypen Methodensignaturen aus dem der Klassse entsprechenden Basistyps\nI.A. Vererbung von Typeigenschaften, nicht von Code\nVererbung von Typinformationen unkritisch, von Implementierung nicht",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "// Vererbung von Typinformationen unkritisch\ninterface CanFly { void fly(); }\ninterface Bird extends CanFly {}\ninterface SuperHero extends CanFly {}\ninterface SuperDuck extends Bird, SuperHero {}\n\n// Vererbung von Implementierung kritisch\nclass BirdImpl implements Bird {\n    public void fly() { BirdUtils.flapWings(); }\n}\n\nclass SuperHeroImpl implements SuperHero {\n    public void fly() { SuperHeroUtils.useSuperPower(); }\n}\n\nclass SuperDuckImpl implements SuperDuck extends BirdImpl, SuperHeroImpl {\n    ...\n}\nnew SuperDuckImpl.fly(); // Wie fligt SuperDuck?",
+        "picture": ""
+      },
+      {
+        "title": "Standard-Implementierung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "V(irtual) Tables",
+        "type": "list",
+        "content": "für einfache Methodenbindung, klassenbasiert\nBringe alle Methoden einer Klasse in Reihenfolge \n> Innerhalb Klasse beliebig, aber statisch fest\n> Bei Vererbung hinten anhängen -> abwärtskompatibel\nLege Bindungen (Code-Referenzen) pro Klasse in geschützter Tabelle (vtable) ab\n> Vererbung über Kopie (Anfangsstück)\n> Überschreiben von Bindungen -> Ersetzen in Tabellen\nVerwaltung durch Compiler oder VM\nVerweise aus jedem Objekt auf vtable seiner Klasse",
+        "picture": ""
+      },
+      {
+        "title": "Abstrakte Vererbung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "I(nterface) Tables",
+        "type": "list",
+        "content": "Einfaches lineare Erweitern versagt bei Interfaces\nGrund: konkretes Objekt kann beliebige Menge von Interfaces implementieren\nLösung: itable-Segement pro Interface\n> Suche bei Laufzeit\n> bei Überlappungen redundante Bindungen\nVerwaltung über Compiler oder VM",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Object String wait()",
+        "type": "pictureSmall",
+        "content": "",
+        "picture": "../images/klassen1.jpeg"
+      },
+      {
+        "title": "String String wait()",
+        "type": "pictureSmall",
+        "content": "",
+        "picture": "../images/klassen2.jpeg"
+      },
+      {
+        "title": "Object Sting trim()",
+        "type": "pictureSmall",
+        "content": "",
+        "picture": "../images/klassen3.jpeg"
+      },
+      {
+        "title": "Subtypisierung von Klassen & Methoden",
+        "type": "text",
+        "content": "Wenn von einer Klasse ein Subklasse (von Typ ein Subtyp) gebildet werden kann, so können auch die Parameter der Methodensignaturen angepasst werden\n!Regeln zur Anpassung der Methodenparameter",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Drivers - Java",
+        "type": "java",
+        "content": "class Person { ... }\nclass Driver extends Person { ... }\nclass NonDriver extends Person { ... }\nclass PersonList implements List<Person> { ... } \n// PersonList implementiert Typ List mit Parameter Person\n\n// Gesucht: AllowedDriversList, die nur Driver enthält\n// d.h. vermeiden von new AllowedDriversList().add(new NonDriver();\n\n\n// Versuch 1:\nclass AllowedDriversList extends PersonList { ... } \n// Fehler: erbt add(Person()) -> erlaubt jede Person\n// Versuch 2:\nclass AllowedDriversList implements List<Driver> { ... } \n// Fehler: keine Subtypbeziehung von PersonList & AllowedDriversList, Verlust von Funktionalität\n// Versuch 3:\nclass AllowedDriversList extends PersonList {\n    void add(Driver d) { ... } \n// Methode überladen, add(NonDriver) bleibt sichtbar\n    Driver get() { ... } \n// verboten -> was sollte list.get() liefern?\n} \n// Fehler\n// Versuch 4:\nclass AllowedDriversList extends PersonList implements List<Driver> { ... } \n// Fehler: ungültig, Konflikt im Typparamter von List\n\n\n// Richtiger Ansatz\nclass ListTypedPerson<T extends Person> implements List<T> { ... }\nclass AllowedDriversList extends ListTypedPerson<Driver> \n// Typparameter für Lists\n// erlaubt:\nnew AllowedDriversList.add(new Driver());\n// erlaubt nicht:\nnew AllowedDriversList.add(new Person());",
+        "picture": ""
+      },
+      {
+        "title": "Varianz der Subtypen",
+        "type": "text",
+        "content": "= unterscheiden in Co, Conra-, Bi- & Invarianz",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Covarianz: Bei Spezialisierung der Klasse werden Typen von Mitgliedern spezialisiert\nContravarianz: Bei Spezialisierung der Klassen, werden Typen von Mitgliedern generalisiert\nInvarianz: Bei Spezialisierung der Klasse verändern sich die Typen von Mitgliedern nicht \\\\l",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Varianz korrelliert mit Ausgabe- & Eingabeparametern, L- & R-Werten\nTypen von Rückgabeparametern sind covariant\nTypen von Eingabeparametern sind contravariant\nTypen sind invariant, wenn sie covariant & contravariant verwendet werden",
+        "picture": ""
+      },
+      {
+        "title": "Ko- & Kontravarianz",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Defintion",
+        "type": "list",
+        "content": "ein parametrischer/generischer Typ ist eine Funktion im Raum der Typen\nz.B. ArrayList<Integer>\nManche erhalten Subtypbeziehungen",
+        "picture": ""
+      },
+      {
+        "title": "Regeln",
+        "type": "list",
+        "content": "Ob Subtypbeziehung für parametrische Typen ko-/Kontravarianz/weder noch aufgefasst werden, ist abhängig von Entwurfsentscheidung der OOPL\nOb mit Subtutierungsprinzip übereinstimmt Syntax prüfbar\nTypfunktion F ist Substitutionsprinzip kompatible kovariant, wenn Typparameter ausschließlich auf Resultatseite auftritt (z.B. getter)\nTypfunktion F ist Substitutionsprinzip kompatible kontravariant, wenn Typparameter ausschließlich auf Argumententseite auftritt (z.B. setter)\nTypfunktion F ist weder noch, wenn Typparameter auf beiden Seiten auftreten\nSprachen unterschiedliche Unterstützung, z.B. Java: beliebiges Auftreten von Typparametern, kein Ko- & Kontravarianz",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "// auch wenn Subtypen nicht gibt, konventionell gilt:\n\ninterface Iterator<T> {\n    boolean hasNext();\n    T next();\n}\ninterface Comperator<T> {\n    int compare(T o1, T o2);\n}\ninterface List<E> {\n    boolean add(E e);\n    E get(int index);\n}\n\n// Student Subklasse von Person\nclass Person {}\nclass Student extends Person {}\n\n// Beispiel - Kovarianz\nIterator<Person> iter = studentList.iterator();\nPerson p = iter.next();\n// Iterator<Student> = Subtyp von Iterator<Person>\n// Iterator<T> kovariant über T\n\n// Beispiel - Kontravarianz\nComperator<Student> comp = new PersonComperator();\ncomp.compare(new Professor(), new SuperHero());\n// Comperator<Person> ist Subtyp von Comperator<Student>\n// Comperator<T> kontravariant über T\n\n// Beispiel - weder noch\n// List<Student> & List<Person> sind nicht Subtypen voneinander\n// Grund: T steht in get() an kovariante & in add() an kontravariante Position\n// List<E> invariant über E",
+        "picture": ""
+      },
+      {
+        "title": "Java Generics",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "In Java Simulation Ko-& Kontravarianz durch Generics, speziell: (bounded) Wildcards\nWildcards verschleiern Resultat- & Argumentseiten der Typen -> erlauben lokale Ko-& Kontravarianz",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Java",
+        "type": "java",
+        "content": "// Kovarianz\n// eine Subklasse von A kann den Typ des Typparameters verfeinern\nA<? extends B> \n\n// Kontravarianz\n// eine Superklasse von A kann den Typ des Typparameters vergröbern\nA<? super B>",
+        "picture": ""
+      },
+      {
+        "title": "Duck Typing",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Defintion",
+        "type": "list",
+        "content": "If it walks like a duck and sounds like a duck, it must be a duck\nIn OOPL mit dynamischen Typsystem können Variablen auf Objekte unbekannter Klassen verweisen\nEine korrekte Belegung ist dann, wenn alle tatsächlichen aufgerufenen Methoden auch vorhanden sind",
+        "picture": ""
+      },
+      {
+        "title": "Übersetzt in statischen Typen:",
+        "type": "list",
+        "content": "Die auf Variablen versuchten Methodenaufrufen bilden implizites Interface\nEine Klasse ist kompatible, wenn sie das Interface bereits implementieren könnte",
+        "picture": ""
+      },
+      {
+        "title": "Vorteile",
+        "type": "list",
+        "content": "bequem bei streng objektorientierte Stil\nkonventionellen Methodennamen",
+        "picture": ""
+      },
+      {
+        "title": "Nachteile (Ausdrucksschwächen)",
+        "type": "list",
+        "content": "Semantik\nResultate\nFunktionen höherer Ordnung",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Python",
+        "type": "java",
+        "content": "class Duck:\n    def makeSound(self):\n        print('Quack')\n\nclass Dog:\n    def makeSound(self):\n        print('Woff')\n\nfor animal in [Duck(), Dog()]:\n    animal.makeSound() //nicht zuvor überprüft ob Methode vorhanden",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Objektorientiertes Verhalten",
+    "sections": [
+      {
+        "title": "Polymorphie",
+        "type": "text",
+        "content": "= eine zentrale Eigenschaft von OOPLs, erlaubt es Varianten von Objekten und Methoden zu erzeugen\n\\\\l\nMit dynamische Bindung werden Nachrichten jeweils an das aktuell Objekt gesendet, und die richtige Methode wird aktiviert",
+        "picture": ""
+      },
+      {
+        "title": "Basierend auf...",
+        "type": "list",
+        "content": "Substituierbarkeit\nÜberladen oder Überschreiben\nSpäte Bindung",
+        "picture": ""
+      },
+      {
+        "title": "Späte Bindung & überladene Methoden",
+        "type": "list",
+        "content": "Prozeduren & Funktionen überlicherweise typabhängig\nBei OOPL: Kontext verwenden",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Polymorphie - Java",
+        "type": "java",
+        "content": "// Ohne Polymorphie: \n// Function<Car,Car> carWash;\n// Function<Dog,Dog> dogWash;\n// Function<Dish,Dish> dishWash;\n// -> testen von allen zu welchen Object gehört\n// anschließend anwenden von jeweiliger Funktion\n\n// Jetzt:\ninterface Washable { void wash(); }\n\nclass Car implements Washable {\n   public void wash() { ... }\n}\nclass Dog implements Washable { ... }\nclass Plate implements Washable { ... }\n\n// Aufruf aller:\nCollection<Washable> dirty = ...;\nfor (Washable w : dirty) {\n   w.wash();\n\n}",
+        "picture": ""
+      },
+      {
+        "title": "Nutzen Prinzipien...",
+        "type": "list",
+        "content": "Späte Bindung der Nachricht \"wash\" an Methode jeweiligen Objekts\nKonkrete Objekte können Washable substituieren \\l",
+        "picture": ""
+      },
+      {
+        "title": "Open/Closed Prinzip",
+        "type": "text",
+        "content": "= Objekte sollen offen für Erweiterungen, aber geschlossen gegenüber Änderungen sein (nur über Quellcode)",
+        "picture": ""
+      },
+      {
+        "title": "Daher...",
+        "type": "list",
+        "content": "Methoden werden überschrieben & nicht verändert (keine Redefinition)\nZugriff auf Implementierungen von Superklassen über super, eigene Implementierungen über this\nkein super.super -> würde Kapselung verletzen",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Klassen als Objekte",
+    "sections": [
+      {
+        "title": "Klassendefintionen",
+        "type": "text",
+        "content": "Klassendefintionen und ob Klassen Bürger erster Klasse sind abhängig von OOPL",
+        "picture": ""
+      },
+      {
+        "title": "Übliche Sprachmittel",
+        "type": "list",
+        "content": "Quellcodekonstrukte\nVordefinierte Anweisungen\nSprachkonstrukte",
+        "picture": ""
+      },
+      {
+        "title": "Quellcodekonstrukte",
+        "type": "list",
+        "content": "z.B. Java\nSchlüsselwörter class, abstract class, interface + Modifier (wobei abstract auch Modifier)\nSprachsyntax der Klassendefintion\nDefinition vom Compiler in Laufzeitinformation überführt\nKlassen keine Bürger erster Klasse\no.getClass() -> Zugriff auf generisches Objekt nicht auf spezifisches Klassenobjekt\nStudent.class, Student::getId -> auf Basis von compilierte Quellcodeinformationen",
+        "picture": ""
+      },
+      {
+        "title": "Vordefinierte Anweisungen",
+        "type": "list",
+        "content": "z.B. Python\nNutzen von Anweisungen um dynamisch Klassen zu erzeugen\nKlassen können in Grenzen dynamisch gestaltet werden",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Python",
+        "type": "java",
+        "content": "class Person:\n    def __init__(self, name):\n        self.name = name;\nclass Student(Person):\n    def __init__(self, name, id):\n        self.id= id\n        super().__init__(name)\n\n// Klassen in Grenzen dynamisch gestaltbar:\nclass Student(Person if onPremise else Account):\n    def isPerson(self):\n        return onPremise",
+        "picture": ""
+      },
+      {
+        "title": "Sprachkonstrukte",
+        "type": "list",
+        "content": "z.B. Smalltalk\nWenn Mittel der Sprache selbst zur Klassendefintion verwendet werden, können Klassen als Bürger erster Klasse angelegt werden\nErzeugung Subklasse per Nachricht an Basisklasse, ausstatten mit Mitgliedern",
+        "picture": ""
+      },
+      {
+        "title": "Singletons",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Jedes Objekt muss (in entsprechenden PL) eine Klasse haben\nEs gibt Objekte, die nur einmal vorkommen (sollen) = Singeltons\nz.B. Fabriken, Verwalterklassen, Zentrale Ressourcen\nIn Java: erfordert Klassen, kein Singleton-Konstrukt -> Über Singleton-Pattern",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Singleton-Pattern - Java",
+        "type": "java",
+        "content": "public class ThereIsOnlyOneOfMyKind {\n    static private ThereIsOnlyOneOfMyKind instance;\n    static public getInstance() {\n        return instance == null ? instance = new ThereIsOnlyOneOfMyKind()\n                                : instance;\n    }\n    private ThereIsOnlyOneOfMyKind() {}\n}",
+        "picture": ""
+      },
+      {
+        "title": "Objekte als Bürger erster Klasse",
+        "type": "text",
+        "content": "in objektorierntierten Programmierung\n#Everything is an object#\n=> Klassen, Methoden, Attribute etc. auch Objekte",
+        "picture": ""
+      },
+      {
+        "title": "Gilt z.B. in Java nicht:",
+        "type": "list",
+        "content": "Klassen haben keine Klassen (nur generische Klasse Class<?>)\nMethoden & Attribute sind keine Objekte (sind Objekte von Reflection)",
+        "picture": ""
+      },
+      {
+        "title": "Vollständige Objektorientierung",
+        "type": "list",
+        "content": "= Wenn Objekte eine Klasse haben, und alles ein Objekt ist, dann...\nmüssen Klassen Klassen haben (die für sie Methoden etc. definieren)\nmüssen Klassen die Klassen haben auch Klassen haben\n... \\l",
+        "picture": ""
+      },
+      {
+        "title": "Objektorientierung",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Objekte sind Instanzen, beschrieben durch Klassen\nKlassen sind Instanzen, beschrieben durch Metaklassen\nMetaklassen sind Instanzen der Metaklasse #Metaklasse#\ni.A. reichen 4 Ebenen aus\nstatt fest vordefinierten Sprachkonstrukten möglichst viel in der Sprache selbst ausdrückbar",
+        "picture": ""
+      },
+      {
+        "title": "Metaebenenschichtung (Beispiel)",
+        "type": "list",
+        "content": "Metametaebene\nMetaklassenebene\nKlassenebene\nInstanzebene",
+        "picture": ""
+      },
+      {
+        "title": "Ausdrucksfähigkeit von Objektorientierte Sprachen",
+        "type": "list",
+        "content": "Mit Klassen die Bürger erster Klasse sind mehr Konstrukte ausdrückbar als z.B. in Java\nIn Java durch Factory Method:\n> Klasse über statics\n> Verzicht auf Konstruktoren\n> new nur für Objektgenerierung",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Konstruktoren - hypothetischer OOPL",
+        "type": "java",
+        "content": "MetaClass StudentClass = ConcreteClass.new();\nStudentClass Student = StudentClass.new({\n    Student new(int id) {\n        self := builtin_create(); // creation\n        self.id = id; // initialization\n    return self;\n});\nStudent studi = Student.new(4711);",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Konstruktoren mit Factory Method - Java",
+        "type": "java",
+        "content": "public class Student {\n    static public Student newStudent(int id) {\n        Student student = new Student(); // Erz.\n        student.id = id; // Init.\n        return student;\n    }\n    private Student() {\n    }\n}\nStudent studi = Student.newStudent(4711); \n// new gibt es nicht - nur über Methode generiert",
+        "picture": ""
+      },
+      {
+        "title": "Einordnung von Javas \"Klassenebene\"",
+        "type": "text",
+        "content": "= Java simuliert manche OO Konstrukte durch Ausdrücke \\\\l\nKlassen & Metaklassen gewissermaßen gleichzeitig in Java class definiert",
+        "picture": ""
+      },
+      {
+        "title": "Ausdruck: Unterschiedliche Classifier",
+        "type": "list",
+        "content": "Vollständige OO: Metaklassen\nIn Java: class, abstract class, interface, deren Modifier, primitive Typen, enum, record, Arrays",
+        "picture": ""
+      },
+      {
+        "title": "Ausdruck: Vorgegebene Typen",
+        "type": "list",
+        "content": "Vollständige OO: Null, Void, i.d.R. Object\nIn Java: primitve Typen, per Native Interface implementierte",
+        "picture": ""
+      },
+      {
+        "title": "Ausdruck: Klasse als Objekt",
+        "type": "list",
+        "content": "Vollständige OO: Klassen sind Objekte\nIn Java: Reflektion",
+        "picture": ""
+      },
+      {
+        "title": "Ausdruck: Konstruktoren",
+        "type": "list",
+        "content": "Vollständige OO: definiert in Metaklasse für Klassen bzw. in Klasse für Objekte\nIn Java: als Sprachkonstrukte, statische Konstruktoren (static), Singleton Pattern, Factory Method Pattern",
+        "picture": ""
+      },
+      {
+        "title": "Ausdruck: Klassenmethoden & -attribute",
+        "type": "list",
+        "content": "Vollständige OO: definiert in Metaklasse für Klassen\nIn Java: statische (static) Methoden & Attribute \\l",
+        "picture": ""
+      },
+      {
+        "title": "Technische & fachliche Klassen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Semantik = Kontrakt über Schnittstelle\nFür Klassen = Domänsemantik\n> für Klasse, die fachliche Entität beschreibt\nIn OO Modelle: mischen von fachlichen & technischen Klassen\nNicht über OOPL abbildbar (Grund: alles sind Objekte)\nAnsatz: Domain-driven Design\\l",
+        "picture": ""
+      },
+      {
+        "title": "Formen Umgangs mit Metaebene",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Viele Objektsysteme haben keine Metaebene, die in Sprache direkt zur Verfügung steht (vollständig abgekoppelte Metaebene)\nIn Java: Sprachdefinition- & umsetzung\nMetaebene immer wieder benötigt - über andere Sprachkonstrukte gedeckt (z.B. Java Annotations - Enterprise JavaBeans, Definitionen; UML - Stereotypes)",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Annotations - Java",
+        "type": "java",
+        "content": "// z.B. Enterprise JavaBeans\n@Remote(MyInterface.class)\n@Stateless\npublic class SomeBean implements MyInterface {}\n\n// Definitionen\n@interface MyAnnotation {}",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "\\\\l",
+        "picture": ""
+      },
+      {
+        "title": "Metaprogrammierung",
+        "type": "text",
+        "content": "Metaprogramm = Programm, das Programme erzeugt\nErfordert Möglichkeiten in OOPL, Meta Object Protocol (MOP)\n> In Java: durch Reflection nicht abbildbar, aktuell keine Bestrebungen",
+        "picture": ""
+      },
+      {
+        "title": "In vollständigen OO Sprachen varriert",
+        "type": "list",
+        "content": "MOP in Smalltalk\nDynamic in Python\nGrenzen: z.B. Ändern des Typs von Rückgabewerten?\nKonflikt mit Open/closed Prinzip",
+        "picture": ""
+      }
+    ]
+  }
+]
