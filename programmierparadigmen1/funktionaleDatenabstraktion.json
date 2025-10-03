@@ -1,10 +1,228 @@
 [
   {
     "title": "Typklassen",
-    "sections": []
+    "sections": [
+      {
+        "title": "Motivation",
+        "type": "list",
+        "content": "(<=) nur für bestimmte Typen durchführbar\nInfo darüber nicht in Sprache sondern +Typklasse+",
+        "picture": ""
+      },
+      {
+        "title": "Motivation - Haskell",
+        "type": "code",
+        "content": "append :: [a] -> [a] -> [a] -- no operation = no problem\nappend [] ys = ys\nappend (x:xs) ys = x : append xs ys\n\nsorted :: Ord a => [a] -> Bool -- on type a operation <= \nsorted (x:y:zs) = x <= y && sorted (y : zs)\nsorted _ = True",
+        "picture": ""
+      },
+      {
+        "title": "Klassen - Syntax",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Haskell",
+        "type": "code",
+        "content": "class C t where {d1; ... ;dn}",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "C = Klassenname\nt = frei wählbarer Typparameter\nd1 - dn = Deklarationen von Fkt.\nDefault-Fkt. optional",
+        "picture": ""
+      },
+      {
+        "title": "Typklassen",
+        "type": "list",
+        "content": "Verwendung Typklasse aus Inferenz feststellbar\n> theoretische Grenzen, bei komplexen Fällen Deklaration hilfreich / erforderlich\nDa es kein \"ausführendes Objekt\" gibt, muss Typparameter im Typ jeder Methode vorkommen, damit seine Belegung (Instanz) eindeutig bestimmt werden kann",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele",
+        "type": "list",
+        "content": "Eq\nOrd\nShow",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele Typklassen - Haskell",
+        "type": "code",
+        "content": "class Eq a where \n    (==) :: a -> a -> Bool\n    (/=) :: a -> a -> Bool\n    -- default\n    x /= y = not (x == y)\n\nclass Ord a where\n    (<) :: a -> a -> Bool\n    -- etc\n\nclass Show a where\n    show :: a -> String",
+        "picture": ""
+      },
+      {
+        "title": "Instanzen - Syntax",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Haskell",
+        "type": "code",
+        "content": "instance C t where {d1;...;dn}",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "C = bereits deklarierter Klassenname\nt = konkreter Typausdruck\nd1 - dn = Implementierung der Deklarationen\nÜberschreiben default mögl.",
+        "picture": ""
+      },
+      {
+        "title": "Bei jeder Anwendung einer Methode wird aktuelle Belegung der Klassenparameters bestimmt:",
+        "type": "list",
+        "content": "passende Instanzdefinition = Auswahl der Methoden-Implementierung\nkeine passende = statischer Typfehler\nAndere Anwendungen, auch im gleichen Ausdruck, können andere Instanzen betreffen (overloading)",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele Instanzen - Haskell",
+        "type": "code",
+        "content": "instance Eq (Int, Int) where\n    (a,b) == (c,d) = (a == c) && (b == d)\n    -- etc\n\ninstance Show Bool where\n    show True = \"True\"\n    show False = \"False\"",
+        "picture": ""
+      },
+      {
+        "title": "Verwendung",
+        "type": "text",
+        "content": "+!+ **Typklassen sind keine Typen, sind syntaktische Aussagen über Typen ** \\\\l\nauf +=>+ achten -> Klammern können weggelassen werden",
+        "picture": ""
+      },
+      {
+        "title": "Constraints = zur Einschränkung von Typparametern von:",
+        "type": "list",
+        "content": "Klassen\ngenerischen Funktionen\ngenerischen Instanzen",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele Verwendung - Haskell",
+        "type": "code",
+        "content": "-- von Klassen -> bilden Unterklasse\nclass Eq (a) => Ord a where ...\n-- Klasse von Ord die auch von Typklasse Eq sind\n\n-- von generischen Funktionen\nsorted :: Eq(a) => [a] -> Bool\n-- Eingabe Liste dessen Typ Vergleichsoperationen hat\n\n-- von generischen Instanzen\ninstance Eq(a) => Eq [a] where \n    [] == []        = True\n    (a:b) == (c:d)  = (a == c) && (b == d)\n    -- overloading       ^^ a        ^^ [a]\n    _ == _          = False\n-- Instanz von Liste dessen Typ Vergelichsoperationen hat",
+        "picture": ""
+      },
+      {
+        "title": "Automatisierung",
+        "type": "text",
+        "content": "= Teilweise von vordefinierten Typklassen gibt es \"offensichtlich\" Instanzen für benutzerdefinierten algebraischen Datentypen (data)\n=> kann Haskell-Compiler automatisiert ableiten\n=> +deriving+",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Automatisierung - Haskell",
+        "type": "code",
+        "content": "data Grade = Outstanding | ExceedsExpectations | Acceptable | Poor | Dreadful | Troll\n    deriving (Show, Ord, Enum, Eq)\n",
+        "picture": ""
+      },
+      {
+        "title": "Vergleich - Interface vs. Typklassen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Gemeinsamkeiten",
+        "type": "list",
+        "content": "Zweck: Wiederverwendbarkeit & Abstraktion von Client-Code\nabstrakte & Default-Methoden mögl.\nImplementierung dezentral mögl.",
+        "picture": ""
+      },
+      {
+        "title": "Unterschiede",
+        "type": "list",
+        "content": "class = interfacse\ninstance = implements\nTypklasse != Typ\nkeine privilegierte Agumentposition von Methoden (this)\ngenerell: Typklassen ausdruckstärker ",
+        "picture": ""
+      }
+    ]
   },
   {
     "title": "Abstrakte Datentypen",
-    "sections": []
+    "sections": [
+      {
+        "title": "Datenstrukturen in Racket",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Datenstrukturen - Racket",
+        "type": "racket",
+        "content": "(define-struct vec2D [x y])\n\n; Konstruktorfkt.\n(define myVec (make-vec2D 2 3))\n; Selektorfkt.\n(displayln (vec2D-x myVec))\n(displayln (vec2D-y myVec))",
+        "picture": ""
+      },
+      {
+        "title": "Datenstrukturdefintion impliziert Defintion",
+        "type": "list",
+        "content": "Konstruktorfunktion\nSelektorfunktionen",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "**=>** Selektorfkt. nach Produkttypen üblich (Projektion über Namen)",
+        "picture": ""
+      },
+      {
+        "title": "Komplexere Fkt. - Racket",
+        "type": "racket",
+        "content": "; implementieren komplexerer Funktionen basierend auf Datenstruktur\n(define add-vec (lambda [v1 v2] (\n  make-vec2D ((+ (vec2D-x v1) (vec2D-x v2)) (+ (vec2D-y v1) (vec2D-y v2)))\n))\n\n(define length-vec2d (lambda [v] (\n  (sqrt (+ (sqr (vec2D-x v)) (sqr (vec2D-y v))))\n)))",
+        "picture": ""
+      },
+      {
+        "title": "Abtrakter Datentyp - Haskell",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Abstrakter Datentyp (Vec2d) - Haskell",
+        "type": "code",
+        "content": "-- abstrakter Datentyp Vec2d\nclass Vec2d v where\n    vec2d :: Double -> Double -> v -- Konstruktorfkt.\n    x2d :: v -> Double -- Selektorfkt.\n    y2d :: v -> Double -- Selektorfkt.\n\n-- komplexere Fkt. basierend auf abstrakter Datentyp\nadd2d :: (Vec2d v) => v -> v -> v\nadd2d v1 v2 = vec2d (x2d v1 + x2d v2) (y2d v1 + y2d v2)\n\nlength2d :: (Vec2d v) => v -> Double\nlength2d v = sqrt (x2d v ^ 2 + y2d v ^2)",
+        "picture": ""
+      },
+      {
+        "title": "Mögliche Implementierungen (Vec2d) - Haskell",
+        "type": "code",
+        "content": "-- Implementierung mit (Double,Double)\ninstance Vec2d (Double, Double) where \n    vec2d x y = (x,y)\n    x2d (x,y) = x\n    y2d (x,y) = y\n\n-- Implementierung mit data Vec2dD\ndata Vec2dD = Vec2dD Double Double\ninstance Vec2d Vec2dD where\n    vec2d x y = Vec2dD x y\n    x2d (Vec2dD x y) = x\n    y2d (Vec2dD x y) = y\n\n-- Implementierung mit [Double]\ninstance Vec2d [Double] where\n    vec2d x y = [x,y]\n    x2d [x,y] = x\n    y2d [x,y] = y\n-- Waring: do not use x2d, y2d on longer/shorter lists\n\n-- Implementierung mit Axis2d\ndata Axis2d = X | Y\ninstance Vec2d (Axis2d -> Double) where -- 2 Typparameter in Lambda geschachtelt\n    vec2d x y = \\a -> case a of {X -> x; Y -> y}\n    -- gleiche wie: \n    -- vec2d x y a = case a of {X -> x; Y -> y}\n    x2d v = v X -- a => X -> nach lambda fkt. von v = x\n    y2d v = v Y\n\n-- Implementierung mit ((Double -> Double -> Double) -> Double)\ninstance Vec2d ((Double -> Double -> Double) -> Double) where\n    -- input: 2stellige Fkt. f::Double->Double->Double\n    -- Outpuz: Double wenn f auf gespeicherte Koordinaten angewandt\n    vec2d x y = \\f -> f x y\n    -- v (\\x y -> x + y) -> x + y\n    x2d v = v (\\ x y -> x)\n    y2d v = v (\\ x y -> y)",
+        "picture": ""
+      },
+      {
+        "title": "Spezifikation",
+        "type": "list",
+        "content": "Konstruktor darf keine Informationen weglassen\nKopie wird als äquivalent anerkannt\nfür statische Typsicherheit: Selektorfkt. für alle typgemäßen Werte definiert",
+        "picture": ""
+      },
+      {
+        "title": "Abstrakter Datentyp - Liste",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "null\nempty\ncons\nhead\ntail",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Liste - Haskell",
+        "type": "code",
+        "content": "class Lst l where\n    nullLst :: l a -> Bool\n    emptyLst :: l a -- Konstruktor leere Liste\n    consLst :: a -> l a -> l a -- Konstruktor Liste\n    headLst :: l a -> a -- Selektorfkt.\n    tailLst :: l a -> l a -- Selektorfkt.\n\n-- komplexere Fkt. auf abstrakte Klasse\nsumLst :: (Lst l, Num a) => l a -> a -- l & a sind Typklassen nicht type\nsumLst lst = if nullLst lst then 0 else headLst lst + sumLst (tailLst lst)\n\nrangeLst :: (Ord t, Num t, Lst l) => t -> t -> l t\nrangeLst i j = if i > j then emptyLst else consLst i (rangeLst (i+1) j)\n\n-- Spezifikation\n-- null empty == True\n-- empty (cons h t) == False\n-- head (cons h t) == h\n-- tail (cons h t) == t\n\n-- Implementierung mit []\ninstance Lst [] where\n    nullLst = null\n    emptyLst = []\n    -- consLst a lst = a : lst\n    -- oder mit Selektion:\n    consLst = (:)\n    -- headLst lst = head lst\n    -- tailLst lst = tail lst\n    -- oder:\n    headLst = head\n    tailLst = tail\n\n-- Implementierung mit MyList\ndata MyList a = EmptyList | ConsList (a, MyList a)\ninstance Lst MyList where\n    nullLst EmptyList = True\n    nullLst (ConsList _) = False\n    emptyLst = EmptyList\n    consLst a lst = ConsList (a, lst)\n    headLst (ConsList (a, _)) = a\n    tailLst (ConsList (_,t)) = t",
+        "picture": ""
+      },
+      {
+        "title": "Abstrakter Datentyp - Natürliche Zahlen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "zero\nNachfolger\nVorgänger",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Natürliche Zahlen - Haskell",
+        "type": "code",
+        "content": "class Nat n where\n    zero :: n\n    nach :: n -> n\n    vor :: n -> Maybe n\n\n-- Spezifikation\n-- vor zero = Nothing\n-- vor (nach n) = Just n\n-- zero /= nach n\n-- nach m == nach n => m == n\n\n-- komplexere Fkt. basierend auf abstrakten Klasse Natürlicher Zahlen\nlengthList :: (Lst l, Nat n) => l a -> n \nlengthList l = if nullLst l then zero else nach(lengthList (tailLst l))\n\naddNat :: (Nat n) => n -> n -> n\naddNat m n = case vor m of\n    Nothing -> n\n    Just k -> nach (addNat k n)\n\n-- Implementierung mit Int\ninstance Nat Int where\n    zero = 0\n    nach n = n + 1\n    vor n = if n > 0 then Just (n - 1) else Nothing\n\n-- Implementierung mit data Peano\ndata Peano = Z | S Peano\ninstance Nat Peano where\n    zero = Z\n    nach = S\n    vor (S n) = Just n\n    vor Z = Nothing\n\n-- Implementierung mit [()]\ninstance Nat [()] where\n    zero = []\n    nach n = () : n\n    vor (():n) = Just n\n    vor [] = Nothing",
+        "picture": ""
+      }
+    ]
   }
 ]

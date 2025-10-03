@@ -4,6 +4,7 @@
 @media (max-width: 768px) {
   body {
     flex-direction: column;
+    overflow-x: hidden;
   }
 
   /* Sidebar */
