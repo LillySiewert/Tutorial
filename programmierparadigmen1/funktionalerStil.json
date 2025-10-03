@@ -1,0 +1,420 @@
+[
+  {
+    "title": "Algebraische Datentypen & Pattern Matching",
+    "sections": [
+      {
+        "title": "Algebraische Datentypen",
+        "type": "text",
+        "content": "= Produkttypen und Summentypen und Rekursion",
+        "picture": ""
+      },
+      {
+        "title": "Produkttypen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "\"sowohl-als-auch\"\nKartesisches Produkt\nZugriff per Selektion von Komponenten",
+        "picture": ""
+      },
+      {
+        "title": "Racket",
+        "type": "list",
+        "content": "bei Konstruktion numeriert\nbei Zugriff benannt",
+        "picture": ""
+      },
+      {
+        "title": "Produkttypen - Racket",
+        "type": "racket",
+        "content": "(define-struct point [x y])\n(define pointNew (make-point 12 9))\n(point-x pointNew) ; 12",
+        "picture": ""
+      },
+      {
+        "title": "Haskell",
+        "type": "list",
+        "content": "Tupel numeriert\nRecords benannt",
+        "picture": ""
+      },
+      {
+        "title": "Produkttypen - Haskell",
+        "type": "code",
+        "content": "type Point = (Int, Int)\npointNew = (12,9) :: Point\npoint_x :: Point -> Int \npoint_x (x,y) = x\n\np = print (point_x pointNew) -- 12\n-- oder in Terminal:\n-- point_x pointNew -> 12",
+        "picture": ""
+      },
+      {
+        "title": "Summentypen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "\"entweder-oder\"\nDisjunkte Vereinigung\nin PL oft keine explizite Syntax",
+        "picture": ""
+      },
+      {
+        "title": "Zugriff per",
+        "type": "list",
+        "content": "Fallunterscheidung -> Typkompatibilität & Fallabdenkung prüfbar?\npolymorphe Methoden -> Erweiterbarkeit?",
+        "picture": ""
+      },
+      {
+        "title": "Zugriff per Fallunterscheidung - ohne Pattern Matching - Racket",
+        "type": "racket",
+        "content": "(define-struct circle [r s])\n(define-struct rectangle [w h])\n(define circle-area (lambda [circle] (\n  printf ''radius ~a and s ~a\\n'' (circle-r circle) (circle-s circle)\n)))\n(define rect-area (lambda [rect] (\n  printf ''width ~a and height ~a\\n'' (rectangle-w rect) (rectangle-h rect)\n)))\n\n; Ab hier wichtig für Fallunterscheidung\n(define shape-area (lambda [s] (\n  cond \n    [(circle? s) (circle-area s)]\n    [(rectangle? s) (rect-area s)]\n)))\n\n; Ab hier wieder unwichtig\n(define c (make-circle 3.5 4))\n(shape-area c) ; radius 3.5 and s 4\n(define r (make-rectangle 5 9))\n(shape-area r) ; width 5 and height 9",
+        "picture": ""
+      },
+      {
+        "title": "Summentypen - Zugriff per Pattern-Matching",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Summentypen - Pattern-Matching - Haskell",
+        "type": "code",
+        "content": "-- gemischter Datentyp\ndata MyData = IntPairs (Int, Int) \n            | Text String \n            | Pizza\n\n-- Pattern-Matching\nscore :: MyData -> Int\nscore x = case x of \n    IntPairs (x,y) -> x + y\n    Text s -> length s\n    Pizza -> 42\n\n-- call\np = score Pizza -- 42\ni = score (IntPairs (3,4)) -- 7\nt = score (Text \"Hello\") -- 5",
+        "picture": ""
+      },
+      {
+        "title": "Gemischter Datentyp",
+        "type": "list",
+        "content": "unterscheiden durch Konstruktoren\nKonstruktoren zwei Zwecke",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "orderedList",
+        "content": "vorwärts = Funktion/Konstante zur Erzeugung von Werten des Summentyps\nrückwärts = Musterbaustein für Fallunterscheidung",
+        "picture": ""
+      },
+      {
+        "title": "Was macht ein Guard?",
+        "type": "list",
+        "content": "= eine Bedingung (wie if), die nach dem Pattern geprüft wird\n|\nAblauf (am Beispiel Guard):\n1. matched immer erfolgreich das Pattern n \n2. erste Guard geprüft (n >= 0 -> falls True, Ergebnis n)\n3. Sonst -> otherwise (= True als Default) -> Ergebnis -n",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Guard - Haskell",
+        "type": "code",
+        "content": "abs' :: Int -> Int\nabs' n\n    | n >= 0 = n\n    | otherwise = -n",
+        "picture": ""
+      },
+      {
+        "title": "Zugriff per Pattern Matching",
+        "type": "list",
+        "content": "Fallunterscheidung & Selektion in einem, d.h.\nTypkompatibilität & Fallabdeckung prüfbar",
+        "picture": ""
+      },
+      {
+        "title": "Case-Anweisung in Haskell",
+        "type": "text",
+        "content": "case x of {c1; ... ; cn}\n> Compiler kann vor überlappenden & fehlenden Fällen warnen",
+        "picture": ""
+      },
+      {
+        "title": "Semantikregeln",
+        "type": "orderedList",
+        "content": "Kopfauswertung x\nZweige in Reihe nach mit dem Wert verglichen\n> Pattern stimmt überein?\n>> Ja: Mustervariable lokal gebunden & Zweigausdruck ausgewertet\n>> Nein: (i+1)-Muster überprüft\nLaufzeitfehler wenn kein Muster übereinstimmt",
+        "picture": ""
+      },
+      {
+        "title": "Aufzählungstypen",
+        "type": "text",
+        "content": "= Summentypen, die als Varianten nur Konstanten haben",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Enums in Java\nHaskell: Sonderfall ohne Spezialbehandlung",
+        "picture": ""
+      },
+      {
+        "title": "Aufzählungstypen - Haskell",
+        "type": "code",
+        "content": "-- bereits bekannt\ndata Bool = True | False \n\n-- Pattern Matching kann alle Aufgaben\n-- der Fallunterscheidung übernehmen:\nif c then t else f \n-- Jetzt:\ncase c of {True -> t; False -> f}\n-- Oder;\ncase c of\n    True -> t\n    False -> f",
+        "picture": ""
+      },
+      {
+        "title": "Listen als Algebraische Datentypen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "mit festen Elementtyp\nmit variablen Elementtyp",
+        "picture": ""
+      },
+      {
+        "title": "Listen mit festen Elementtyp - Haskell",
+        "type": "code",
+        "content": "-- Typdefintion mit festen Elementtyp\ndata MyIntList = EmptyI | ConsI (Int, MyIntList)\n\nlistMitFesten = ConsI (7, ConsI (5, ConsI (3, EmptyI))) :: MyIntList\n\n-- Verarbeitung mit Pattern Matching\nsumMyIntList :: MyIntList -> Int\nsumMyIntList list = case list of \n    EmptyI -> 0\n    ConsI (h, t) -> h + sumMyIntList t\n\na = sumMyIntList listMitFesten -- 15",
+        "picture": ""
+      },
+      {
+        "title": "Listen mit variablen Elementtyp - Haskell",
+        "type": "code",
+        "content": "-- Typdefintion mit variablen Elementtyp\ndata MyList b = EmptyList | ConsList (b, MyList b) -- b ist Typ\nlistMitVariablenInteger = ConsList (7, ConsList (5, EmptyList)) :: MyList Int\nlistMitVariablenDouble = ConsList (3.8, ConsList (4.1, EmptyList)) :: MyList Double\nlistMitVariablenEmpty = EmptyList :: MyList Int\n\n-- Verarbeitung mit Pattern Matching\nsumMyList :: Num a => MyList a -> a\n-- Deklaration für Int sumMyList :: MyList Int -> Int\nsumMyList list = case list of\n    EmptyList -> 0\n    ConsList (h, t) -> h + sumMyList t\n\nc = sumMyList listMitVariablenInteger -- 12\nd = sumMyList listMitVariablenDouble -- 7.8999999999999995\ne = sumMyList listMitVariablenEmpty -- 0",
+        "picture": ""
+      },
+      {
+        "title": "Polymorphe Datentypen",
+        "type": "text",
+        "content": "= erlaubt generische Funktionen in statisch getypten Sprachen",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "eingebauter Listentyp ist polymorph (Haskell)\nImplementierung gemeinsam für alle konkreten Instanzen\nkann nur allgemeintaugliche Dinge tun",
+        "picture": ""
+      },
+      {
+        "title": "Eingebauter polymorpher Listentyp - Haskell",
+        "type": "code",
+        "content": "append :: ([t], [t]) -> [t]\nappend (xs, ys) = case xs of\n    [] -> ys\n    x : xs' -> x : append (xs', ys)\n-- Typparameter t",
+        "picture": ""
+      },
+      {
+        "title": "Nützlicher Polymorphe Summentyp",
+        "type": "list",
+        "content": "Sichere Alternative zu null als (abwesender) optionaler Wert\nAls Resultat partieller Funktionen\nWeiterverarbeitung mit Pattern Matching",
+        "picture": ""
+      },
+      {
+        "title": "Maybe - Polymorpher Summentyp - Haskell",
+        "type": "code",
+        "content": "data MaybeNew a = NothingNew | JustNew a\n\n-- Resultat in partiellen Funktionen\ndivExact :: (Int, Int) -> MaybeNew Int\ndivExact (x, y) = if x `mod` y == 0 \n                    then JustNew (x`div`y) \n                    else NothingNew\n\n-- Weiterverarbeitung mit Pattern Matching\noddFactor x = case divExact (x, 2) of\n    JustNew y -> oddFactor y\n    NothingNew -> x\n\n-- oddFactor 10 -> 5\n-- oddFactor 5 -> 5",
+        "picture": ""
+      },
+      {
+        "title": "Muster Produkttyp",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel - Muster Produkttyp - Haskell",
+        "type": "code",
+        "content": "avg3 :: Fractional a => (a, a, a) -> a\navg3 triple = case triple of (x,y,z) -> (x + y + z)/3.0 \navg3 triple = let (x,y,z) = triple in (x + y + z)/3.0\navg3 (x,y,z) = (x + y + z)/3.0",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "text",
+        "content": "!Funktionen in Haskell besitzen nur ein Parameter",
+        "picture": ""
+      },
+      {
+        "title": "Geschachtelte Muster",
+        "type": "text",
+        "content": "= Muster in Muster sind möglich\n\\\\l\n_ = matched alles, bindet nichts -> \"ist hier nicht relevant\"",
+        "picture": ""
+      },
+      {
+        "title": "Geschachtelte Muster - Haskell",
+        "type": "code",
+        "content": "zipNew :: ([a], [b]) -> [(a,b)]\nzipNew is = case is of\n    (x:r,y:s) -> (x,y) : zipNew (r,s)\n    _ -> []\n\nunzipNew :: [(a,b)] -> ([a], [b])\nunzipNew is = case is of\n    [] -> ([],[])\n    (x,y):t -> (x:r, y:s) where (r,s) = unzipNew t",
+        "picture": ""
+      },
+      {
+        "title": "Definierende Gleichungssysteme",
+        "type": "text",
+        "content": "f x = case x of {p1 -> r1; ... ; pn -> rn}",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "können synatktisch \"ausmultipliziert\" werden\nsemantisch wie case\n! Gleichungen die gemeinesame Funktion definieren, evtl. Reihenfolge wichtig",
+        "picture": ""
+      },
+      {
+        "title": "Definierende Gleichungssysteme - Geschachtelte Muster - Haskell",
+        "type": "code",
+        "content": "zipNew2 (x:r,y:s) = (x,y) : zipNew2 (r,s)\n-- muss davor, dann ansonsten wird _ immer ausgeführt\n-- und das andere nicht\nzipNew2 _ = []",
+        "picture": ""
+      },
+      {
+        "title": "Pattern Matching in Racket",
+        "type": "text",
+        "content": "mit match <pattern>",
+        "picture": ""
+      },
+      {
+        "title": "Pattern Matching - Racket",
+        "type": "racket",
+        "content": "(define-struct point [x y])\n(define-struct circle [center radius])\n(define-struct rectangle [corner1 corner2])\n\n(define shape-area (lambda [shape] (\n  match shape\n  [(circle _ r) (* pi r r)]\n  [(rectangle (point x1 y1) (point x2 y2))\n    (* (abs (- x1 x2)) (abs (- y1 y2)))\n  ]\n)))",
+        "picture": ""
+      },
+      {
+        "title": "\"Pattern Matching\" in Java",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "\"Pattern Matching\" - Java",
+        "type": "java",
+        "content": "// Objektorientiere \"Summentypen\"\nabstract class IntList {}\nclass EmptyList extends IntList {}\nclass ConsList extends IntList {\n    int first;\n    IntList rest;\n}\n\n// Fallunterscheidung auf Basis von Konstanten\n// = kein Pattern Matching\nswitch (n) {\n    case 0: return 1;\n    case 1: return 1;\n    default: return n * fak(n-1);\n}\n\n// mit Java 14 - 21: verschiedene Möglichkeiten für\n// Pattern Matching\npublic static double getPerimeter (Shape shape) throws IllegalArgumentException {\n    return switch (shape) {\n        case Rectangle r -> 2 * r.length() + 2 * r.width();\n        case Circle c -> 2 * c.radius() * Math.PI;\n        default -> throw new IllegalArgumentException();\n    }\n}",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Currying",
+    "sections": [
+      {
+        "title": "Funktionen in Haskell = nur ein Argument - Lösung",
+        "type": "list",
+        "content": "Zusammenfassung in Tupel\nFunktion verarbeitet erstes Argument & antwortet mit (anonymer) Funktion die nächstes Argument verarbeitet = Currying ",
+        "picture": ""
+      },
+      {
+        "title": "Defintion & Verwendung",
+        "type": "text",
+        "content": "-> Funktionsanwendung linksassoziativ",
+        "picture": ""
+      },
+      {
+        "title": "Funktionsanwendung linksassoziativ",
+        "type": "code",
+        "content": "sorted3c            = \\x -> \\y -> \\z ->     x <= y && y <= z\nsorted3c 4          =     \\y -> \\z ->       x <= y && y <= z\n                                    where { x = 4 }\n(sorted3c 4) 5      =            \\z ->      x <= y && y <= z\n                                    where { x = 4; y = 5 }\n((sorted3c 4) 5) 6  =                       x <= y && y <= z\n                                    where { x = 4; y = 5; z = 6 }\n-- Klammern können auch weggelassen werden\nsorted3c 4 5 6 -- entspricht: 4 <= 5 && 5 <= 6 -- entspricht: True",
+        "picture": ""
+      },
+      {
+        "title": "Syntax",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "geschachtelte Lambda-Ausdrücke\n> Zusammenfassbar auf Linke-Seite\nTupelmuster für Lambda-Ausdrücke mögl.",
+        "picture": ""
+      },
+      {
+        "title": "Syntax - Haskell",
+        "type": "code",
+        "content": "-- geschachtelte Lambda-Ausdrücke\nsorted3c = \\x y c -> x <= y && y <= z\n\n-- zusammengefasst auf linke Seite\nsorted3c x y c = x <= y && y <= z\n\n-- Vergleich Tupel-Darstellung\nsorted3c (x,y,z) = x <= y && y <= z\n\n-- Tupelmuster in Lambda-Ausdrücken\nsorted3c = \\(x,y,z) -> x <= y && y <= z",
+        "picture": ""
+      },
+      {
+        "title": "Typen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Klammern Curry-Form können weggelassen werden\nFunktionstyp-Operator rechtsassoziativ",
+        "picture": ""
+      },
+      {
+        "title": "Typregeln Curry-Form - Haskell",
+        "type": "code",
+        "content": "sorted3c :: (Int, Int, Int) -> Bool\nsorted3c = \\ (x, y, z) -> x <= y && y <= z\n\nsorted3c2 :: Int -> (Int -> (Int -> Bool))\nsorted3c2 x y z = x <= y && y <= z\n\nsorted3c3 :: Int -> Int -> Int -> Bool\nsorted3c3 x y z = x <= y && y <= z ",
+        "picture": ""
+      },
+      {
+        "title": "Curry",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Prinzip für Mehrstelligkeit (ausgenommen wo Tupel natürlicherweise vorkommen)\nauch für Datentyp- & Muster-Konstruktion (bei mehreren Typparameters zwingend)\nfür Umwandlung von Funktionsname & Operator zwingend",
+        "picture": ""
+      },
+      {
+        "title": "Curry - Haskell",
+        "type": "code",
+        "content": "-- curry Datentyp- & Muster-Konstruktoren\n-- ConsC hat zwei Parameter --> ConsC :: a -> MyListC a -> MyListC a\ndata MyListC a = EmptyC | ConsC (a, MyListC a)\n\n-- curry bei mehreren Typparametern zwingend\n-- Tree :: * -> * -> *      => nimmt erst einen Typ a, \n-- liefert dann eine Funktion auf Typen, die einen zweiten Typ b erwartet.\n-- Empty :: Tree a b\n-- Leaf :: a -> Tree a b\n-- Branch :: b -> Tree a b -> Tree a b -> Tree a b\ndata Tree a b = Empty | Leaf a | Branch b (Tree a b) (Tree a b)\n\n-- curry für Umwandlung zwischen Funktionsname & Operatoren zwingend\ndiv :: Int -> Int -> Int\n(/) :: Double -> Double -> Double\n(:) :: a -> [a] -> [a]",
+        "picture": ""
+      },
+      {
+        "title": "Partielle Anwendung",
+        "type": "text",
+        "content": "= Anwendung mit weniger Arguemente (= partielle Anwendung) ist valider Ausdruck\n-> Resultattp = Funktionstyp",
+        "picture": ""
+      },
+      {
+        "title": "Partielle Anwendung - Haskell",
+        "type": "code",
+        "content": "sorted3c :: Ord a => a -> a -> a -> Bool\nsorted3c x y z = x <= y && y <= z\na = sorted3c 0 0 -- \\z -> z >= 0\n-- a 5 -> True\n-- a (-1) -> False",
+        "picture": ""
+      },
+      {
+        "title": "Curry mit klassischen Fkt. höherer Ordnung kombiniert",
+        "type": "list",
+        "content": "foldl (sum, product, reverse)\nmap\nfilter",
+        "picture": ""
+      },
+      {
+        "title": "Fkt. höherer Ordnung - Haskell",
+        "type": "code",
+        "content": "-- bereits in Sprache definiert:\nfoldl :: (a -> b -> a) -> a -> [b] -> a\nfoldl f e lst = case lst of\n    [] -> e\n    h : t -> let e' = f e h in foldl f e' t\n\nsum = foldl (+) 0\nproduct = foldl (*) 1\nreverse = foldl (\\ t h -> h : t) []\n\nmap :: (a -> b) -> [a] -> [b]\nfilter :: (a -> Bool) -> [a] -> [a]\n-------------------------------------------------------------\n\n-- Anwendungen\na = foldl (/) 64 [4,2,4] -- 2.0\nb = map abs [-1,-3,4,-12] -- [1,3,4,12]\nc = map reverse [\"abc\",\"cda\",\"1234\"] -- [\"cba\",\"adc\",\"4321\"]\nd = filter (>5) [1,2,3,4,5,6,7,8] -- [6,7,8]\ne = filter odd [3,6,7,9,12,14] -- [3,7,9]\nf = sum [2,1,3] -- 6\ng = product [2,4,5] -- 40\nh = reverse \"hello\" -- \"olleh\"",
+        "picture": ""
+      },
+      {
+        "title": "Mehrstellige Fkt. - Ausdruckskraft bei: ",
+        "type": "list",
+        "content": "Partieller Anwendung\nEntwurfs-Reihenfolge der Parameter von allgemein -> speziell",
+        "picture": ""
+      },
+      {
+        "title": "Beispiele - Haskell",
+        "type": "code",
+        "content": "range :: Int -> Int -> [Int]\nrange i j = if i > j then [] else i : range (i+1) j\n-- oder [i..j]\n\ncountTo :: Int -> [Int]\ncountTo = range 1\n\nnumber :: [a] -> [(Int, a)]\nnumber = doubleArg (zip.countTo.length) where doubleArg f x = f x x",
+        "picture": ""
+      },
+      {
+        "title": "Isomorphismus",
+        "type": "text",
+        "content": "= Hin & wieder zurück",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Curry selbst als Paar Fkt. höherer Ordnung\nInsbesondere polymorph\nFunktionspaar = 1:1 Beziehung",
+        "picture": ""
+      },
+      {
+        "title": "Isomorphismus - Haskell",
+        "type": "code",
+        "content": "-- Paar Fkt. höherer Ordnung\ncurry f x y = f (x,y) -- \\x -> \\y -> f(x,y)\nuncurry f (x,y) = f x y -- \\(x,y) -> f x y\n\n-- polymorphe Typen\n-- c ist die Fkt. f\ncurry :: ((a,b) -> c) -> (a -> b -> c)\nuncurry :: (a -> b -> c) -> ((a,b) -> c)\n\n-- 1-zu-1-Beziehung\ncurry(uncurry f)\n≙ curry (\\(x,y) -> f x y)\n≙ \\x -> \\y -> (\\(x,y) -> f x y) (x,y)\n≙ \\x -> \\y -> f x y\n≙ \\x -> f x\n≙ f\n\nuncurry(curry f) = f\n≙ uncurry (\\x -> \\y -> f(x,y))\n≙ \\(x,y) -> (\\x -> \\y -> f(x,y)) x y\n≙ \\(x,y) -> (\\y -> f(x,y)) y\n≙ \\(x,y) -> f(x,y)\n≙ f",
+        "picture": ""
+      },
+      {
+        "title": "Mehrdeutige Interpretation",
+        "type": "text",
+        "content": "= Mehrstellige Fkt. in Curry-Form unterscheiden sich (syntaktisch) nicht von Fkt. die eine Fkt. liefern soll",
+        "picture": ""
+      },
+      {
+        "title": "Sektionen",
+        "type": "text",
+        "content": "= Partielle Anwendungen in Praxis häufig -> abkürzende Notation (Sektionen)",
+        "picture": ""
+      },
+      {
+        "title": "Sektionen - Haskell",
+        "type": "code",
+        "content": "-- Linke Sektion\n-- (< 10)\nf = (> 10)\na = f 7 -- False\nb = f 20 -- True\n\n-- Rechte Sektion\n-- (10 <)\ng = (100 -)\nc = g 30 -- 70\nd = g 120 -- -20\n\n-- Doppelsektion\n-- (<)\ne = map (*) [1,2,3]\n\n-- Ausnahme:\n(-c) -- Negation von c\n\n-- Praktische Beispiele\nfilter (> 10) [5,15,20,2,25] -- [15,20,25]\nfilter (10 >) [5,15,20,2,25] -- [5,2]\nmap (100 -) [90,15,200] -- [10,85,-100]\nmap (- 100) [90,15,200] -- Fehler da Negation\nmap (*) [1,3,4,2,6] -- Resultattyp = fkt.\nmap (* 2) [1,3,4,2,6] -- [2,6,8,4,12]",
+        "picture": ""
+      }
+    ]
+  }
+]
