@@ -1,31 +1,358 @@
 [
-    {
-        "title": "Begriffe",
-        "sections": [
-            {
-                "title": "Begriffe Übersicht",
-                "type": "pictureSmall",
-                "content": "begriffe.jpeg",
-                "picture": "../images/begriffe.jpeg"
-            },
-            {
-                "title": "Informationssicherheit",
-                "type": "text",
-                "content": "= Schutz von Informationen sowohl in +technischen+, als auch in +nicht-technischen+ **Systemen**\n#Information Security#\\\\l",
-                "picture": ""
-            },
-            {
-                "title": "IT-Sicherheit",
-                "type": "text",
-                "content": "= Schutz von +IT-Systemen+ (inkl. der durch diese +verarbeiteten+ und +gespeicherten+ **Informationen**)\n#IT Security#\\\\l",
-                "picture": ""
-            },
-            {
-                "title": "Cybersicherheit",
-                "type": "text",
-                "content": "= Schutz des +Cyberraums+/Cyberspace (Gesamtheit vernetzter +Geräte+ und ihrer +Benutzer+)\n#Cyber Security#",
-                "picture": ""
-            }
-        ]
-    }
+  {
+    "title": "Begriffsdefintionen",
+    "sections": [
+      {
+        "title": "Informationssicherheit",
+        "type": "text",
+        "content": "= Schutz von Informationen in technischen als auch nicht-technischen Systemen \\\\l\n= Schutz von Informationen vor Offenlegung der Daten durch unautoristieren Zugriff (Vertraulichkeit), Unangemessene Veränderungen (Integrität), Nichtzugriff (wenn erforderlich, Verfügbarkeit)\n\\\\l\n= Alle Arten von Informationen (z.B. Papierdokumente, verbale & visuelle Kommunikation)\n\\\\l\n= Kern: CIA-TRIADE",
+        "picture": ""
+      },
+      {
+        "title": "IT-Sicherheit",
+        "type": "text",
+        "content": "= Schutz von IT-Sytemen (inkl. der durch die verarbeiteten & gespeicherten Informationen)\n\\\\l\n= Gewährleistung von Sicherheit aller eingesetzten Informationstechniken bzw. -technologien (IT), d.h. aller Hardware- und Softwaresysteme bzw. aller Rechner- und Netzsysteme\n\\\\l\n= verhindern, dass Angreifern Daten und Informationen ausspähen, manipulieren, kopieren oder zerstören können\n\\\\l\n= 3 wichtigsten Schutzziele = CIA-TRIADE\n-> Vertraulichkeit, Integrität, Verfügbarkeit",
+        "picture": ""
+      },
+      {
+        "title": "Cybersicherheit",
+        "type": "text",
+        "content": "= Schutz des Cyberraums / Cyberspace (Gesamtheit der vernetzten Geräten und deren Benutzer)\\\\l\n= Ziel ist angemessenes Niveau von Stabilität, Kontinuität und Sicherheit in einer Einrichtung, die in einem Cyberraum operiert, aufrechtzuerhalten; Cyberrisiko auf tolerierbares Niveau reduzieren",
+        "picture": ""
+      },
+      {
+        "title": "Weitere Begriffe",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Security",
+        "type": "list",
+        "content": "= Sicherheit vor Einwirkung\n= Schutz von System vor der Umgebung\nz.B. IT-Sicherheit",
+        "picture": ""
+      },
+      {
+        "title": "Safety",
+        "type": "list",
+        "content": "= Betriebssicherheit\n= Schutz der Umgebung vor den System\nz.B. Arbeitssicherheit",
+        "picture": ""
+      },
+      {
+        "title": "Datensicherheit",
+        "type": "list",
+        "content": "= Sicherheit vor Einwirkung\n= Schutz von i.d.R. digitalen Daten\nTeil IT-Sicherheit\nAbsicherung von Datenbanken oder Backups",
+        "picture": ""
+      },
+      {
+        "title": "Datenschutz",
+        "type": "list",
+        "content": "= Schutz von personenbezogenen Daten\nteilweise in IT-Sicherheit -> eher Informationsicherheit\nDatenschutzgrundverordnung (DSGVO)",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Schutzziele IT-Sicherheit",
+    "sections": [
+      {
+        "title": "Vertraulichkeit",
+        "type": "text",
+        "content": "= Schutz von Informationen und Systemen vor Einsicht durch dazu nicht autorisiteren Akteuren",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Themenbereiche",
+        "type": "list",
+        "content": "Berichtigung = Zuweisung von Privilegien\nAuthentisierung = Nachweis von Identität\nAuthentifizierung = Überprüfung von Identität\nAutorisierung = Gewährung von Privilegien\nDatenklassifikation = Kategorisierung von Daten\nVerschlüsselung",
+        "picture": ""
+      },
+      {
+        "title": "Integrität",
+        "type": "text",
+        "content": "= Schutz von Informationen und Systemen vor unautorisierten Veränderungen",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Themenbereiche",
+        "type": "list",
+        "content": "Signaturen, Hashes, Paritäten\nNicht-Abstreitbarkeit von Handlungen\nManipulationssichere Aufbewahrung\nTechnisches Monitoring & Auditing\nVersion Control\nChange Management",
+        "picture": ""
+      },
+      {
+        "title": "Verfügbarkeit",
+        "type": "text",
+        "content": "= Schutz von Informationen und Systemen vor Störung der autorisiteren Erreichbarkeit",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Themenbereiche",
+        "type": "list",
+        "content": "Redundanzen\nLoad-Balancing\nBackup & Recovery",
+        "picture": ""
+      },
+      {
+        "title": "Kompromittierungen - Beispiele",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Session Hijacking - Vertraulichkeit\nSQL-Injektion - Integrität\n(D)DoS - Verfügbarkeit",
+        "picture": ""
+      },
+      {
+        "title": "Welches Schutzziel am meisten gefährdet?",
+        "type": "list",
+        "content": "Phishing-Mail (Login) - Vertraulichkeit -> Diebstahl von Zugangsdaten\nDoS - Verfügbarkeit -> Systeme nicht / nur eingeschränkt erreichbar\nRansomware - Verfügbarkeit -> Nutzer kann nicht auf seine Daten zugreifen\nWhistblower - Vertraulichkeit -> vertrauliche Informationen werden nach außen gegeben",
+        "picture": ""
+      },
+      {
+        "title": "Alternativen / Ergänzungen zu CIA-Triade",
+        "type": "text",
+        "content": "oft uneinheitlich & teilweise mit starker Überschneidung",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Non-Repudiation (Nicht-Abstreitbarkeit) = technische Nicht-Abstreitbarkeit (durch Signaturen) und legale Haftung sicherstellen\nAuthenticity (Echtheit) = Nachweis des Ursprungs oder Urheberschaft\nAccountability = Zuordnung, Prüfung & Nachverfolgung der Verantworung\nPosession / control = Besitz von Informationen ohne diese notwendigerweise gelesen zu haben\nUtility = Nutbarkeit von Daten, da diese z.B. auch lesbar gemacht werden können",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Angreifer",
+    "sections": [
+      {
+        "title": "Schwachstelle",
+        "type": "text",
+        "content": "= ist eine Schwäche in einem Informationssystem, im System-Sicherheitsverfahren, internen Kontrollen oder der Implementierung, die durch Bedrohungsquellen ausgenutzt werden können",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Exploit = Methode zur Ausnutzung von Schwachstellen\nSchadsoftware / Malware = Software zur Störung oder Kompromitierung von IT-Systemen\nZero-Day = Schwachstelle in Hard- oder Software die vom Hersteller i.d.R. noch nicht bekannt war und zu der noch keine Patches oder anderen Maßnahmen existieren. Hersteller hat 0 Tage Zeit, Patch zu liefern, da die Schwachstelle bereits beschrieben oder ausgenutzt wurde",
+        "picture": ""
+      },
+      {
+        "title": "Hacker",
+        "type": "text",
+        "content": "= (gebräuchlich) jemand der (unerlaubterweise) in ein IT-System eindringt oder dieses manipuliert",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "ursprünglich: Tüftler\ndifferenzierter Gebrauch: Whitehat-Hacker (z.B. Sicherheitsforscher), Grayhat-Hacker, Blackhat-Hacker (kriminell)\nunterschiedliche Motivation je nach Typ",
+        "picture": ""
+      },
+      {
+        "title": "\"Script Kiddies\" / (meist junge) Amateure",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "sind i.d.R. unbewusst Folge ihres Handelns\nMethoden: nutzen i.d.R. leicht online verfügbare & nutzbare Programme\nMotivationen: Neugier, Nervenkitzel, Geltungstrib",
+        "picture": ""
+      },
+      {
+        "title": "Organisationsmitglieder",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "können aus eigener Bestrebung (z.B. Whistleblower) oder durch Anwerben durch von außen einer Organisation schaden (auch durch Unwissenheit & Inkompetenz)\nMethoden: nutzen vermeintliche legitime Zugriffsmöglichkeiten & internes Wissen\nMotivation: Rache, Vergeltung, Zwang / Erpressung, Idealismus, Bestechungszahlung",
+        "picture": ""
+      },
+      {
+        "title": "(Cyber)-Kriminelle / eCrime",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "zunehmend in Banden\nMethoden: Erpressung (z.B. Ransomware), Abgreifen Zugangsdaten (z.B. Social Engineering), Manipulation Finanzsystemen, Diebstahl digitaler Güter, Scam, Spamming, Phishing, Kauf & Verkauf von eCrime-Services\nMotivation: Geld",
+        "picture": ""
+      },
+      {
+        "title": "Staatliche Akteure",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "nutzen professionel organisierte Berufshacker = Advanced Persistent Threats (APT)\nMethoden: Sabotage, Spionage, Subversion, Propaganda\nMotivationen: staatliche Interessen (z.B. Schädigung feindlicher Systeme, Wahlmanipulation)\nNach außer oft unter Tiernamen (z.B. Fancy Bear - Russland, Kitten - Iran, Tiger - Indien)",
+        "picture": ""
+      },
+      {
+        "title": "(Cyber) Terroristen",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Methoden: Angsverbreitung, Propaganda\nMotivationen: Ideologische Ziele, Geld",
+        "picture": ""
+      },
+      {
+        "title": "(Cyber) Aktivisten",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Motivationen: Protest, gesellschaftlicher & / politischer Wandel, Rufschädigung, Mobilisierung von Menschen gegen in ihren Augen schädlichen Organisation",
+        "picture": ""
+      },
+      {
+        "title": "Penetration Tester",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "von Organisation beauftragter Angreifer",
+        "picture": ""
+      },
+      {
+        "title": "Asynchronisationsdilemma der IT-Sicherheit",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Zeit",
+        "type": "list",
+        "content": "Angreifer reicht i.d.R. begrenzte Zeit Kompromitierung\nVerteidiger muss kontinuierlich System sicher halten",
+        "picture": ""
+      },
+      {
+        "title": "Anzahl",
+        "type": "list",
+        "content": "Angreifer reicht ein angreifbares System aus, um sich Zugriff zu verschaffen\nVerteidiger muss alle Systeme schützen",
+        "picture": ""
+      },
+      {
+        "title": "Anforderungen",
+        "type": "list",
+        "content": "Verteidiger muss / will sich an i.d.R. höhere gesetzlichen, politischen, gesellschaftlichen & moralischen Anforderungen halten als der Angreifer",
+        "picture": ""
+      },
+      {
+        "title": "Identität",
+        "type": "list",
+        "content": "Angreifer ist i.d.R. häufig schwer eindeutig zu identifizieren\nSysteme des Verteidigers i.d.R. einfach zu identifizieren (z.B. über Domain)",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Arten Schadsoftware",
+    "sections": [
+      {
+        "title": "Malwarearten",
+        "type": "text",
+        "content": "Bei Angriffen häufig in Kombination",
+        "picture": ""
+      },
+      {
+        "title": "Virus",
+        "type": "list",
+        "content": "infiziert i.d.R. Datein & repliziert sich selbst\nfrüher: mobile Datenträger, heute: E-Mail Anhänge\ni.d.R. initale Nutzerinterkation (z.B. Ausführen Datei)",
+        "picture": ""
+      },
+      {
+        "title": "Worm",
+        "type": "list",
+        "content": "breitet sich ohne Nutzerinteraktion auf weitere IT-Systemen aus",
+        "picture": ""
+      },
+      {
+        "title": "Trojan (Horse)",
+        "type": "list",
+        "content": "vermeintlich nützliches Programm beinhaltet verstecktes Schadprogramm",
+        "picture": ""
+      },
+      {
+        "title": "Spyware",
+        "type": "text",
+        "content": "= überwachen Nutzer, z.B. Tastaturanschläge (Key-Logger)",
+        "picture": ""
+      },
+      {
+        "title": "Adware",
+        "type": "text",
+        "content": "= blendet ungewollte Werbung ein",
+        "picture": ""
+      },
+      {
+        "title": "Remote Access Tool (RAT)",
+        "type": "text",
+        "content": "= ermöglicht Fernsteuerung des infizierten Gerätes",
+        "picture": ""
+      },
+      {
+        "title": "Rootkit",
+        "type": "text",
+        "content": "= ermöglicht \"root\"-Zugriff, also administrative Berechtigungen",
+        "picture": ""
+      },
+      {
+        "title": "Backdoor",
+        "type": "text",
+        "content": "= erleichtert spätere Reinfizierung",
+        "picture": ""
+      },
+      {
+        "title": "Ransomware",
+        "type": "text",
+        "content": "= verschlüsselt Daten und erpresst Lösegeld für",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "das Bereitstellen des Schlüssels zum Entschlüsseln (häufigster Fall)\nNicht-Veröffentlicher der Daten (zunehmend)\nTeilweise nach Geldzahlung kein Gegenbeitrag (teilweise auch Entschlüsselung technisch nich möglich)",
+        "picture": ""
+      },
+      {
+        "title": "Cryptojacker",
+        "type": "text",
+        "content": "= infiziertes Gerät schürft heimlich nach Kryptowährung für Angreifer",
+        "picture": ""
+      },
+      {
+        "title": "Botnet",
+        "type": "text",
+        "content": "= infizierte Geräte (Bots/Zombies) fragen regelmäßig bestimmten \"Command and Control\" (C&C) Server (z.B. IRC, Webserver) nach durchzuführenden Befehl",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "massenhafte Spam-Mails verschicken, DDoS-Angriff\nzunehmend bezahltes Angebot für Kriminell \"as a service\"",
+        "picture": ""
+      }
+    ]
+  }
 ]

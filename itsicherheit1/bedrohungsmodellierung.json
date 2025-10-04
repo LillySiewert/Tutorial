@@ -1,0 +1,30 @@
+[
+  {
+    "title": "Bedrohungsmodellierung",
+    "sections": []
+  },
+  {
+    "title": "OWASP Threat Modeling Process",
+    "sections": []
+  },
+  {
+    "title": "STRIDE",
+    "sections": []
+  },
+  {
+    "title": "Lockheed Cyber Kill Chain",
+    "sections": []
+  },
+  {
+    "title": "MITRE ATT&CK",
+    "sections": []
+  },
+  {
+    "title": "Common Vulnerabilities and Exposures",
+    "sections": []
+  },
+  {
+    "title": "Common Weakness Enumation",
+    "sections": []
+  }
+]
