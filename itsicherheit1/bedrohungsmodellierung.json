@@ -623,5 +623,94 @@
         "picture": ""
       }
     ]
+  },
+  {
+    "title": "Netzwerksicherheit",
+    "sections": [
+      {
+        "title": "Bedrohungsarten",
+        "type": "list",
+        "content": "Sniffing (Passiv, Abhören, TLS)\nSpoofing (Aktiv, Erzeugung & Vortäuschen, MitM, DAI, E2E, Zertifikatsprüfun)",
+        "picture": ""
+      },
+      {
+        "title": "Netzwerksegmentierung",
+        "type": "list",
+        "content": "physisch\nVLAN\nNord-Süd / Ost-West-Kontrolle, Mikrosegmentierung)",
+        "picture": ""
+      },
+      {
+        "title": "VPN",
+        "type": "list",
+        "content": "verschlüsselt\nOverlay-Netz ",
+        "picture": ""
+      },
+      {
+        "title": "Zonenmodell",
+        "type": "list",
+        "content": "external\nDMZ\ntrusted\nrestricted\nmanagement\naudit (Log, SIEM)",
+        "picture": ""
+      },
+      {
+        "title": "VLAN",
+        "type": "list",
+        "content": "32-Bit\nNative\nRouter -> mehrere VLANs -> gleich Port -> virtuelle Subinterfaces",
+        "picture": ""
+      },
+      {
+        "title": "L3-Switch",
+        "type": "list",
+        "content": "wie Router ohne NAT, VPN, IPSec\nAsset-, Tunk-Port",
+        "picture": ""
+      },
+      {
+        "title": "Firewalls",
+        "type": "list",
+        "content": "Paketfilter (3-4)\nStateful Inspection (3-4)\nApplikation (Layer) (7)\nNext-Generation (3-7)\n-> Grundsätze Konfig PoLP, Deny-by-default, Doku, Logging",
+        "picture": ""
+      },
+      {
+        "title": "IDS / IPS",
+        "type": "list",
+        "content": "IDS: passiv\nIPS: aktiv\nNIDS/NIPS: Snoop, Zeek\nH.../H...: EDR, Client muss unterstützen",
+        "picture": ""
+      },
+      {
+        "title": "Weitere",
+        "type": "list",
+        "content": "EDR\nSIEM: sammeln \nSOC\nSOAR",
+        "picture": ""
+      },
+      {
+        "title": "TLS (OSI 5)",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "TLS 1.2",
+        "type": "list",
+        "content": "ClientHello\nServerHello\nCertificate Exchange (Zertifikat + Public Key)\nKey Exchange (RSA oder (EC)DH(E))\nFinished (Hash)\n-> AEAD möglich",
+        "picture": ""
+      },
+      {
+        "title": "TLS 1.3",
+        "type": "list",
+        "content": "ClientHello\nServerHello\nCertificate Exchange\nFinished\n-> ECDHE\n-> AEAD zwingend",
+        "picture": ""
+      },
+      {
+        "title": "1.2 vs. 1.3",
+        "type": "list",
+        "content": "TLS-Handshake\nRe-Handshake\nSession Resumption\nAtlasten\n> Unsicher: SSL 1.0, 2.0, 3.0; TLS 1.0, 1.1",
+        "picture": ""
+      },
+      {
+        "title": "(Perfect) FS",
+        "type": "list",
+        "content": "langlebige nicht kurzlebige\ndurch Ephemeral / Vergänglichen Schlüssel -> ansonsten statischer Server-Schlüssel",
+        "picture": ""
+      }
+    ]
   }
 ]
