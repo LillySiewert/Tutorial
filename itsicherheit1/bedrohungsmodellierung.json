@@ -1,30 +1,627 @@
 [
   {
+    "title": "Einführung",
+    "sections": [
+      {
+        "title": "IT-Sicherheit & Verwandte Begriffe",
+        "type": "list",
+        "content": "Infomationssicherheit (technische & nicht-technische)\nIT-Sicherheit (IT-Systeme & Infos)\nCybersicherheit (vernetzte Geräte & Benutzer)",
+        "picture": ""
+      },
+      {
+        "title": "Definition IT-Sicherheit",
+        "type": "list",
+        "content": "Gewährleistung Sicherheit\nInformationstechniken -technologien\nSoftware- & Hardswaresystemen\nRechner- & Netzsysteme\nverhindern Angreifer: ausspähen, manipulieren, kopieren verändern, löschen\n3 Schutzziele",
+        "picture": ""
+      },
+      {
+        "title": "Definition Informationssicherheit",
+        "type": "list",
+        "content": "Schützt gegen: Offenlegung, Unangemessenen Änderungen, Nichtzugriff\nAlle Formate (Papier, Digital, verbal & visuelle Kommunikation)\nCIA-Triade",
+        "picture": ""
+      },
+      {
+        "title": "Defintion Cybersicherheit",
+        "type": "list",
+        "content": "Ziel: Stabilität, Kontinuität, Sicherheit\n-> Einrichtungen Cyberraum\nCyberriskien minimieren",
+        "picture": ""
+      },
+      {
+        "title": "Weitere Begriffe",
+        "type": "list",
+        "content": "Security: Einwirken, Systeme vor Umgebung\nSafty: Betriebssicherheit, Umgebung vor System (Arbeitssicherheit)\nDatensicherheit: digitale Daten, DB & Backups\nDatenschutz: personenbezogene, DSGVO",
+        "picture": ""
+      },
+      {
+        "title": "Vertraulichkeit",
+        "type": "list",
+        "content": "unautorisierten Einsicht\nThemen: Berichtigung, Authentisierung, Authentifizierung, Autorisierung, Datenklassifikation, Verschlüsselung",
+        "picture": ""
+      },
+      {
+        "title": "Integrität",
+        "type": "list",
+        "content": "unautorisierte Veränderungen\nThemen: Change Management, Hashes, Paritäten, Signaturen, Manipulationssichere Aufbewahrung (Tamper proof), Technisches Monitoring & Auditing, Nicht-Abstreitbarkeit, Version Control",
+        "picture": ""
+      },
+      {
+        "title": "Verfügbarkeit",
+        "type": "list",
+        "content": "Störung autorisierten Erreichbarkeit\nThemen: Load-Balancing, Redundanzen, Backup & Revovery",
+        "picture": ""
+      },
+      {
+        "title": "Kompromittierung (Beispiele)",
+        "type": "list",
+        "content": "Vertraulichkeit: Session Hijacking, Phishing Mails, Whistleblower\nIntegrität: SQL Injection\nVerfügbarkeit: (D)DoS-Angriffe, Ransomware",
+        "picture": ""
+      },
+      {
+        "title": "Alternativen / Ergänzungen CIA-Triade",
+        "type": "list",
+        "content": "Non-Repudiation (Abstreibarkeit, Legale Haftung)\nAuthenticity (Urheber)\nAccountability (Nachverfolgung Verwantwortung)\nPosession / Control (Besitz ohne lesen)\nUtility (Nutzbarkeit Daten)",
+        "picture": ""
+      },
+      {
+        "title": "Schwachstelle",
+        "type": "list",
+        "content": "Schwäche, Bedrohungsquelle\nExploit\nSchadsoftware\nZero-Day",
+        "picture": ""
+      },
+      {
+        "title": "Angreifer",
+        "type": "list",
+        "content": "Hacker (Tüftler, eindringt / manipuliert, Whitehat, Grayhat, Blackhat)\n\"Script Kiddies\" (unbedacht, online leicht, Neugier)\n(Verärgerte) Organisationsmitglieder (Whitsleblower, Anwerben, Unwissenheit, vermeintlich legitime, internes Wissen, Reche, Idealismus)\n(Cyber-)Kriminelle/eCrime (Banden,Ransomeware, (Ver-)Kauf eCrime-Services, Geld)\nStaatliche Akteure (APT, Spionage, Sabotage, Subversion, Propagande, Tiere)\n(Cyber-)Terroristen\n(Cyber-)Aktivisten\nPenetration Testen (Beauftragte Angreifer)",
+        "picture": ""
+      },
+      {
+        "title": "Asynchronitätsdilemma",
+        "type": "list",
+        "content": "Zeit\nAnzahl\nRichtlinien & Grundsätze\nIdentität",
+        "picture": ""
+      },
+      {
+        "title": "Malwarearten",
+        "type": "list",
+        "content": "Ransomware\nAdware\nSpyware\nBackdoor\nBotnet (C2-Server, Befehlen, DDos)\nVirus (infiziert, repliziert, initale)\nWorm (Verbreitung ohne)\nTrojan\nRootkit (\"root\")\nRemote Access Tool (RAT)\nCryptojacker",
+        "picture": ""
+      }
+    ]
+  },
+  {
     "title": "Bedrohungsmodellierung",
-    "sections": []
+    "sections": [
+      {
+        "title": "Definition",
+        "type": "list",
+        "content": "strukturierter, Identifikation, Bewertung, Priorisierung\nBedrohung = Ausnutzung (Exploitation), Verwundbarkeit (Exposure), Basis Schwachstelle (Vulnerability)",
+        "picture": ""
+      },
+      {
+        "title": "OWASP Threat Modeling Process",
+        "type": "list",
+        "content": "4\nScope Your Work ( Datenfluss., Ident. Eintritt., Asset., User Stories)\nDetermine Threats (STRIDE, Att&ck)\nDetermine Countermeasures & Mitigation (Akzeptieren, Vermeiden, Mitigrieren / Mindern, Transferieren) \nAssess your Work",
+        "picture": ""
+      },
+      {
+        "title": "QWASP Top Ten",
+        "type": "list",
+        "content": "Broken Access Control\nCryptographic Failures\nInjection\nInsecure Design\nSecurity Misconfiguration\nVulnerable & Outdated Components\nIdentification & Authentication Failures\nSystem & Data Integrity Failures\nSecurity Logging & Monitoring Failures\nServer-Side Request Forgery ",
+        "picture": ""
+      },
+      {
+        "title": "STRIDE",
+        "type": "list",
+        "content": "Spoofing (Vortäuschung, starke Authentifizierung (MFA, digitale Zertifikate)\nTampering (Manipulation, Integritätsprüfungen, Verschlüsselung, Tamper proof / evident / resistent)\nRepudiation (Abstreiten, Nachweisen (tamper ... storage, Signaturen, Zertifikate), Logging & Auditing, Authentifizierung)\nInformation Disclosure (Offenlegung, Unbefugt, Verschlüsselung Data at Rest, Use, Transit, Datentrennung, Rollen-Berechtigung.)\nDenial of Service (Störung, Load-Balancing, Rate Limiting, Traffic Shaping)\nElevation of Privilege (Illegitimes erlangen, z.B. Ausnutzung S., Patches, Softwaresicherheitsm., PoLP",
+        "picture": ""
+      },
+      {
+        "title": "Cyber Kill Chain",
+        "type": "list",
+        "content": "Modellhaft, Framework Detektion, Abwehr, Reaktion\n7 (R W D E I C2 AoO)\nReconnaissance (Infobeschaffung, Auffinden Schwach., Netwerküberwachung)\nWeaponization (Vorbereitung, Malware, Patches)\nDelivery (Payload, Ausnutzung Schwach. Service, Filter, Absicherung, Awarness, Intrusion Detection / Prevention)\nExploitation (Ausnutzung auf, Ausführen Payload, Patches, Vulnerability & Change Management, Malware Detection, Anti Virus,\nEDR)\nInstallation (Persistenz (z.B. cron jobs), Malware Detection, Anti Virus, EDR, Application Whitelisting)\nC2 (Aufbau, Netzwerküberwachung, DNS Filtering, Threat Intelligence)\nActions on Objectives (Zielereichung, Netwerküberwachung, DLP, Netzwerksegmentierung)",
+        "picture": ""
+      },
+      {
+        "title": "Mitre ATT&CK",
+        "type": "list",
+        "content": "Tactices (Warum), Techniques (Wie), Sub-Techniques (Detaillierung), Procedures (Implementierung, Beobachtung)\nATT&CK Tactics (14)\nReconnaissance\nResource Development\nInital Access\nExecution \nPersistance\nPrivilege Escalation\nDefence Evasion (insb. Detektion)\nCredential Access (Stehlen)\nDiscovery (Erkundung)\nLateral Movement (Bewegen)\nCollection\nExfiltration\nC2 \nImpact (Störung, Beschädigung, Zerstörung, Manipulation)",
+        "picture": ""
+      },
+      {
+        "title": "DREAD",
+        "type": "list",
+        "content": "Microsoft, Risikobewertung, 1-10\nDamage\nReproducibility\nExploitability \nAffected Users\nDiscoverability",
+        "picture": ""
+      },
+      {
+        "title": "CVE Programm",
+        "type": "list",
+        "content": "Erfassungssystem\nMitre, US. DHS\nCVE-ID\nCVSS (low 0 - 4, medium 4 - 7, heigh 7 - 9, critical 9 - 10)",
+        "picture": ""
+      },
+      {
+        "title": "Vulnerability Disclosure",
+        "type": "list",
+        "content": "Full\nResponsible\nCoordinated\nBug-Bounty",
+        "picture": ""
+      },
+      {
+        "title": "CWE",
+        "type": "list",
+        "content": "Mitre\nKategorisierungssystem\nSchwächen Hard- & Software\nImproper Access Control\nImproper Check & Handling of Exceptional Conditions\nIncorrect Calculations\nIncorrect Comparisons",
+        "picture": ""
+      }
+    ]
   },
   {
-    "title": "OWASP Threat Modeling Process",
-    "sections": []
+    "title": "Überprüfung von Sicherheitsmaßnahmen",
+    "sections": [
+      {
+        "title": "Begriffsdefinition",
+        "type": "list",
+        "content": "Audit (konzeptioneller Ebene, Prüfung, Nachweis Umsetzung)\nSchwachstellenscans (Überprüfung, Schwachstellen-DB)\nPenetrationstest (Pentest, Angriff, Teil-Automatisierung, Ausnutzung, Eindringen)\nRed Teaming (beauftragt, Maßnahmen, Langfristig, Bedrohungssimulation)",
+        "picture": ""
+      },
+      {
+        "title": "IT- &/ Informationssicherheit-Standards",
+        "type": "list",
+        "content": "ISO/IEC 27001\nBSI IT-Grundschutz\nIT-Sicherheitsgesetz (kritische)\nNIST Cybersecurity Framework\nNIS2 (EU - Sicherheit Netz- & Informationssystem)",
+        "picture": ""
+      },
+      {
+        "title": "Allgemeine / Branchenspezifische Regulatorien",
+        "type": "list",
+        "content": "GDRP, DSGVO\nDORA\nGeheimschutz\nAußenwirtschaftsgesetz ",
+        "picture": ""
+      },
+      {
+        "title": "IT-Konfigurationen, -Verfahren, -Prozesse",
+        "type": "list",
+        "content": "CIS Controls\nISO/IEC 25010 (Softwarequalität)\nCOBIT",
+        "picture": ""
+      },
+      {
+        "title": "Strafgesetzbuch (StGB)",
+        "type": "list",
+        "content": "§202 - Verletzung Briefgeheimnis\n§202a - Ausspähen von Daten (elektronische Daten)\n§202b - Abfangen von Daten\n§202c - Hackerparagraph / Vorbereitung (Passwörter oder andere, Computerprogramme)\n> soll abgeschwächt (damit Identfizieren, Melden & Schließen = Legale Handlung)",
+        "picture": ""
+      },
+      {
+        "title": "Erlaubnis Überprüfung",
+        "type": "list",
+        "content": "externe / interne + evtl. Dritte\ngesetzlichen, vertraglichen, ethische",
+        "picture": ""
+      },
+      {
+        "title": "Ausprägungen von Pentest",
+        "type": "list",
+        "content": "Art\nUmfang\nInformationsgrundlage\nZugang\nDetektierbarkeit (laut, leise)\nMögliche Schadenswirkung (passiv, aktiv)",
+        "picture": ""
+      },
+      {
+        "title": "Ablauf Pentest",
+        "type": "list",
+        "content": "Vorbereitung & Planung (10, Schutzbedarfsbewertung)\nDurchführung (5 - Discovery, Reconnaissance, Teil-Automatisierung (Host-Discovery, Portscans, Banner Grabbing, Schwachstellenscans), Auswahl Angriffsvektoren)\nAbschlussbericht (Bewertung)",
+        "picture": ""
+      },
+      {
+        "title": "Anforderungen Pentester",
+        "type": "list",
+        "content": "6",
+        "picture": ""
+      },
+      {
+        "title": "Standardisierung von Pentest",
+        "type": "list",
+        "content": "BSI: Durchführungskonzept\nOWASP Top 10",
+        "picture": ""
+      },
+      {
+        "title": "Ethik",
+        "type": "list",
+        "content": "zugekaufte, Nicht-Veröffentlichung",
+        "picture": ""
+      },
+      {
+        "title": "Klärung Rechtlicher Fragen",
+        "type": "list",
+        "content": "GDPR, DSGVO\nStrafgesetzbuch\nBetriebsverfassungsgesetz\nTelekommunikationsgesetz\nZugangskontrolldiensteschutzgesetz",
+        "picture": ""
+      },
+      {
+        "title": "Technische & Organisatorische Herausforderungen",
+        "type": "list",
+        "content": "7\nUmfang, Unkooperatives Personal, Verschleierung / Manipulation, Aufforderung Ignorieren / Verfälschung",
+        "picture": ""
+      },
+      {
+        "title": "Werkzeuge in Pentesting",
+        "type": "list",
+        "content": "dedizierte Distributionen (1)\nNetzwerk (3)\nPasswordcracking (2)\nExploitable Suite (1)\nWeb/APIs (2)\nVulnerability Scanner (2)",
+        "picture": ""
+      },
+      {
+        "title": "Nmap",
+        "type": "list",
+        "content": "Netzwerkerkundung\nSkriptfähig\n-sP (Hosts) -sV (Ports) -p --script vulners (Schwachstellen)",
+        "picture": ""
+      },
+      {
+        "title": "Netcat",
+        "type": "list",
+        "content": "Netzwerkanalysen\n4\n-lvp (Verbindung Port - Server)\n<ip> <port> (Verbindung Server - Client)\nRedirects < > >> << ",
+        "picture": ""
+      },
+      {
+        "title": "Wireshark",
+        "type": "list",
+        "content": "Analysen Netzwerkverkehrs\n.pcap\nTCP, HTTP , DNS\nFiltern (ip.addr, http, tcp.port, contains \"...\")",
+        "picture": ""
+      },
+      {
+        "title": "John (the Ripper)",
+        "type": "list",
+        "content": "Hash-Algorithmen\nBrute-Force, Dictionary, Hybrid (john --wordlist=)",
+        "picture": ""
+      },
+      {
+        "title": "Metasploit",
+        "type": "list",
+        "content": "Scanner, Payload, Exploit, Portscans\nMeterpeter",
+        "picture": ""
+      },
+      {
+        "title": "Payload",
+        "type": "list",
+        "content": "einstufig / mehrstufig\nRemote Code Execution, Bind-Shell (direkt), Reverse Shell (indirekt), User Creation, (Graphical) Remote Access, Meterpeter (Hoch-Runterladen, Prozesskontrolle, Spying)",
+        "picture": ""
+      },
+      {
+        "title": "Informationsquellen",
+        "type": "list",
+        "content": "Service-Banner, SMTP, DNS, SMP",
+        "picture": ""
+      }
+    ]
   },
   {
-    "title": "STRIDE",
-    "sections": []
+    "title": "Kryptologie",
+    "sections": [
+      {
+        "title": "Motivation - Kryptologische Verfahren können ...",
+        "type": "list",
+        "content": "Vertraulichkeit (Data at Rest, in Transit, in Use)\nIntegrität (Hash-Wert-Vergleiche, digital signieren)\nindirekt Verfügbarkeit",
+        "picture": ""
+      },
+      {
+        "title": "Begriffe Kryptologie",
+        "type": "list",
+        "content": "Kryptographie \"Geheimes Schreiben\" (Symmetrisch, Asymmetrisch, Übertragungsprotokolle, Hashing)\nKryptoanalyse (Seitenkanalangriffe, Brute-Force, Dictionary)",
+        "picture": ""
+      },
+      {
+        "title": "Steganographie",
+        "type": "list",
+        "content": "keine Verschlüsselung",
+        "picture": ""
+      },
+      {
+        "title": "Kerckhoffs'sches Prinzip",
+        "type": "list",
+        "content": "\"Security by Obscurity\"",
+        "picture": ""
+      },
+      {
+        "title": "Symmetrische Verschlüsselung",
+        "type": "list",
+        "content": "EIN Schlüssel",
+        "picture": ""
+      },
+      {
+        "title": "Caesar-Chiffre",
+        "type": "list",
+        "content": "Substitution\nunsichere Verschlüsselung (z.B. ROT13)",
+        "picture": ""
+      },
+      {
+        "title": "Substitution",
+        "type": "list",
+        "content": "Weiterentwicklung: beliebige Permutation -> Uneinheitlicher Abstand\nBesser -> Zuweisung nicht gleich (Polyalphabetisch)",
+        "picture": ""
+      },
+      {
+        "title": "Vigenère-Chiffre",
+        "type": "list",
+        "content": "polyalphabetisch",
+        "picture": ""
+      },
+      {
+        "title": "Weitere Chiffre Arten",
+        "type": "list",
+        "content": "Transposition (Permutation)\nKombinationen mögl.",
+        "picture": ""
+      },
+      {
+        "title": "Ununterscheidbarkeit / Perfekte Sicherheit",
+        "type": "list",
+        "content": "50%\nOne-Time-Pad",
+        "picture": ""
+      },
+      {
+        "title": "Semantische Sicherheit",
+        "type": "list",
+        "content": "RSA-OAEP, AES",
+        "picture": ""
+      },
+      {
+        "title": "One-Time-Pad",
+        "type": "list",
+        "content": "Vigenère Chiffre\neinmalig\nSchlüsselübertragung",
+        "picture": ""
+      },
+      {
+        "title": "Konfusion & Diffusion",
+        "type": "list",
+        "content": "Konfusion - Substitution\nDiffusion - Transposition",
+        "picture": ""
+      },
+      {
+        "title": "DES",
+        "type": "list",
+        "content": "Feistle Chiffre\n64 Bit Blöcke\n16 Runden\n56 Bit + 6 Bit Schlüssel",
+        "picture": ""
+      },
+      {
+        "title": "Block- & Stream-Chiffere",
+        "type": "list",
+        "content": "Verarbeitungseinheit\nGeschwindkeit\nSpeicherbedarf\nPadding notwendig?\nTypische Anwendung, Angriffsmögl.\nIntegrierte Authentifizierung\nBeispiele\nVerbreitung\nKyptoanalyse",
+        "picture": ""
+      },
+      {
+        "title": "Ablauf DES",
+        "type": "orderedList",
+        "content": "Initiale Permutation\nRunden: Expansion, Schlüsseladdition, Substitution der S-Boxes (Tabellen),Permutation mit P-Box (Durchmischen)\nFinale Permutation",
+        "picture": ""
+      },
+      {
+        "title": "Visualisierung DES",
+        "type": "list",
+        "content": "Halbblock mit Feistle Fkt. -> XOR",
+        "picture": ""
+      },
+      {
+        "title": "Subkeyerstellung in DES",
+        "type": "list",
+        "content": "Rotation der Hälften\nPermutation",
+        "picture": ""
+      },
+      {
+        "title": "AES",
+        "type": "list",
+        "content": "128 Blöcke (fest)\n128 / 192 / 256\ntheoretische",
+        "picture": ""
+      },
+      {
+        "title": "Ablauf AES",
+        "type": "orderedList",
+        "content": "Schlüsselerweiterung (Teilschlüsseln)\nInitiale Schlüsselerverarbeitung\nRunden (10/12/14): SubBits (S-Box), ShiftRows (links), MixColumns, AddRoundKey (Teilschlüssel XOR)\nFinale Runde (ohne MixColumns)",
+        "picture": ""
+      },
+      {
+        "title": "DES vs. AES",
+        "type": "list",
+        "content": "Schlüssellänge\nBlocklänge\nSicherheit\nEntwicklung",
+        "picture": ""
+      },
+      {
+        "title": "Block-Cipher Betriebmodi",
+        "type": "list",
+        "content": "ECB\nCBC\nCBC-MAC\nCFB, OFB\nCTR\nCCM (Embedded)\nGCM (Hash, Authentifizierung)",
+        "picture": ""
+      },
+      {
+        "title": "AE",
+        "type": "list",
+        "content": "Verschlüsselung (Vertraulichkeit), Integrität (Fälschungssicherheit)\nGCM, CCM\nnur Vertraulichkeit: ECB, CBC\nAEAD (in TLS 1.3)",
+        "picture": ""
+      },
+      {
+        "title": "Asymmetrische Verschlüsselung",
+        "type": "list",
+        "content": "Schlüsselpaar",
+        "picture": ""
+      },
+      {
+        "title": "RSA",
+        "type": "list",
+        "content": "Primfaktorzerlegung\np q Primzahlen\nn = p * q\npi(n) = (p-1)*(q-1)\ne mit 1 < e < pi(n) & e teilerfremd pi(n)\ne * d = 1(mod(pi(n)))\n-> Pri: (d,n), Öff: (e,n)\n-> M^e mod n",
+        "picture": ""
+      },
+      {
+        "title": "Diffie-Hellman-Key-Exchange",
+        "type": "list",
+        "content": "diskreten Logarithmus\np Prim. g erzeugendes Element mit 1 <= g <= p-1\ng^a mod p, A^b mod p = z (gemeinsamer Schlüssel)",
+        "picture": ""
+      },
+      {
+        "title": "Elliptic Curve Cryptography",
+        "type": "list",
+        "content": "additiver zyklische Gruppe\ny^3 = x^2 + ax + b (Erzeuger Gruppe)\nwähle a mit aP = A (P = erzeugenden Punkt, A = ggb. Punkt)\nAddition easy, skalare Division hard\nschnellerer, effizienter",
+        "picture": ""
+      },
+      {
+        "title": "Post-Quanten-Kryptographie",
+        "type": "list",
+        "content": "codebasiert\ngatterbasiert\nhashbasiert (Ursprungsdaten - Teilhashes)",
+        "picture": ""
+      },
+      {
+        "title": "Symmetrisches vs. asymmetrische Verschlüsselung",
+        "type": "list",
+        "content": "3",
+        "picture": ""
+      },
+      {
+        "title": "Hashfunktion allgemein",
+        "type": "list",
+        "content": "h(x) eindeutig\nh(x) mehrere x (Kollision)\ngleiche Länge\nPrüfsummenverfahren ",
+        "picture": ""
+      },
+      {
+        "title": "Kryptographische Hashfunktionen",
+        "type": "list",
+        "content": "Einwegfunktion\nSchwach & stark kollisionsresistent\nPasswörter -> memory-hard (Argonzid), prozessor-intensiv (bcrypt)",
+        "picture": ""
+      },
+      {
+        "title": "MD5",
+        "type": "list",
+        "content": "4 32-Bit-Blöcke (Inital: Konstante)\n4 Runden\nNicht-Lineare Fkt.\nMi = 32 Bit Eingangsstrom\nKi = 32 Bit Konstante\nRotation nach links um s",
+        "picture": ""
+      },
+      {
+        "title": "Salt & Pepper in Hashing",
+        "type": "list",
+        "content": "Salt: zusammen mit Hashwert, kann veröfftl., randomisiert\nPepper: seperat, z.B. Hardware Security Module, geheim",
+        "picture": ""
+      },
+      {
+        "title": "MAC / MIC",
+        "type": "list",
+        "content": "gemeinsamer Schlüssel\nMAC-Algo. -> MAC \nIntegrität\nVertraulichkeit",
+        "picture": ""
+      },
+      {
+        "title": "HMAC",
+        "type": "list",
+        "content": "Hashing + gemeinsamer Schlüssel (HMAC-SHA256)\nTLS",
+        "picture": ""
+      },
+      {
+        "title": "Empfolene",
+        "type": "list",
+        "content": "Symmetrische Verschlüsselungen (AES-128 und höher mit CBC, CCM, GCM, AES-GCM-SIV, CTR) - nicht: DES, 3-DES\nHashing & Signieren (RSA, DSA, ECDSA, SHA-256 & höher, SHA3-256 & höher) - nicht: SHA-1, MD5\nSSL/TLS (TLS 1.2 & 1.3)",
+        "picture": ""
+      }
+    ]
   },
   {
-    "title": "Lockheed Cyber Kill Chain",
-    "sections": []
-  },
-  {
-    "title": "MITRE ATT&CK",
-    "sections": []
-  },
-  {
-    "title": "Common Vulnerabilities and Exposures",
-    "sections": []
-  },
-  {
-    "title": "Common Weakness Enumation",
-    "sections": []
+    "title": "Identitäts- & Zugriffsmanagement",
+    "sections": [
+      {
+        "title": "Def. IAM",
+        "type": "list",
+        "content": "Verwaltung\ndigitaler Identitäten (& verknüpften Geräten)\nRechte",
+        "picture": ""
+      },
+      {
+        "title": "IAAA",
+        "type": "list",
+        "content": "Identifikation (Bezeichnung)\nAuthentisation (Authentisierung Vorlegen + Authentifizierung Validierung)\nAutorisierung (Berechtigungen)\nVerantwortlichkeit (Nachverfolgung)",
+        "picture": ""
+      },
+      {
+        "title": "Identifikation",
+        "type": "list",
+        "content": "Person\nGerät",
+        "picture": ""
+      },
+      {
+        "title": "Authentisierung",
+        "type": "list",
+        "content": "Vorweisen\nNutzer & Systeme",
+        "picture": ""
+      },
+      {
+        "title": "Authentifizierung",
+        "type": "list",
+        "content": "Authentizität\nSSO\nMFA",
+        "picture": ""
+      },
+      {
+        "title": "Autorisierung",
+        "type": "list",
+        "content": "Berechtigungssysteme / AC",
+        "picture": ""
+      },
+      {
+        "title": "Verantwortlichkeit",
+        "type": "list",
+        "content": "Aktivitäten\nLogging (zentral)\nAuditierung",
+        "picture": ""
+      },
+      {
+        "title": "Best Practices Korrekter Rechtevergabe",
+        "type": "list",
+        "content": "PoLP\nPrinciple of need to know\nDeny-by-default / Allow-by-exception (Allowlist vs. Blocklist)\nSeparation of Duties (SoD)\nRezertifizierung (vs. privilege creep)",
+        "picture": ""
+      },
+      {
+        "title": "Besondere Accounts",
+        "type": "list",
+        "content": "Admin (Applikation, Lokal, Domain etc.)\nServices Account\nBreak Glass Accounts",
+        "picture": ""
+      },
+      {
+        "title": "Technische Systeme im IAM",
+        "type": "list",
+        "content": "IdM / IAM System\nVerzeichnisdienste\nFIM ",
+        "picture": ""
+      },
+      {
+        "title": "IdM",
+        "type": "list",
+        "content": "alle Komponente\nErstellen & Verwaltung ID & Berechtigungen\nVerzeichnisdienste & Applikation",
+        "picture": ""
+      },
+      {
+        "title": "Verzeichnisdienste",
+        "type": "list",
+        "content": "AD\nEntra ID\nextrem schützenswerte System",
+        "picture": ""
+      },
+      {
+        "title": "FIM",
+        "type": "list",
+        "content": "Domaingrenzen hinweg\nIdP & SP\nSAML, OAuth, OpenID Connect",
+        "picture": ""
+      },
+      {
+        "title": "PAM / PIM",
+        "type": "list",
+        "content": "PAM - Verwaltung Accounts, Secrets, Sessions\nPIM - Just-In-Time",
+        "picture": ""
+      },
+      {
+        "title": "Berechtigungsmodelle",
+        "type": "list",
+        "content": "DAC (direkt Subjekte & Gruppen, with owner / capabilities)\nMAC (AppAmor: Netzwerke, Application Execution, Process-Control, Inter-process communication)\nRBAC (Berechtigung, Rollen, Gruppen)\nABAC",
+        "picture": ""
+      },
+      {
+        "title": "Sicherheitsmodelle",
+        "type": "list",
+        "content": "Bell-LaPadula (Vertraulichkeit, Write up, read down)\nBiba Model (Integrität, Read up, Write down)",
+        "picture": ""
+      },
+      {
+        "title": "PKI",
+        "type": "list",
+        "content": "X.509 Zertifikat (ITU, CN, Organisation, Validity Period, SHA-256 Fingerprints, SAN)\nPKCS (CSR Public-Key ..., PFX DER, Private Key Ablage)\nCA (Root CA -> explizit, 20 - 30 Jahre, Intermediate; Intermediate CA -> implizit, 2 - 3 Jahre, Intermediate, Leaf; Endpoint/Server/Client -> Leaf, 60-90 Tage, Trust Chain)",
+        "picture": ""
+      },
+      {
+        "title": "Validierung CSR",
+        "type": "list",
+        "content": "DV (HTTP-Challange, Minuten - Stunden)\nOV (Stunden - Tage)\nEV (Tage)\n-> CRL",
+        "picture": ""
+      },
+      {
+        "title": "OCSP",
+        "type": "list",
+        "content": "OCSP responder\nOCSP stapling",
+        "picture": ""
+      }
+    ]
   }
 ]
