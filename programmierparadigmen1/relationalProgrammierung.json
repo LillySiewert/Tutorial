@@ -1,0 +1,126 @@
+[
+  {
+    "title": "Klassifikation",
+    "sections": [
+      {
+        "title": "",
+        "type": "text",
+        "content": "-> anstatt logische erstmal relationale",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Relationen ähnlich zu Fkt (rechtseindeutige Relationen) ABER mathematisch allgemeiner\nRelationale Programmierung: Konzepte -> durch Logische Programmierung erweitert",
+        "picture": ""
+      },
+      {
+        "title": "Beispiel Konstruktion",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "Natürliche Zahlen mit Peano",
+        "type": "prolog",
+        "content": "natural(z). % zero -> Fakt\nnatural(s(N)) :- natural(N). % s(N) = M = Vorgänger von N\n% keine Notwendigkeit von pred\n\nplus(z, N, N) :- natural(N).\nplus(s(M), N, s(P)) :- plus(M, N, P) % Rekursion bis bei N = 0",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "natural: Prädikat mit 2 Regeln\n:- falls (Implikation B auf A)\nPatter Matching für Auswertung von \"null\" & \"positiv\"",
+        "picture": ""
+      },
+      {
+        "title": "Auswertung",
+        "type": "list",
+        "content": "+!+ keine Unterscheidung (semantisch & synatktisch) zwischen gegebenen und gesuchter Größen\nf(x,y,x+y)\n. = als Abschlussoperator\n, = Konjunktion\n; = Disjunktion\n\\= = Ungleich",
+        "picture": ""
+      },
+      {
+        "title": "Grundidee",
+        "type": "text",
+        "content": "= Lösen einer Gleichung mit gegebenen und gesuchter Variablen",
+        "picture": ""
+      }
+    ]
+  },
+  {
+    "title": "Allgemeines",
+    "sections": [
+      {
+        "title": "",
+        "type": "list",
+        "content": "Relations-logische Programmierung = Relationen zwischen Größen\nLogische Programmierung = Programm mit Relationen & Datenstrukturen",
+        "picture": ""
+      },
+      {
+        "title": "Denkweise",
+        "type": "list",
+        "content": "strukturierte logische Formeln als Relations-Spezifikation\nlogische Behauptung / Frage / Zielausdruck = Aufruf\nBeweis durch (erfolgreiche) Berechung des Ergebnis",
+        "picture": ""
+      },
+      {
+        "title": "Prolog",
+        "type": "list",
+        "content": "relational-logisch\nmit Konzepten über logische Programmierung hinaus",
+        "picture": ""
+      },
+      {
+        "title": "Syntax",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Notation auf eingeschränkten Prädikatkalkül\nProgramm = Liste von Formeln (Regeln, Fakten)\nbeschreiben bekannte Relationen auf Problemdomäne\nStart durch logische Behauptung (Frage/ Zielausdruck)\nFragen können Variablen haben",
+        "picture": ""
+      },
+      {
+        "title": "Semantik",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Aufzählen Lösungsmenge der gültigen Antworten auf die Frage\nFrage ohne Variable = höchstens eine gültige Antwort, geschlossen\nFrage mit Variablen = Finden Variablenbelegungen welche die Frage gültig macht, Offen (Unifikation - Einsmachen & Backtracking - Suchstrategie)\nnur eine primitive Rechenoperation: Unifikationsoperator =\nkeine statischen Typen",
+        "picture": ""
+      },
+      {
+        "title": "Modus Ponens",
+        "type": "list",
+        "content": "= Rechtfertigung der \nAbarbeitung der Prolog-Regeln Anwendung Regeln geschieht umgekehrt B <= A",
+        "picture": ""
+      },
+      {
+        "title": "Terme",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "alle Daten sind Terme\nAtom\nVariable (_ für irrelevant)\nGanzzahl & Fließkommazahl\nZusammengesetzter Term (Funktor, Stelligkeit)",
+        "picture": ""
+      },
+      {
+        "title": "Stelligkeit",
+        "type": "text",
+        "content": "",
+        "picture": ""
+      },
+      {
+        "title": "",
+        "type": "list",
+        "content": "Prolog kann mehrere gleiche Funktoren aber mit unterschiedlicher Stelligkeit haben -> sind unterschiedliche Prädikate\nAngabe i.d.R. von /<zahl>",
+        "picture": ""
+      }
+    ]
+  }
+]
